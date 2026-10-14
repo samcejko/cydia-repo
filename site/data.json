@@ -13,8 +13,8 @@
       "cs": "Aplikace samcejko pro iOS 6"
     },
     "intro": {
-      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, Minecraft: Java Edition, an AI chat and a code editor. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. Open source, English and Czech.",
-      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, Minecraft: Java Edition, AI chat a editor kódu. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Open source, anglicky a česky."
+      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): a web browser for today's websites, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, Minecraft: Java Edition, an AI chat and a code editor. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. English and Czech, most of them open source.",
+      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): webový prohlížeč pro dnešní weby, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, Minecraft: Java Edition, AI chat a editor kódu. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Anglicky a česky, většina z nich open source."
     },
     "about": {
       "en": "Everything here is free and stays free. If an app is useful to you, you can support the development with a coffee; it also helps keep the server behind some of the apps running. The packages install into /Applications: do not keep an app's IPA from GitHub installed at the same time as its package from here. Most apps also come as arm64 packages for 64-bit devices with iOS 14–17 and a rootless jailbreak (Sileo, Zebra; they install into /var/jb/Applications), with the same iOS 6 look.",
@@ -26,6 +26,7 @@
     }
   },
   "order": [
+    "com.samcejko.browser",
     "com.samcejko.twitcher",
     "com.samcejko.tubie",
     "com.samcejko.tikie",
@@ -38,6 +39,61 @@
     "com.samcejko.kodium-shell"
   ],
   "packages": {
+    "com.samcejko.browser": {
+      "name": "Surfari",
+      "github": "",
+      "depends": "firmware (>= 6.0), firmware (<< 7.0)",
+      "tagline": {
+        "en": "A web browser that opens today's websites on iOS 6",
+        "cs": "Webový prohlížeč, který otevře dnešní weby na iOS 6"
+      },
+      "about": {
+        "en": "Safari on iOS 6 cannot open most of today's websites: it cannot make the secure connections they require, and its 2012 engine does not understand their CSS and JavaScript. Surfari keeps the iOS 6 engine for drawing pages and does everything around it that the old system cannot: its own TLS 1.2 stack with current root certificates, modern CSS rewritten for the old engine, modern JavaScript translated by its own transpiler, WOFF2 fonts and WebP images converted on the device. No proxy and no relay server: pages come straight from the sites you visit. The other apps here offer \"Open in Surfari\" for web links.",
+        "cs": "Safari na iOS 6 většinu dnešních webů neotevře: neumí navázat zabezpečené spojení, které vyžadují, a jeho jádro z roku 2012 nerozumí jejich CSS a JavaScriptu. Surfari nechává jádro iOS 6 vykreslovat stránky a dělá kolem něj všechno, co starý systém neumí: vlastní TLS 1.2 vrstva s aktuálními kořenovými certifikáty, moderní CSS přepsané pro staré jádro, moderní JavaScript přeložený vlastním transpilerem, písma WOFF2 a obrázky WebP převedené v zařízení. Bez proxy a bez serveru uprostřed: stránky jdou rovnou z webů, které navštívíš. Ostatní aplikace odsud nabízejí u webových odkazů „Otevřít v Surfari“."
+      },
+      "features": {
+        "en": [
+          "Its own TLS 1.2 stack (Mbed TLS) with current root certificates: sites with modern certificates and ciphers open directly",
+          "Modern CSS rewritten for the old engine: custom properties, flexbox and grid, nesting, modern colours, :has(), container queries, anchor positioning",
+          "Modern JavaScript (ES2022, ES modules) translated by its own transpiler, plus polyfills: fetch, IntersectionObserver, custom elements, IndexedDB, Intl, Web Crypto",
+          "WOFF2 fonts and WebP images converted on the device",
+          "Ad and tracker blocking with built-in lists, hiding of cookie banners",
+          "Reader view, find on page, translate, print and save as PDF, downloads, view source",
+          "Saved passwords in the device's keychain (secure sites only), private browsing, dark theme and dark pages",
+          "Tabs, bookmarks, history, search engines with suggestions, swipe gestures; English and Czech"
+        ],
+        "cs": [
+          "Vlastní TLS 1.2 vrstva (Mbed TLS) s aktuálními kořenovými certifikáty: weby s moderními certifikáty a šiframi se otevřou přímo",
+          "Moderní CSS přepsané pro staré jádro: custom properties, flexbox a grid, vnořování, moderní barvy, :has(), container queries, anchor positioning",
+          "Moderní JavaScript (ES2022, ES moduly) přeložený vlastním transpilerem, k tomu polyfilly: fetch, IntersectionObserver, custom elements, IndexedDB, Intl, Web Crypto",
+          "Písma WOFF2 a obrázky WebP převedené v zařízení",
+          "Blokování reklam a sledovačů s vestavěnými seznamy, skrývání cookie lišt",
+          "Čtečka, hledání na stránce, překlad, tisk a uložení do PDF, stahování, zobrazení zdroje",
+          "Uložená hesla v klíčence zařízení (jen zabezpečené weby), anonymní prohlížení, tmavý motiv a tmavé stránky",
+          "Karty, záložky, historie, vyhledávače s návrhy, gesta; angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "iOS 6.x on armv7 only, tested on an iPad 2 with iOS 6.1.2; iOS 7 and later are not supported",
+          "The page engine is iOS 6's own WebKit, which gets no security updates: a malicious page could take over the app. Keep certificate verification on and avoid banking or passwords you use elsewhere",
+          "Do not keep a Surfari IPA installed at the same time as this package: they share one app identity"
+        ],
+        "cs": [
+          "Jen iOS 6.x na armv7, testováno na iPadu 2 s iOS 6.1.2; iOS 7 a novější nejsou podporované",
+          "Jádro stránek je vlastní WebKit iOS 6, který už nedostává bezpečnostní záplaty: škodlivá stránka může aplikaci ovládnout. Nech zapnuté ověřování certifikátů a nepoužívej ho na bankovnictví ani s hesly, která máš i jinde",
+          "Neměj zároveň nainstalované IPA Surfari a tento balíček: sdílejí jednu identitu aplikace"
+        ]
+      },
+      "changes": {
+        "en": [
+          "1.0.0, the first public release"
+        ],
+        "cs": [
+          "1.0.0, první veřejné vydání"
+        ]
+      }
+    },
     "com.samcejko.twitcher": {
       "name": "Twitcher",
       "ipa": "Twitcher",
@@ -82,14 +138,14 @@
       },
       "changes": {
         "en": [
-          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
-          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
-          "First version in this Cydia repository"
+          "Links in the chat, on the channel page and in titles are tappable; Twitch links open in Twitcher, links to YouTube, Kick and TikTok in the sister apps when they are installed",
+          "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
+          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
         ],
         "cs": [
-          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
-          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
-          "První verze v tomto repozitáři"
+          "Odkazy v chatu, na stránce kanálu a v titulcích jsou klikací; odkazy na Twitch se otevřou v Twitcheru, odkazy na YouTube, Kick a TikTok v sesterských appkách, pokud jsou nainstalované",
+          "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
+          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
         ]
       }
     },
@@ -137,14 +193,14 @@
       },
       "changes": {
         "en": [
-          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
-          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
-          "First version in this Cydia repository (0.3.0 brought chapters, player gestures, the mini player and the optional stream resolver)"
+          "Links in descriptions, comments and on channel pages are tappable; YouTube links open in Tubie, links to Twitch, Kick and TikTok in the sister apps when they are installed",
+          "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
+          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
         ],
         "cs": [
-          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
-          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
-          "První verze v tomto repozitáři (0.3.0 přinesla kapitoly, gesta v přehrávači, mini přehrávač a volitelný resolver streamů)"
+          "Odkazy v popiscích, komentářích a na stránkách kanálů jsou klikací; odkazy na YouTube se otevřou v Tubie, odkazy na Twitch, Kick a TikTok v sesterských appkách, pokud jsou nainstalované",
+          "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
+          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
         ]
       }
     },
@@ -192,14 +248,14 @@
       },
       "changes": {
         "en": [
-          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
-          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
-          "First version in this Cydia repository (0.2.0 brought search, hashtags and sounds, full creator pages, captions and the topic picker)"
+          "Links in captions, comments, bios and hashtag pages are tappable; TikTok links open in TikTak, links to YouTube, Twitch and Kick in the sister apps when they are installed",
+          "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
+          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
         ],
         "cs": [
-          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
-          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
-          "První verze v tomto repozitáři (0.2.0 přinesla hledání, hashtagy a zvuky, celé stránky tvůrců, titulky a výběr témat)"
+          "Odkazy v popiscích videí, komentářích, biu a na stránkách hashtagů jsou klikací; odkazy na TikTok se otevřou v TikTaku, odkazy na YouTube, Twitch a Kick v sesterských appkách, pokud jsou nainstalované",
+          "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
+          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
         ]
       }
     },
@@ -247,14 +303,14 @@
       },
       "changes": {
         "en": [
-          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
-          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
-          "First version in this Cydia repository"
+          "Links in playlist and podcast descriptions open with a tap; links to YouTube, Twitch, Kick and TikTok offer the sister app when it is installed",
+          "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
+          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
         ],
         "cs": [
-          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
-          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
-          "První verze v tomto repozitáři"
+          "Odkazy v popiscích playlistů a podcastů se otevřou klepnutím; odkazy na YouTube, Twitch, Kick a TikTok nabídnou sesterskou appku, pokud je nainstalovaná",
+          "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
+          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
         ]
       }
     },
@@ -300,14 +356,14 @@
       },
       "changes": {
         "en": [
-          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
-          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
-          "First version in this Cydia repository"
+          "Links in the chat, in the channel bio and in titles are tappable, and the channel page lists the channel's social links; Kick links open in Kicker, links to YouTube, Twitch and TikTok in the sister apps when they are installed",
+          "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
+          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
         ],
         "cs": [
-          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
-          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
-          "První verze v tomto repozitáři"
+          "Odkazy v chatu, v biu kanálu a v titulcích jsou klikací a stránka kanálu ukazuje jeho sociální sítě; odkazy na Kick se otevřou v Kickeru, odkazy na YouTube, Twitch a TikTok v sesterských appkách, pokud jsou nainstalované",
+          "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
+          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
         ]
       }
     },
@@ -355,14 +411,12 @@
       },
       "changes": {
         "en": [
-          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
-          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
-          "First version in this Cydia repository (0.1.0 streams real games on an iPad 2, verified with Fortnite, 30 fps by default)"
+          "The sign-in page and the Ko-fi link go through the browser chooser on iOS 6 (Safari or Surfari) and straight to Safari on newer iOS; links to YouTube, Twitch, Kick and TikTok offer the sister app when it is installed",
+          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
         ],
         "cs": [
-          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
-          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
-          "První verze v tomto repozitáři (0.1.0 streamuje skutečné hry na iPadu 2, ověřeno s Fortnite, výchozích 30 fps)"
+          "Přihlašovací stránka a odkaz na Ko-fi jdou na iOS 6 přes výběr prohlížeče (Safari nebo Surfari), na novějším iOS rovnou do Safari; odkazy na YouTube, Twitch, Kick a TikTok nabídnou sesterskou appku, pokud je nainstalovaná",
+          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
         ]
       }
     },
@@ -409,12 +463,12 @@
       },
       "changes": {
         "en": [
-          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
-          "First version in this Cydia repository: all 113 versions of Mojang's list and 231 of 236 snapshots verified in a new world on an iPad 2; OptiFine 1.7.2 to 1.12.2, a joystick, the frame rate"
+          "Links that leave the OptiFine page and the Ko-fi link go through the browser chooser on iOS 6 (Safari or Surfari)",
+          "The iOS 6 package declares iOS 6.0 to 10.x (the 32-bit Java runtime cannot run on 64-bit devices)"
         ],
         "cs": [
-          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
-          "První verze v tomto repozitáři: všech 113 verzí ze seznamu Mojangu a 231 z 236 snapshotů ověřeno v novém světě na iPadu 2; OptiFine 1.7.2 až 1.12.2, joystick, snímky za sekundu"
+          "Odkazy vedoucí mimo stránku OptiFine a odkaz na Ko-fi jdou na iOS 6 přes výběr prohlížeče (Safari nebo Surfari)",
+          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (32bitová Java na 64bitových zařízeních neběží)"
         ]
       }
     },
@@ -460,14 +514,12 @@
       },
       "changes": {
         "en": [
-          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
-          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
-          "First version in this Cydia repository"
+          "Hold a reply and choose \"Open Link\": on iOS 6 the link opens in Safari or Surfari (your choice), on newer iOS in Safari; links to YouTube, Twitch, Kick and TikTok offer the sister app when it is installed",
+          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
         ],
         "cs": [
-          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
-          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
-          "První verze v tomto repozitáři"
+          "Podrž odpověď a zvol „Otevřít odkaz“: na iOS 6 se odkaz otevře v Safari nebo Surfari (podle výběru), na novějším iOS v Safari; odkazy na YouTube, Twitch, Kick a TikTok nabídnou sesterskou appku, pokud je nainstalovaná",
+          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
         ]
       }
     },

@@ -36,6 +36,7 @@ h2 { font-size: 17px; font-weight: bold; color: #4c566c; text-shadow: 0 1px 0 rg
 .row.app .v { font-size: 13px; }
 .shots { text-align: center; }
 .shots img { max-width: 100%; border: 1px solid #a9abae; border-radius: 6px; margin: 0 0 10px; background: #fff; }
+.shots.phone img { max-width: 46%; margin: 0 1% 10px; vertical-align: top; border-radius: 10px; }
 .url { font-family: Menlo, Courier, monospace; font-size: 16px; text-align: center; color: #2e4d8f; }
 .button {
   display: block; margin: 4px 12px 12px; padding: 10px; text-align: center;

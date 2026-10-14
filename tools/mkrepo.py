@@ -43,7 +43,8 @@ STRINGS = {
     "en": {
         "features": "Features",
         "notes": "Good to know",
-        "screens": "Screenshots",
+        "screens": "Screenshots (iPad, iOS 6)",
+        "screens_phone": "Screenshots (iPhone, iOS 16)",
         "changes": "What's new in {v}",
         "info": "Package",
         "version": "Version",
@@ -74,7 +75,8 @@ STRINGS = {
     "cs": {
         "features": "Funkce",
         "notes": "Dobré vědět",
-        "screens": "Snímky obrazovky",
+        "screens": "Snímky obrazovky (iPad, iOS 6)",
+        "screens_phone": "Snímky obrazovky (iPhone, iOS 16)",
         "changes": "Co je nové ve verzi {v}",
         "info": "Balíček",
         "version": "Verze",
@@ -115,7 +117,7 @@ def trollstore_urls(meta, by_pkg, pkg):
     return ipa, "apple-magnifier://install?url=" + quote(ipa, safe="")
 
 
-def sileo_depiction(pkg, meta, d, lang, shots, base, support, repo, tint, banner_url, requires, ipa_url=None):
+def sileo_depiction(pkg, meta, d, lang, shots, base, support, repo, tint, banner_url, requires, ipa_url=None, phone_shots=()):
     """Sileo's native depiction (JSON); Zebra renders it too, Installer and Cydia use the web page."""
     s = STRINGS[lang]
     version = d["info"]["Version"] if d else "-"
@@ -136,6 +138,14 @@ def sileo_depiction(pkg, meta, d, lang, shots, base, support, repo, tint, banner
             "itemCornerRadius": 6,
             "itemSize": "{200, 150}",
             "screenshots": [{"url": "%s/screenshots/%s/%s" % (base, pkg, n), "accessibilityText": meta.get("name", pkg)} for n in shots],
+        })
+    if phone_shots:
+        views.append({"class": "DepictionHeaderView", "title": s["screens_phone"]})
+        views.append({
+            "class": "DepictionScreenshotsView",
+            "itemCornerRadius": 8,
+            "itemSize": "{120, 260}",
+            "screenshots": [{"url": "%s/screenshots/%s/iphone/%s" % (base, pkg, n), "accessibilityText": meta.get("name", pkg)} for n in phone_shots],
         })
     views.append({"class": "DepictionHeaderView", "title": s["info"]})
     views.append({"class": "DepictionTableTextView", "title": s["version"], "text": version})
@@ -473,9 +483,13 @@ def main():
                 if not meta["github"]:
                     continue  # e.g. a private repository: no public home page
                 value = meta["github"]
+            if key == "Depends" and meta.get("depends"):
+                value = meta["depends"]  # data.json narrows what the package itself declares (e.g. iOS 6 only)
             lines.append("%s: %s" % (key, value))
         if "Homepage" not in d["info"] and meta.get("github"):
             lines.append("Homepage: %s" % meta["github"])
+        if "Depends" not in d["info"] and meta.get("depends"):
+            lines.append("Depends: %s" % meta["depends"])
         if pkg in packages_meta:
             lines.append("Depiction: %s/depictions/%s/" % (base, pkg))
             lines.append("SileoDepiction: %s/sileo/%s.json" % (base, pkg))
@@ -528,15 +542,19 @@ def main():
         d = newest.get(pkg)
         version = d["info"]["Version"] if d else "-"
         name = meta.get("name") or (d["info"].get("Name") if d else pkg)
-        shots = []
+        shots, phone_shots = [], []
         shots_dir = os.path.join(src, "screenshots", pkg)
         if os.path.isdir(shots_dir):
             shots = sorted(n for n in os.listdir(shots_dir) if n.lower().endswith((".png", ".jpg", ".jpeg")))
+        phone_dir = os.path.join(shots_dir, "iphone")
+        if os.path.isdir(phone_dir):
+            phone_shots = sorted(n for n in os.listdir(phone_dir) if n.lower().endswith((".png", ".jpg", ".jpeg")))
         ipa_url, trollstore_link = trollstore_urls(meta, by_pkg, pkg)
         for lang in LANGS:
             s = STRINGS[lang]
             t = section(dep_tpl, "notes", bool(pick_list(meta.get("notes"), lang)))
             t = section(t, "screens", bool(shots))
+            t = section(t, "screens_phone", bool(phone_shots))
             t = section(t, "changes", bool(pick_list(meta.get("changes"), lang)))
             t = section(t, "github", bool(meta.get("github")))
             t = section(t, "support", bool(support))
@@ -553,6 +571,7 @@ def main():
                 "notes": render_list(pick_list(meta.get("notes"), lang)),
                 "changes": render_list(pick_list(meta.get("changes"), lang)),
                 "screens": "\n".join('<img src="../../screenshots/%s/%s" alt="">' % (esc(pkg), esc(n)) for n in shots),
+                "screens_phone": "\n".join('<img src="../../screenshots/%s/iphone/%s" alt="">' % (esc(pkg), esc(n)) for n in phone_shots),
                 "version": esc(version),
                 "size": esc(human_size(d["size"])) if d else "-",
                 "date": datetime.fromtimestamp(d["mtime"]).strftime("%Y-%m-%d") if d else "-",
@@ -568,7 +587,7 @@ def main():
             values["t_requires_v"] = esc(requires_text(pkg, lang))
             fname = "index.html" if lang == "en" else "index.%s.html" % lang
             write_text(os.path.join(out, "depictions", pkg, fname), render(t, values))
-            dep = sileo_depiction(pkg, meta, d, lang, shots, base, support, repo, tints.get(pkg), banner_url(pkg), requires_text(pkg, lang), ipa_url)
+            dep = sileo_depiction(pkg, meta, d, lang, shots, base, support, repo, tints.get(pkg), banner_url(pkg), requires_text(pkg, lang), ipa_url, phone_shots)
             jname = "%s.json" % pkg if lang == "en" else "%s.%s.json" % (pkg, lang)
             write_text(os.path.join(out, "sileo", jname), json.dumps(dep, ensure_ascii=False, indent=1))
 
