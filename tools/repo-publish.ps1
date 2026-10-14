@@ -62,6 +62,8 @@ if ($debs.Count) {
 }
 
 if ($Site) {
+    # a mirror, not a merge: pictures removed here must go away on the Pi too (scp -r only adds and overwrites)
+    Invoke-Remote "rm -rf '$($cfg.remoteSrc)/site/screenshots' '$($cfg.remoteSrc)/site/icons' '$($cfg.remoteSrc)/site/banners'"
     Copy-Remote @((Join-Path $root 'site')) "$($cfg.remoteSrc)/"
     Copy-Remote @((Join-Path $root 'tools\mkrepo.py')) "$($cfg.remoteSrc)/tools/"
     # files written on Windows may carry CR line ends
