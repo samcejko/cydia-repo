@@ -35,7 +35,7 @@ LANGS = ("en", "cs")
 
 # What a build of each architecture needs (the depictions list the architectures a package comes in)
 ARCH_NAMES = {
-    "iphoneos-arm": {"en": "iOS 6.0 or later, armv7", "cs": "iOS 6.0 nebo novější, armv7"},
+    "iphoneos-arm": {"en": "iOS 6.x only, armv7 (32-bit)", "cs": "jen iOS 6.x, armv7 (32bit)"},
     "iphoneos-arm64": {"en": "iOS 15 or later with a rootless jailbreak (arm64)", "cs": "iOS 15 nebo novější s rootless jailbreakem (arm64)"},
 }
 
@@ -51,7 +51,7 @@ STRINGS = {
         "size": "Size",
         "updated": "Updated",
         "requires": "Requires",
-        "requires_v": "iOS 6.0 or later, armv7",
+        "requires_v": "iOS 6.x only, armv7 (32-bit)",
         "source": "Source code on GitHub",
         "support": "Support the development",
         "other": "English",
@@ -83,7 +83,7 @@ STRINGS = {
         "size": "Velikost",
         "updated": "Aktualizováno",
         "requires": "Vyžaduje",
-        "requires_v": "iOS 6.0 nebo novější, armv7",
+        "requires_v": "jen iOS 6.x, armv7 (32bit)",
         "source": "Zdrojový kód na GitHubu",
         "support": "Podpořit vývoj",
         "other": "Česky",
@@ -438,6 +438,17 @@ def main():
         if pkg not in newest or arch == "iphoneos-arm":
             newest[pkg] = items[0]
 
+    # What a stanza's Depends says: the package's own override in data.json ("depends": a string for every
+    # architecture, or {arch: string}), else the repository's default for the architecture ("depends_by_arch", e.g.
+    # the 32-bit builds on iOS 6.x only), else what the deb itself declares
+    def depends_for(pkg, arch, own):
+        dep = packages_meta.get(pkg, {}).get("depends")
+        if isinstance(dep, dict):
+            dep = dep.get(arch)
+        if dep:
+            return dep
+        return (repo.get("depends_by_arch") or {}).get(arch) or own
+
     def requires_text(pkg, lang):
         custom = packages_meta.get(pkg, {}).get("requires")  # data.json: {"en": ..., "cs": ...} for a special case
         if custom:
@@ -478,6 +489,7 @@ def main():
     for d in sorted(kept, key=lambda d: (order.index(d["info"]["Package"]) if d["info"]["Package"] in order else 999, d["file"])):
         pkg = d["info"]["Package"]
         meta = packages_meta.get(pkg, {})
+        arch = d["info"].get("Architecture", "iphoneos-arm")
         lines = []
         for key, value in d["fields"]:
             if key in skip_fields:
@@ -486,13 +498,15 @@ def main():
                 if not meta["github"]:
                     continue  # e.g. a private repository: no public home page
                 value = meta["github"]
-            if key == "Depends" and meta.get("depends"):
-                value = meta["depends"]  # data.json narrows what the package itself declares (e.g. iOS 6 only)
+            if key == "Depends":
+                value = depends_for(pkg, arch, value)  # data.json narrows what the deb declares (e.g. iOS 6 only)
             lines.append("%s: %s" % (key, value))
         if "Homepage" not in d["info"] and meta.get("github"):
             lines.append("Homepage: %s" % meta["github"])
-        if "Depends" not in d["info"] and meta.get("depends"):
-            lines.append("Depends: %s" % meta["depends"])
+        if "Depends" not in d["info"]:
+            dep = depends_for(pkg, arch, None)
+            if dep:
+                lines.append("Depends: %s" % dep)
         if pkg in packages_meta:
             lines.append("Depiction: %s/depictions/%s/" % (base, pkg))
             lines.append("SileoDepiction: %s/sileo/%s.json" % (base, pkg))
@@ -543,6 +557,8 @@ def main():
 
     for pkg, meta in packages_meta.items():
         d = newest.get(pkg)
+        if not d:
+            continue  # (an entry being prepared: no page until its deb is on the server)
         version = d["info"]["Version"] if d else "-"
         name = meta.get("name") or (d["info"].get("Name") if d else pkg)
         shots, phone_shots = [], []
@@ -611,9 +627,9 @@ def main():
         rows = []
         for pkg in order:
             meta = packages_meta.get(pkg)
-            if not meta:
-                continue
             d = newest.get(pkg)
+            if not meta or not d:
+                continue  # (no deb on the server yet: not listed)
             name = meta.get("name") or (d["info"].get("Name") if d else pkg)
             version = d["info"]["Version"] if d else ""
             page = "depictions/%s/%s" % (pkg, "index.html" if lang == "en" else "index.%s.html" % lang)

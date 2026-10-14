@@ -5,6 +5,9 @@
     "base_url": "http://repo.samcejko.eu",
     "support_url": "https://ko-fi.com/samcejko",
     "github_url": "https://github.com/samcejko",
+    "depends_by_arch": {
+      "iphoneos-arm": "firmware (>= 6.0), firmware (<< 7.0)"
+    },
     "description": {
       "en": "Free apps for jailbroken iOS 6 by samcejko"
     },
@@ -17,8 +20,8 @@
       "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): webový prohlížeč pro dnešní weby, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, Minecraft: Java Edition, AI chat a editor kódu. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Anglicky a česky, většina z nich open source."
     },
     "about": {
-      "en": "Everything here is free and stays free. If an app is useful to you, you can support the development with a coffee; it also helps keep the server behind some of the apps running. The packages install into /Applications: do not keep an app's IPA from GitHub installed at the same time as its package from here. Most apps also come as arm64 packages for 64-bit devices with iOS 14–17 and a rootless jailbreak (Sileo, Zebra; they install into /var/jb/Applications), with the same iOS 6 look.",
-      "cs": "Všechno tady je zdarma a zdarma zůstane. Pokud ti některá aplikace pomáhá, můžeš vývoj podpořit kafem; pomůže to i udržet v běhu server, na kterém část aplikací stojí. Balíčky se instalují do /Applications: neměj zároveň nainstalované IPA aplikace z GitHubu a její balíček odsud. Většina aplikací je i jako balíček arm64 pro 64bitová zařízení s iOS 14–17 a rootless jailbreakem (Sileo, Zebra; instalují se do /var/jb/Applications), se stejným vzhledem iOS 6."
+      "en": "Everything here is free and stays free. If an app is useful to you, you can support the development with a coffee; it also helps keep the server behind some of the apps running. The 32-bit packages are made and tested for iOS 6 and are offered on iOS 6.x only; iOS 7 to 14 are not supported. They install into /Applications: do not keep an app's IPA from GitHub installed at the same time as its package from here. Most apps also come as arm64 packages for 64-bit devices with iOS 15 and newer and a rootless jailbreak (Sileo, Zebra; they install into /var/jb/Applications), with the same iOS 6 look.",
+      "cs": "Všechno tady je zdarma a zdarma zůstane. Pokud ti některá aplikace pomáhá, můžeš vývoj podpořit kafem; pomůže to i udržet v běhu server, na kterém část aplikací stojí. 32bitové balíčky jsou dělané a testované pro iOS 6 a nabízejí se jen na iOS 6.x; iOS 7 až 14 podporované nejsou. Instalují se do /Applications: neměj zároveň nainstalované IPA aplikace z GitHubu a její balíček odsud. Většina aplikací je i jako balíček arm64 pro 64bitová zařízení s iOS 15 a novějším a rootless jailbreakem (Sileo, Zebra; instalují se do /var/jb/Applications), se stejným vzhledem iOS 6."
     },
     "footer": {
       "en": "Unofficial apps by samcejko, not affiliated with or endorsed by Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft or OpenRouter.",
@@ -36,7 +39,8 @@
     "com.samcejko.kostka",
     "com.samcejko.aichat",
     "com.samcejko.kodium",
-    "com.samcejko.kodium-shell"
+    "com.samcejko.kodium-shell",
+    "com.samcejko.nasa"
   ],
   "packages": {
     "com.samcejko.browser": {
@@ -144,12 +148,12 @@
         "en": [
           "Links in the chat, on the channel page and in titles are tappable; Twitch links open in Twitcher, links to YouTube, Kick and TikTok in the sister apps when they are installed",
           "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
-          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
+          "The iOS 6 package is offered on iOS 6.x only (64-bit devices with iOS 15 and newer use the arm64 package)"
         ],
         "cs": [
           "Odkazy v chatu, na stránce kanálu a v titulcích jsou klikací; odkazy na Twitch se otevřou v Twitcheru, odkazy na YouTube, Kick a TikTok v sesterských appkách, pokud jsou nainstalované",
           "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
-          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
+          "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
         ]
       }
     },
@@ -199,12 +203,12 @@
         "en": [
           "Links in descriptions, comments and on channel pages are tappable; YouTube links open in Tubie, links to Twitch, Kick and TikTok in the sister apps when they are installed",
           "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
-          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
+          "The iOS 6 package is offered on iOS 6.x only (64-bit devices with iOS 15 and newer use the arm64 package)"
         ],
         "cs": [
           "Odkazy v popiscích, komentářích a na stránkách kanálů jsou klikací; odkazy na YouTube se otevřou v Tubie, odkazy na Twitch, Kick a TikTok v sesterských appkách, pokud jsou nainstalované",
           "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
-          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
+          "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
         ]
       }
     },
@@ -254,12 +258,12 @@
         "en": [
           "Links in captions, comments, bios and hashtag pages are tappable; TikTok links open in TikTak, links to YouTube, Twitch and Kick in the sister apps when they are installed",
           "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
-          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
+          "The iOS 6 package is offered on iOS 6.x only (64-bit devices with iOS 15 and newer use the arm64 package)"
         ],
         "cs": [
           "Odkazy v popiscích videí, komentářích, biu a na stránkách hashtagů jsou klikací; odkazy na TikTok se otevřou v TikTaku, odkazy na YouTube, Twitch a Kick v sesterských appkách, pokud jsou nainstalované",
           "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
-          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
+          "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
         ]
       }
     },
@@ -309,12 +313,12 @@
         "en": [
           "Links in playlist and podcast descriptions open with a tap; links to YouTube, Twitch, Kick and TikTok offer the sister app when it is installed",
           "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
-          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
+          "The iOS 6 package is offered on iOS 6.x only (64-bit devices with iOS 15 and newer use the arm64 package)"
         ],
         "cs": [
           "Odkazy v popiscích playlistů a podcastů se otevřou klepnutím; odkazy na YouTube, Twitch, Kick a TikTok nabídnou sesterskou appku, pokud je nainstalovaná",
           "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
-          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
+          "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
         ]
       }
     },
@@ -362,12 +366,12 @@
         "en": [
           "Links in the chat, in the channel bio and in titles are tappable, and the channel page lists the channel's social links; Kick links open in Kicker, links to YouTube, Twitch and TikTok in the sister apps when they are installed",
           "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
-          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
+          "The iOS 6 package is offered on iOS 6.x only (64-bit devices with iOS 15 and newer use the arm64 package)"
         ],
         "cs": [
           "Odkazy v chatu, v biu kanálu a v titulcích jsou klikací a stránka kanálu ukazuje jeho sociální sítě; odkazy na Kick se otevřou v Kickeru, odkazy na YouTube, Twitch a TikTok v sesterských appkách, pokud jsou nainstalované",
           "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
-          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
+          "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
         ]
       }
     },
@@ -416,11 +420,11 @@
       "changes": {
         "en": [
           "The sign-in page and the Ko-fi link go through the browser chooser on iOS 6 (Safari or Surfari) and straight to Safari on newer iOS; links to YouTube, Twitch, Kick and TikTok offer the sister app when it is installed",
-          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
+          "The iOS 6 package is offered on iOS 6.x only (64-bit devices with iOS 15 and newer use the arm64 package)"
         ],
         "cs": [
           "Přihlašovací stránka a odkaz na Ko-fi jdou na iOS 6 přes výběr prohlížeče (Safari nebo Surfari), na novějším iOS rovnou do Safari; odkazy na YouTube, Twitch, Kick a TikTok nabídnou sesterskou appku, pokud je nainstalovaná",
-          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
+          "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
         ]
       }
     },
@@ -468,11 +472,11 @@
       "changes": {
         "en": [
           "Links that leave the OptiFine page and the Ko-fi link go through the browser chooser on iOS 6 (Safari or Surfari)",
-          "The iOS 6 package declares iOS 6.0 to 10.x (the 32-bit Java runtime cannot run on 64-bit devices)"
+          "The package is offered on iOS 6.x only (the 32-bit Java runtime cannot run on 64-bit devices)"
         ],
         "cs": [
           "Odkazy vedoucí mimo stránku OptiFine a odkaz na Ko-fi jdou na iOS 6 přes výběr prohlížeče (Safari nebo Surfari)",
-          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (32bitová Java na 64bitových zařízeních neběží)"
+          "Balíček se nabízí jen na iOS 6.x (32bitová Java na 64bitových zařízeních neběží)"
         ]
       }
     },
@@ -519,11 +523,11 @@
       "changes": {
         "en": [
           "Hold a reply and choose \"Open Link\": on iOS 6 the link opens in Safari or Surfari (your choice), on newer iOS in Safari; links to YouTube, Twitch, Kick and TikTok offer the sister app when it is installed",
-          "The iOS 6 package declares iOS 6.0 to 10.x (64-bit devices use the arm64 package)"
+          "The iOS 6 package is offered on iOS 6.x only (64-bit devices with iOS 15 and newer use the arm64 package)"
         ],
         "cs": [
           "Podrž odpověď a zvol „Otevřít odkaz“: na iOS 6 se odkaz otevře v Safari nebo Surfari (podle výběru), na novějším iOS v Safari; odkazy na YouTube, Twitch, Kick a TikTok nabídnou sesterskou appku, pokud je nainstalovaná",
-          "Balíček pro iOS 6 deklaruje iOS 6.0 až 10.x (64bitová zařízení používají balíček arm64)"
+          "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
         ]
       }
     },
@@ -576,6 +580,61 @@
         ],
         "cs": [
           "První sestavení"
+        ]
+      }
+    },
+    "com.samcejko.nasa": {
+      "name": "NASA",
+      "github": "https://github.com/samcejko/nasa-ios6",
+      "depends": "firmware (>= 5.0), firmware (<< 11.0)",
+      "requires": {
+        "en": "iOS 5.0 to 10.x, armv7 (made for iOS 6)",
+        "cs": "iOS 5.0 až 10.x, armv7 (dělané pro iOS 6)"
+      },
+      "tagline": {
+        "en": "The official NASA app of 2013, back online: missions, images, videos, news, NASA TV and Third Rock Radio",
+        "cs": "Oficiální aplikace NASA z roku 2013 zase funguje: mise, obrázky, videa, zprávy, NASA TV a Third Rock Radio"
+      },
+      "about": {
+        "en": "NASA's own iOS app, version 3.12 from 2013, exactly as NASA shipped it, with one change: it talks to a small server of mine instead of NASA's retired mobile backend. The server answers the app's old API with today's data (missions and pictures from NASA's live service, news and features from nasa.gov, videos from NASA's YouTube channels, the NASA TV live stream and Third Rock Radio) over plain http, so a 2012 device can read it. Nothing else in the app was touched.",
+        "cs": "Vlastní aplikace NASA pro iOS, verze 3.12 z roku 2013, přesně jak ji NASA vydala, s jednou změnou: místo vypnutého mobilního backendu NASA mluví s malým serverem u mě. Ten odpovídá na staré API aplikace dnešními daty (mise a obrázky z živé služby NASA, zprávy a články z nasa.gov, videa z YouTube kanálů NASA, živý přenos NASA TV a Third Rock Radio) přes obyčejné http, takže je zařízení z roku 2012 přečte. Nic dalšího v aplikaci se neměnilo."
+      },
+      "features": {
+        "en": [
+          "Missions with banners, descriptions, launch dates and countdowns; the ISS on the tracking map",
+          "Images: Astronomy Picture of the Day and NASA Image of the Day with full descriptions, favourites and bookmarks",
+          "Videos from NASA, Goddard, JPL, Johnson, Kennedy, Ames, Glenn, NASA Science and Chandra, played in the system player",
+          "News and features from nasa.gov by topic, readable inside the app",
+          "NASA TV live and Third Rock Radio, both streamed through the proxy",
+          "NASA centers on the map, solar system pages, mission detail pages"
+        ],
+        "cs": [
+          "Mise s bannery, popisy, daty startů a odpočty; ISS na sledovací mapě",
+          "Obrázky: Astronomy Picture of the Day a NASA Image of the Day s plnými popisy, oblíbené a záložky",
+          "Videa z kanálů NASA, Goddard, JPL, Johnson, Kennedy, Ames, Glenn, NASA Science a Chandra, přehrávaná v systémovém přehrávači",
+          "Zprávy a články z nasa.gov podle témat, čitelné přímo v aplikaci",
+          "NASA TV živě a Third Rock Radio, obojí streamované přes proxy",
+          "Střediska NASA na mapě, stránky sluneční soustavy, detaily misí"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Tweets are empty: Twitter no longer offers a free API. ISS sighting predictions and the Launch Services Program feeds are gone too",
+          "Everything goes through nasa.samcejko.eu; when that server is down the app shows its cached data",
+          "NASA's app, not mine; English only. Not affiliated with NASA"
+        ],
+        "cs": [
+          "Tweety jsou prázdné: Twitter už nemá API zdarma. Pryč jsou i předpovědi přeletů ISS a kanály Launch Services Program",
+          "Všechno jde přes nasa.samcejko.eu; když ten server neběží, aplikace ukáže uložená data",
+          "Aplikace NASA, ne moje; jen anglicky. Bez vazby na NASA"
+        ]
+      },
+      "changes": {
+        "en": [
+          "3.12-1: the 2013 app pointed at the replacement server"
+        ],
+        "cs": [
+          "3.12-1: aplikace z roku 2013 přesměrovaná na náhradní server"
         ]
       }
     },
