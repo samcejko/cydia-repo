@@ -43,6 +43,10 @@
       "name": "Surfari",
       "github": "",
       "depends": "firmware (>= 6.0), firmware (<< 7.0)",
+      "requires": {
+        "en": "iOS 6.x only, armv7",
+        "cs": "jen iOS 6.x, armv7"
+      },
       "tagline": {
         "en": "A web browser that opens today's websites on iOS 6",
         "cs": "Webový prohlížeč, který otevře dnešní weby na iOS 6"

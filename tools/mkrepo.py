@@ -439,6 +439,9 @@ def main():
             newest[pkg] = items[0]
 
     def requires_text(pkg, lang):
+        custom = packages_meta.get(pkg, {}).get("requires")  # data.json: {"en": ..., "cs": ...} for a special case
+        if custom:
+            return custom.get(lang) or custom.get("en") or ""
         names = [ARCH_NAMES.get(a, {}).get(lang, a) for a in sorted(archs.get(pkg, ()))]
         return "; ".join(names) if names else STRINGS[lang]["requires_v"]
 
