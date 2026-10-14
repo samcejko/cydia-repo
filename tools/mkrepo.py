@@ -136,7 +136,7 @@ def sileo_depiction(pkg, meta, d, lang, shots, base, support, repo, tint, banner
         views.append({
             "class": "DepictionScreenshotsView",
             "itemCornerRadius": 6,
-            "itemSize": "{200, 150}",
+            "itemSize": "{150, 200}" if meta.get("shots_portrait") else "{200, 150}",  # data.json: iPad pictures in portrait
             "screenshots": [{"url": "%s/screenshots/%s/%s" % (base, pkg, n), "accessibilityText": meta.get("name", pkg)} for n in shots],
         })
     if phone_shots:
@@ -590,6 +590,7 @@ def main():
                 "notes": render_list(pick_list(meta.get("notes"), lang)),
                 "changes": render_list(pick_list(meta.get("changes"), lang)),
                 "screens": "\n".join('<img src="../../screenshots/%s/%s" alt="">' % (esc(pkg), esc(n)) for n in shots),
+                "shots_class": " portrait" if meta.get("shots_portrait") else "",
                 "screens_phone": "\n".join('<img src="../../screenshots/%s/iphone/%s" alt="">' % (esc(pkg), esc(n)) for n in phone_shots),
                 "version": esc(version),
                 "size": esc(human_size(d["size"])) if d else "-",

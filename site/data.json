@@ -16,16 +16,16 @@
       "cs": "Aplikace samcejko pro iOS 6"
     },
     "intro": {
-      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): a web browser for today's websites, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, Minecraft: Java Edition, an AI chat and a code editor. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. English and Czech, most of them open source.",
-      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): webový prohlížeč pro dnešní weby, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, Minecraft: Java Edition, AI chat a editor kódu. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Anglicky a česky, většina z nich open source."
+      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): a web browser for today's websites, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, game streaming from your own PC, Minecraft: Java Edition, an AI chat and a code editor. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. English and Czech, most of them open source.",
+      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): webový prohlížeč pro dnešní weby, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, streamování her z vlastního počítače, Minecraft: Java Edition, AI chat a editor kódu. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Anglicky a česky, většina z nich open source."
     },
     "about": {
       "en": "Everything here is free and stays free. If an app is useful to you, you can support the development with a coffee; it also helps keep the server behind some of the apps running. The 32-bit packages are made and tested for iOS 6 and are offered on iOS 6.x only; iOS 7 to 14 are not supported. They install into /Applications: do not keep an app's IPA from GitHub installed at the same time as its package from here. Most apps also come as arm64 packages for 64-bit devices with iOS 15 and newer and a rootless jailbreak (Sileo, Zebra; they install into /var/jb/Applications), with the same iOS 6 look.",
       "cs": "Všechno tady je zdarma a zdarma zůstane. Pokud ti některá aplikace pomáhá, můžeš vývoj podpořit kafem; pomůže to i udržet v běhu server, na kterém část aplikací stojí. 32bitové balíčky jsou dělané a testované pro iOS 6 a nabízejí se jen na iOS 6.x; iOS 7 až 14 podporované nejsou. Instalují se do /Applications: neměj zároveň nainstalované IPA aplikace z GitHubu a její balíček odsud. Většina aplikací je i jako balíček arm64 pro 64bitová zařízení s iOS 15 a novějším a rootless jailbreakem (Sileo, Zebra; instalují se do /var/jb/Applications), se stejným vzhledem iOS 6."
     },
     "footer": {
-      "en": "Unofficial apps by samcejko, not affiliated with or endorsed by Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft or OpenRouter.",
-      "cs": "Neoficiální aplikace od samcejko, bez vazby na Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft nebo OpenRouter."
+      "en": "Unofficial apps by samcejko, not affiliated with or endorsed by Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter or the Moonlight, Sunshine and Apollo projects.",
+      "cs": "Neoficiální aplikace od samcejko, bez vazby na Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter ani projekty Moonlight, Sunshine a Apollo."
     }
   },
   "order": [
@@ -36,6 +36,7 @@
     "com.samcejko.spot6",
     "com.samcejko.kicker",
     "com.samcejko.gfn6",
+    "com.samcejko.artlight",
     "com.samcejko.kostka",
     "com.samcejko.aichat",
     "com.samcejko.kodium",
@@ -429,6 +430,62 @@
         "cs": [
           "Přihlašovací stránka a odkaz na Ko-fi jdou na iOS 6 přes výběr prohlížeče (Safari nebo Surfari), na novějším iOS rovnou do Safari; odkazy na YouTube, Twitch, Kick a TikTok nabídnou sesterskou appku, pokud je nainstalovaná",
           "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
+        ]
+      }
+    },
+    "com.samcejko.artlight": {
+      "name": "Artlight",
+      "ipa": "Artlight",
+      "github": "https://github.com/samcejko/artlight-ios6",
+      "shots_portrait": true,
+      "tagline": {
+        "en": "Game streaming from your own PC: Sunshine and Apollo hosts",
+        "cs": "Streamování her z vlastního počítače: Sunshine a Apollo"
+      },
+      "about": {
+        "en": "Play the games of your own PC on a 2012 iPad or iPhone. Artlight speaks the GameStream protocol of Moonlight, so it streams from PCs running Sunshine or Apollo, including the Apollo extras that the Android client Artemis knows. It finds the PCs on your network, pairs with a PIN, shows the PC's apps with their box art and plays them through the hardware H.264 decoder with Opus sound, an on-screen gamepad, touch as a mouse and the keyboard. No server in between: the device talks straight to your PC.",
+        "cs": "Hraj hry ze svého počítače na iPadu nebo iPhonu z roku 2012. Artlight mluví protokolem GameStream, který používá Moonlight, takže streamuje z počítačů se Sunshine nebo Apollem, včetně rozšíření Apolla, která zná androidí klient Artemis. Sám najde počítače v síti, spáruje se pomocí PINu, ukáže aplikace počítače s jejich obaly a přehrává je přes hardwarový dekodér H.264 se zvukem Opus, gamepadem na obrazovce, dotykem jako myší a klávesnicí. Žádný server uprostřed: zařízení mluví rovnou s tvým počítačem."
+      },
+      "features": {
+        "en": [
+          "Finds the PCs on the network by itself (mDNS), or add one by its address; Wake-on-LAN",
+          "Pairing with a PIN typed on the PC's web page, or with Apollo's one-time PIN and passphrase",
+          "The PC's apps as a grid of box art; start, resume, quit",
+          "Hardware H.264 decoding and Opus sound; 1024x768 at 30 fps by default (what an iPad 2 decodes smoothly), 60 fps and the bitrate to choose",
+          "On-screen Xbox gamepad, touch as a trackpad, a direct pointer or real Windows touch, the keyboard with Esc, Tab, Ctrl, Alt, Win and arrows",
+          "Apollo: server commands from the stream menu, the clipboard both ways, a virtual display at the device's resolution",
+          "Statistics overlay, English and Czech"
+        ],
+        "cs": [
+          "Sám najde počítače v síti (mDNS), nebo přidáš počítač podle adresy; Wake-on-LAN",
+          "Párování PINem zadaným na webové stránce počítače, nebo jednorázovým PINem a heslem z Apolla",
+          "Aplikace počítače jako mřížka obalů; spuštění, pokračování, ukončení",
+          "Hardwarové dekódování H.264 a zvuk Opus; výchozí 1024x768 při 30 fps (co iPad 2 plynule dekóduje), na výběr 60 fps a datový tok",
+          "Gamepad ve stylu Xboxu na obrazovce, dotyk jako touchpad, přímý ukazatel nebo skutečný dotyk ve Windows, klávesnice s Esc, Tab, Ctrl, Alt, Win a šipkami",
+          "Apollo: příkazy počítače z nabídky přenosu, schránka oběma směry, virtuální displej v rozlišení zařízení",
+          "Statistiky přes obraz, angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Needs Sunshine or Apollo on your PC; tested with Apollo on Windows",
+          "Install this package (the DEB), not the IPA from GitHub: only an app in /Applications may open the hardware video decoder, the IPA shows a black stream",
+          "Tested on an iPad 2 with iOS 6.1.3. Not tried on a device yet: the arm64 package for iOS 15 and newer and its TrollStore IPA, the on-screen gamepad (the PC needs a virtual gamepad driver, ViGEmBus on Windows) and the Apollo extras",
+          "Not affiliated with Moonlight, Artemis, Sunshine, Apollo or NVIDIA; GPLv3, built on moonlight-common-c"
+        ],
+        "cs": [
+          "Na počítači potřebuješ Sunshine nebo Apollo; testováno s Apollem na Windows",
+          "Instaluj tento balíček (DEB), ne IPA z GitHubu: hardwarový dekodér videa smí otevřít jen aplikace v /Applications, s IPA zůstane obraz černý",
+          "Testováno na iPadu 2 s iOS 6.1.3. Na zařízení zatím nezkoušeno: balíček arm64 pro iOS 15 a novější a jeho IPA pro TrollStore, gamepad na obrazovce (počítač potřebuje ovladač virtuálního gamepadu, na Windows ViGEmBus) a rozšíření Apolla",
+          "Bez vazby na Moonlight, Artemis, Sunshine, Apollo nebo NVIDIA; GPLv3, postaveno na moonlight-common-c"
+        ]
+      },
+      "changes": {
+        "en": [
+          "0.1.0, the first version"
+        ],
+        "cs": [
+          "0.1.0, první verze"
         ]
       }
     },
