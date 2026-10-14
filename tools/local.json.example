@@ -1,0 +1,8 @@
+{
+  "host": "192.168.1.154",
+  "user": "samuel",
+  "key": "~/.ssh/rpi",
+  "remoteSrc": "/home/samuel/cydia-repo",
+  "remoteOut": "/home/samuel/nginx/html/repo",
+  "baseUrl": "http://repo.samcejko.eu"
+}

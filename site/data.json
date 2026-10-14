@@ -1,0 +1,568 @@
+{
+  "repo": {
+    "label": "samcejko",
+    "origin": "samcejko",
+    "base_url": "http://repo.samcejko.eu",
+    "support_url": "https://ko-fi.com/samcejko",
+    "github_url": "https://github.com/samcejko",
+    "description": {
+      "en": "Free apps for jailbroken iOS 6 by samcejko"
+    },
+    "title": {
+      "en": "samcejko's apps for iOS 6",
+      "cs": "Aplikace samcejko pro iOS 6"
+    },
+    "intro": {
+      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, Minecraft: Java Edition, an AI chat and a code editor. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. Open source, English and Czech.",
+      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, Minecraft: Java Edition, AI chat a editor kódu. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Open source, anglicky a česky."
+    },
+    "about": {
+      "en": "Everything here is free and stays free. If an app is useful to you, you can support the development with a coffee; it also helps keep the server behind some of the apps running. The packages install into /Applications: do not keep an app's IPA from GitHub installed at the same time as its package from here. Most apps also come as arm64 packages for 64-bit devices with iOS 14–17 and a rootless jailbreak (Sileo, Zebra; they install into /var/jb/Applications), with the same iOS 6 look.",
+      "cs": "Všechno tady je zdarma a zdarma zůstane. Pokud ti některá aplikace pomáhá, můžeš vývoj podpořit kafem; pomůže to i udržet v běhu server, na kterém část aplikací stojí. Balíčky se instalují do /Applications: neměj zároveň nainstalované IPA aplikace z GitHubu a její balíček odsud. Většina aplikací je i jako balíček arm64 pro 64bitová zařízení s iOS 14–17 a rootless jailbreakem (Sileo, Zebra; instalují se do /var/jb/Applications), se stejným vzhledem iOS 6."
+    },
+    "footer": {
+      "en": "Unofficial apps by samcejko, not affiliated with or endorsed by Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft or OpenRouter.",
+      "cs": "Neoficiální aplikace od samcejko, bez vazby na Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft nebo OpenRouter."
+    }
+  },
+  "order": [
+    "com.samcejko.twitcher",
+    "com.samcejko.tubie",
+    "com.samcejko.tikie",
+    "com.samcejko.spot6",
+    "com.samcejko.kicker",
+    "com.samcejko.gfn6",
+    "com.samcejko.kostka",
+    "com.samcejko.aichat",
+    "com.samcejko.kodium",
+    "com.samcejko.kodium-shell"
+  ],
+  "packages": {
+    "com.samcejko.twitcher": {
+      "name": "Twitcher",
+      "ipa": "Twitcher",
+      "github": "https://github.com/samcejko/twitch-ios6",
+      "tagline": {
+        "en": "Twitch: live streams with chat, past broadcasts, clips",
+        "cs": "Twitch: živé přenosy s chatem, záznamy, klipy"
+      },
+      "about": {
+        "en": "A universal Twitch client for iPhone and iPad in the glossy look of iOS 6. Watching needs no account; log in with a short code to see the channels you follow and to write in the chat. Twitch's servers only speak today's TLS, so the app carries its own TLS stack and hands the video to the system player through a tiny local proxy. Nothing leaves the device but the requests to Twitch and the emote services.",
+        "cs": "Univerzální klient Twitche pro iPhone i iPad v lesklém vzhledu iOS 6. Na sledování není potřeba účet; po přihlášení krátkým kódem uvidíš sledované kanály a můžeš psát do chatu. Servery Twitche mluví jen dnešním TLS, proto má aplikace vlastní TLS vrstvu a video posílá systémovému přehrávači přes malou místní proxy. Ze zařízení neodchází nic než požadavky na Twitch a služby s emotikony."
+      },
+      "features": {
+        "en": [
+          "Live channels by category and language, categories, search for channels and categories",
+          "Player with quality choice up to what the device decodes, full screen, chat beside or under the video, sound in the background, lock-screen controls",
+          "Chat with badges, Twitch, BetterTTV, FrankerFaceZ and 7TV emotes (animated too), mentions, subscriptions and raids, moderation",
+          "Channel pages: past broadcasts, highlights, clips by period, favourites kept on the device",
+          "Videos with seeking, resume where you left off and the chat replay in time with the video",
+          "Optional login with a device code: followed channels, sending chat messages, your own emotes",
+          "Light and dark theme, English and Czech"
+        ],
+        "cs": [
+          "Živé kanály podle kategorie a jazyka, kategorie, hledání kanálů a kategorií",
+          "Přehrávač s volbou kvality až po to, co zařízení zvládne dekódovat, celá obrazovka, chat vedle nebo pod videem, zvuk na pozadí, ovládání ze zamčené obrazovky",
+          "Chat s odznaky, emotikony Twitch, BetterTTV, FrankerFaceZ a 7TV (i animované), zmínky, odběry a raidy, moderace",
+          "Stránky kanálů: záznamy, highlighty, klipy podle období, oblíbené uložené v zařízení",
+          "Videa s posouváním, pokračováním tam, kde jsi skončil, a chatem přehrávaným v čase videa",
+          "Volitelné přihlášení kódem: sledované kanály, psaní do chatu, vlastní emotikony",
+          "Světlý a tmavý motiv, angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Tested on an iPad 2 with iOS 6.1.3; the iPhone layout has not been tried on a real iPhone yet",
+          "Do not keep the IPA from GitHub and this package installed at the same time"
+        ],
+        "cs": [
+          "Testováno na iPadu 2 s iOS 6.1.3; rozvržení pro iPhone zatím nebylo zkoušeno na skutečném iPhonu",
+          "Neměj nainstalované zároveň IPA z GitHubu a tento balíček"
+        ]
+      },
+      "changes": {
+        "en": [
+          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
+          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
+          "First version in this Cydia repository"
+        ],
+        "cs": [
+          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
+          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
+          "První verze v tomto repozitáři"
+        ]
+      }
+    },
+    "com.samcejko.tubie": {
+      "name": "Tubie",
+      "ipa": "Tubie",
+      "github": "https://github.com/samcejko/youtube-ios6",
+      "tagline": {
+        "en": "YouTube: videos, shorts, live streams, channels, comments",
+        "cs": "YouTube: videa, shorts, živé přenosy, kanály, komentáře"
+      },
+      "about": {
+        "en": "The YouTube that shipped with iOS 6 stopped working years ago and the website no longer loads in its Safari. Tubie brings the content back in the look of the system: videos, shorts, live streams, channels, playlists and comments, with subscriptions, history and \"watch later\" kept on the device. It talks to YouTube the way YouTube's own apps do, through its own TLS stack, and feeds the 2012 player through a small local proxy.",
+        "cs": "YouTube, který byl součástí iOS 6, už léta nefunguje a web se v tamním Safari nenačte. Tubie vrací obsah ve vzhledu systému: videa, shorts, živé přenosy, kanály, playlisty a komentáře, s odběry, historií a „přehrát později“ uloženými v zařízení. S YouTube mluví stejně jako jeho vlastní aplikace, přes vlastní TLS vrstvu, a přehrávači z roku 2012 podává video přes malou místní proxy."
+      },
+      "features": {
+        "en": [
+          "Videos with quality and speed choice, chapters, resume where you left off, background sound, a mini player while you browse",
+          "Shorts in a vertical player, live streams up to 720p60, playlists with continuous play, related videos",
+          "Channels with videos, shorts, live and playlists; search with suggestions and filters; comments and replies",
+          "Subscriptions, watch history and \"watch later\" on the device, no Google account needed; optional Google account with your own OAuth client",
+          "SponsorBlock, captions (auto-generated too), Return YouTube Dislike counts",
+          "Player gestures: double tap to skip 10 seconds, drag for brightness and volume",
+          "Light and dark theme in the iOS 6 style, English and Czech"
+        ],
+        "cs": [
+          "Videa s volbou kvality a rychlosti, kapitoly, pokračování tam, kde jsi skončil, zvuk na pozadí, mini přehrávač při procházení",
+          "Shorts ve svislém přehrávači, živé přenosy až 720p60, playlisty s nepřetržitým přehráváním, související videa",
+          "Kanály s videi, shorts, živými přenosy a playlisty; hledání s návrhy a filtry; komentáře a odpovědi",
+          "Odběry, historie a „přehrát později“ v zařízení bez účtu Google; volitelný účet Google s vlastním OAuth klientem",
+          "SponsorBlock, titulky (i automatické), počty palců dolů z Return YouTube Dislike",
+          "Gesta v přehrávači: dvojité klepnutí přeskočí 10 sekund, tažením jas a hlasitost",
+          "Světlý a tmavý motiv ve stylu iOS 6, angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Long videos without an HLS stream play as the 360p MP4 that YouTube still serves in full; shorts and clips up to a minute play up to 720p, live streams up to 720p60 (the README explains why)",
+          "Tested on an iPad 2 with iOS 6.1.3; the iPhone layout has not been tried on a real iPhone yet"
+        ],
+        "cs": [
+          "Dlouhá videa bez HLS streamu se přehrávají jako 360p MP4, které YouTube stále vydává celé; shorts a klipy do minuty až 720p, živé přenosy až 720p60 (proč, vysvětluje README)",
+          "Testováno na iPadu 2 s iOS 6.1.3; rozvržení pro iPhone zatím nebylo zkoušeno na skutečném iPhonu"
+        ]
+      },
+      "changes": {
+        "en": [
+          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
+          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
+          "First version in this Cydia repository (0.3.0 brought chapters, player gestures, the mini player and the optional stream resolver)"
+        ],
+        "cs": [
+          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
+          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
+          "První verze v tomto repozitáři (0.3.0 přinesla kapitoly, gesta v přehrávači, mini přehrávač a volitelný resolver streamů)"
+        ]
+      }
+    },
+    "com.samcejko.tikie": {
+      "name": "TikTak",
+      "ipa": "TikTak",
+      "github": "https://github.com/samcejko/tiktok-ios6",
+      "tagline": {
+        "en": "TikTok viewer: a For You feed that learns on the device",
+        "cs": "Prohlížeč TikToku: For You, které se učí přímo v zařízení"
+      },
+      "about": {
+        "en": "A read-only TikTok viewer: a vertical, full-screen For You feed that tries videos from all of TikTok's topics and learns on the device what you like. Search, hashtags and sounds, captions, photo posts, LIVE, comments with replies, creator pages and saved videos. No login, no likes, no posting. It needs a small helper (yt-dlp) on your own server, because TikTok's app API is signed in a way iOS 6 cannot reproduce; the videos themselves stream straight from TikTok to the device.",
+        "cs": "Prohlížeč TikToku jen pro čtení: svislé celoobrazovkové For You, které zkouší videa ze všech témat TikToku a přímo v zařízení se učí, co tě baví. Hledání, hashtagy a zvuky, titulky, fotopříspěvky, LIVE, komentáře s odpověďmi, stránky tvůrců a uložená videa. Bez přihlášení, bez lajků, bez publikování. Potřebuje malého pomocníka (yt-dlp) na tvém vlastním serveru, protože API aplikace TikToku je podepisované způsobem, který iOS 6 nezvládne; samotná videa jdou z TikToku rovnou do zařízení."
+      },
+      "features": {
+        "en": [
+          "A For You feed that learns from watch time, saves and \"Not interested\" and keeps trying new topics; pick a few topics at the first start",
+          "Search with suggestions, hashtag and sound pages, tappable #hashtags and @mentions",
+          "Videos and photo posts with TikTok's captions, comments with replies, creator pages",
+          "TikTok LIVE: the FLV stream is repacked on the device into HLS",
+          "Save videos for yourself; \"What it learned\" shows the taste and can forget it",
+          "Landscape iPad: the comments beside the video",
+          "English and Czech"
+        ],
+        "cs": [
+          "For You, které se učí z doby sledování, uložení a „Nezajímá mě“ a zkouší nová témata; při prvním spuštění vybereš pár témat",
+          "Hledání s návrhy, stránky hashtagů a zvuků, klikací #hashtagy a @zmínky",
+          "Videa a fotopříspěvky s titulky TikToku, komentáře s odpověďmi, stránky tvůrců",
+          "TikTok LIVE: FLV stream se v zařízení přebaluje do HLS",
+          "Ukládání videí; „Co se naučil“ ukáže vkus a umí ho zapomenout",
+          "iPad na šířku: komentáře vedle videa",
+          "Angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Needs the helper service from the project's pi/ folder on your own server (Docker, yt-dlp); set its address in Settings",
+          "Unofficial; it reads public content only and is not affiliated with TikTok or ByteDance"
+        ],
+        "cs": [
+          "Potřebuje pomocnou službu ze složky pi/ projektu na vlastním serveru (Docker, yt-dlp); adresu nastavíš v Nastavení",
+          "Neoficiální; čte jen veřejný obsah, bez vazby na TikTok nebo ByteDance"
+        ]
+      },
+      "changes": {
+        "en": [
+          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
+          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
+          "First version in this Cydia repository (0.2.0 brought search, hashtags and sounds, full creator pages, captions and the topic picker)"
+        ],
+        "cs": [
+          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
+          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
+          "První verze v tomto repozitáři (0.2.0 přinesla hledání, hashtagy a zvuky, celé stránky tvůrců, titulky a výběr témat)"
+        ]
+      }
+    },
+    "com.samcejko.spot6": {
+      "name": "Spot6",
+      "ipa": "Spot6",
+      "github": "https://github.com/samcejko/spotify-ios6",
+      "tagline": {
+        "en": "Spotify: your music, playlists and lyrics, Spotify Connect",
+        "cs": "Spotify: tvoje hudba, playlisty a texty, Spotify Connect"
+      },
+      "about": {
+        "en": "An unofficial Spotify client in the look of Spotify's own iPad app of 2012: charcoal panels, glossy black bars. It plays music by itself on the device, no phone needed once you are logged in. Log in from the Spotify app on your phone (Spotify Connect's zeroconf login): the app never sees your password.",
+        "cs": "Neoficiální klient Spotify ve vzhledu vlastní iPadové aplikace Spotify z roku 2012: antracitové panely, lesklé černé lišty. Hudbu přehrává sám v zařízení, po přihlášení telefon nepotřebuje. Přihlásíš se z aplikace Spotify v telefonu (zeroconf přihlášení Spotify Connect): heslo aplikace nikdy nevidí."
+      },
+      "features": {
+        "en": [
+          "Home with recently played, your top artists and songs, your playlists, new releases",
+          "Search as you type: songs, artists, albums, playlists, podcasts; browse categories",
+          "Your library: Liked Songs, playlists (create, add, remove), saved albums, followed artists, podcasts",
+          "Playback up to 320 kbit/s, gapless, normalized volume, queue, shuffle, repeat, song radio, autoplay",
+          "Now playing with big artwork and synced lyrics; lock screen and headphone remote; music in the background",
+          "Spotify Connect: hand the music over from your phone and control it from there",
+          "iPad sidebar and player bar, iPhone tabs; English and Czech"
+        ],
+        "cs": [
+          "Domů s nedávno přehrávaným, tvými top umělci a skladbami, playlisty, novinkami",
+          "Hledání během psaní: skladby, umělci, alba, playlisty, podcasty; procházení kategorií",
+          "Knihovna: oblíbené skladby, playlisty (vytvořit, přidat, odebrat), uložená alba, sledovaní umělci, podcasty",
+          "Přehrávání až 320 kbit/s, bez mezer, normalizovaná hlasitost, fronta, náhodně, opakování, rádio skladby, autoplay",
+          "Právě hraje s velkým obalem a synchronizovaným textem; zamčená obrazovka a ovladač na sluchátkách; hudba na pozadí",
+          "Spotify Connect: předej hudbu z telefonu a ovládej ji odtud",
+          "Postranní panel a lišta přehrávače na iPadu, karty na iPhonu; angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Needs Spotify Premium",
+          "Not affiliated with Spotify"
+        ],
+        "cs": [
+          "Vyžaduje Spotify Premium",
+          "Bez vazby na Spotify"
+        ]
+      },
+      "changes": {
+        "en": [
+          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
+          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
+          "First version in this Cydia repository"
+        ],
+        "cs": [
+          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
+          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
+          "První verze v tomto repozitáři"
+        ]
+      }
+    },
+    "com.samcejko.kicker": {
+      "name": "Kicker",
+      "ipa": "Kicker",
+      "github": "https://github.com/samcejko/kick-ios6",
+      "tagline": {
+        "en": "Kick: live streams with chat, past broadcasts, clips",
+        "cs": "Kick: živé přenosy s chatem, záznamy, klipy"
+      },
+      "about": {
+        "en": "A universal Kick client in the glossy iOS 6 look, dark like Kick by default. Live streams with the chat, past broadcasts with the chat replay, clips, categories, search and favourites. No account needed: everything it shows is public. Kick's servers speak only today's TLS and serve their pictures as WebP, so the app carries its own TLS stack and WebP decoder.",
+        "cs": "Univerzální klient Kicku v lesklém vzhledu iOS 6, výchozí tmavý jako Kick. Živé přenosy s chatem, záznamy s přehráváním chatu, klipy, kategorie, hledání a oblíbené. Účet není potřeba: vše, co ukazuje, je veřejné. Servery Kicku mluví jen dnešním TLS a obrázky posílají jako WebP, proto má aplikace vlastní TLS vrstvu i dekodér WebP."
+      },
+      "features": {
+        "en": [
+          "Live channels (most watched, by category, by language), categories, search",
+          "Player with quality choice, full screen, chat beside or under the video, sound in the background, lock-screen controls",
+          "Live chat (read only) with badges, Kick and 7TV emotes, replies, subscriptions, gifts, hosts, moderation",
+          "Channel pages: past broadcasts and clips by period; favourites kept on the device",
+          "Past broadcasts with seeking, resume and the chat replay",
+          "Dark and light theme, English and Czech"
+        ],
+        "cs": [
+          "Živé kanály (nejsledovanější, podle kategorie, podle jazyka), kategorie, hledání",
+          "Přehrávač s volbou kvality, celá obrazovka, chat vedle nebo pod videem, zvuk na pozadí, ovládání ze zamčené obrazovky",
+          "Živý chat (jen čtení) s odznaky, emotikony Kick a 7TV, odpověďmi, odběry, dárky, hosty, moderací",
+          "Stránky kanálů: záznamy a klipy podle období; oblíbené uložené v zařízení",
+          "Záznamy s posouváním, pokračováním a přehráváním chatu",
+          "Tmavý a světlý motiv, angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Tested on an iPad 2 with iOS 6.1.3; the iPhone layout has not been tried on a real iPhone yet",
+          "Not affiliated with Kick"
+        ],
+        "cs": [
+          "Testováno na iPadu 2 s iOS 6.1.3; rozvržení pro iPhone zatím nebylo zkoušeno na skutečném iPhonu",
+          "Bez vazby na Kick"
+        ]
+      },
+      "changes": {
+        "en": [
+          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
+          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
+          "First version in this Cydia repository"
+        ],
+        "cs": [
+          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
+          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
+          "První verze v tomto repozitáři"
+        ]
+      }
+    },
+    "com.samcejko.gfn6": {
+      "name": "GFN6",
+      "ipa": "GFN6",
+      "github": "https://github.com/samcejko/gfn-ios6",
+      "tagline": {
+        "en": "GeForce NOW: stream your PC games to a 2012 iPad",
+        "cs": "GeForce NOW: streamuj PC hry na iPad z roku 2012"
+      },
+      "about": {
+        "en": "An unofficial GeForce NOW client. It signs in to your NVIDIA account, shows your library, waits in NVIDIA's queue and streams the game over a WebRTC connection built from scratch for a 2012 device: hardware H.264 decoding, Opus audio, a touch gamepad, mouse mode and the keyboard.",
+        "cs": "Neoficiální klient GeForce NOW. Přihlásí se k tvému účtu NVIDIA, ukáže knihovnu, počká ve frontě NVIDIA a streamuje hru přes WebRTC spojení postavené od nuly pro zařízení z roku 2012: hardwarové dekódování H.264, zvuk Opus, dotykový gamepad, režim myši a klávesnice."
+      },
+      "features": {
+        "en": [
+          "Sign in with a code on another device; the tokens stay in the keychain",
+          "Your library and the full catalog with search, box art and game details",
+          "Queue with position and estimate, the sponsor breaks of the free tier, cleanup of sessions left open",
+          "Video through the hardware decoder; resolution, frame rate and bitrate are yours to pick",
+          "On-screen Xbox-style gamepad, trackpad-like mouse mode, the iOS keyboard with Esc, Tab, Enter and arrows",
+          "Server region with latency, game language, dark and light theme, Czech and English"
+        ],
+        "cs": [
+          "Přihlášení kódem na jiném zařízení; tokeny zůstávají v klíčence",
+          "Tvoje knihovna a celý katalog s hledáním, obaly a detaily her",
+          "Fronta s pozicí a odhadem, reklamní přestávky bezplatné úrovně, úklid otevřených relací",
+          "Video přes hardwarový dekodér; rozlišení, snímky za sekundu a datový tok si volíš sám",
+          "Gamepad ve stylu Xboxu na obrazovce, režim myši jako trackpad, klávesnice iOS s Esc, Tab, Enter a šipkami",
+          "Region serveru s odezvou, jazyk hry, tmavý a světlý motiv, čeština a angličtina"
+        ]
+      },
+      "notes": {
+        "en": [
+          "You need your own GeForce NOW account",
+          "Install this package (the DEB), not the IPA from GitHub: only an app in /Applications may open the hardware decoder",
+          "iPad 2 and up, iPhone 4S and up; not affiliated with NVIDIA"
+        ],
+        "cs": [
+          "Potřebuješ vlastní účet GeForce NOW",
+          "Instaluj tento balíček (DEB), ne IPA z GitHubu: hardwarový dekodér smí otevřít jen aplikace v /Applications",
+          "iPad 2 a novější, iPhone 4S a novější; bez vazby na NVIDIA"
+        ]
+      },
+      "changes": {
+        "en": [
+          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
+          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
+          "First version in this Cydia repository (0.1.0 streams real games on an iPad 2, verified with Fortnite, 30 fps by default)"
+        ],
+        "cs": [
+          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
+          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
+          "První verze v tomto repozitáři (0.1.0 streamuje skutečné hry na iPadu 2, ověřeno s Fortnite, výchozích 30 fps)"
+        ]
+      }
+    },
+    "com.samcejko.kostka": {
+      "name": "MC6",
+      "github": "https://github.com/samcejko/kostka-ios6",
+      "tagline": {
+        "en": "Minecraft: Java Edition launcher, every version up to 1.12.2",
+        "cs": "Launcher Minecraft: Java Edition, všechny verze do 1.12.2"
+      },
+      "about": {
+        "en": "A launcher of Minecraft: Java Edition for iOS 6: the game's own files, downloaded from Mojang's servers, run unchanged by a Java VM ported to 32-bit iOS, with LWJGL 2 on OpenGL ES through gl4es. All 113 versions of the LWJGL 2 era from RubyDung to 1.12.2 start, make a new world and play on an iPad 2, and 231 of its 236 snapshots. MC6 ships nothing of Mojang's: you need to own the game.",
+        "cs": "Launcher Minecraft: Java Edition pro iOS 6: vlastní soubory hry stažené ze serverů Mojangu běží beze změny v Java VM portované na 32bitový iOS, s LWJGL 2 na OpenGL ES přes gl4es. Všech 113 verzí éry LWJGL 2 od RubyDungu po 1.12.2 na iPadu 2 nastartuje, vytvoří nový svět a hraje, a 231 z jeho 236 snapshotů. MC6 nešíří nic od Mojangu: hru musíš vlastnit."
+      },
+      "features": {
+        "en": [
+          "Java 8 HotSpot with the C1 JIT on armv7, the JDK's native libraries",
+          "Every version from RubyDung and Classic through Alpha, Beta and 1.0 to 1.12.2, snapshots included; downloads checked against Mojang's SHA-1",
+          "Touch controls and on-screen keys, a joystick as on Minecraft for phones, every version fills the screen",
+          "OptiFine for 1.7.2 to 1.12.2: you download it from optifine.net inside the app, it starts at its fastest settings",
+          "The launcher shows what plays and what is new in each version; the frame rate in the corner",
+          "English and Czech"
+        ],
+        "cs": [
+          "Java 8 HotSpot s JIT C1 na armv7, nativní knihovny JDK",
+          "Každá verze od RubyDungu a Classicu přes Alphu, Betu a 1.0 až po 1.12.2 včetně snapshotů; stažené soubory ověřené proti SHA-1 Mojangu",
+          "Dotykové ovládání a klávesy na obrazovce, joystick jako v Minecraftu pro telefony, každá verze na celou obrazovku",
+          "OptiFine pro 1.7.2 až 1.12.2: stáhneš si ho sám z optifine.net přímo v aplikaci, startuje s nejrychlejším nastavením",
+          "Launcher ukazuje, co hraje a co je v každé verzi nové; snímky za sekundu v rohu",
+          "Angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "You must own Minecraft: Java Edition; the game is downloaded from Mojang's servers",
+          "The package is about 20 MB; an iPad 2 with 512 MB plays 1.8 to 1.12.2 at render distance 2",
+          "Unofficial; not affiliated with Mojang or Microsoft"
+        ],
+        "cs": [
+          "Musíš vlastnit Minecraft: Java Edition; hra se stahuje ze serverů Mojangu",
+          "Balíček má asi 20 MB; iPad 2 s 512 MB hraje 1.8 až 1.12.2 s dohledem 2",
+          "Neoficiální; bez vazby na Mojang nebo Microsoft"
+        ]
+      },
+      "changes": {
+        "en": [
+          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
+          "First version in this Cydia repository: all 113 versions of Mojang's list and 231 of 236 snapshots verified in a new world on an iPad 2; OptiFine 1.7.2 to 1.12.2, a joystick, the frame rate"
+        ],
+        "cs": [
+          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
+          "První verze v tomto repozitáři: všech 113 verzí ze seznamu Mojangu a 231 z 236 snapshotů ověřeno v novém světě na iPadu 2; OptiFine 1.7.2 až 1.12.2, joystick, snímky za sekundu"
+        ]
+      }
+    },
+    "com.samcejko.aichat": {
+      "name": "AI Chat",
+      "ipa": "AIChat",
+      "github": "https://github.com/samcejko/aichat-ios6",
+      "tagline": {
+        "en": "Chat with any AI model through OpenRouter, with your own key",
+        "cs": "Chat s libovolným AI modelem přes OpenRouter, s vlastním klíčem"
+      },
+      "about": {
+        "en": "A universal OpenRouter chat client. Bring your own OpenRouter API key and talk to any of the models, the free ones included. Streaming replies with Markdown and LaTeX, photos and files, image generation, personas and reasoning. Requests go straight from the device to openrouter.ai through the app's own TLS stack; there is no server in between and no analytics.",
+        "cs": "Univerzální chatovací klient pro OpenRouter. Zadej vlastní API klíč OpenRouteru a piš si s libovolným modelem, včetně těch zdarma. Streamované odpovědi s Markdownem a LaTeXem, fotky a soubory, generování obrázků, persony a uvažování. Požadavky jdou ze zařízení rovnou na openrouter.ai přes vlastní TLS vrstvu aplikace; mezi nimi není žádný server ani analytika."
+      },
+      "features": {
+        "en": [
+          "Model picker with search, \"free only\" and \"images\" filters, model info with context size and prices",
+          "Streaming replies with Markdown (headings, lists, code, tables, quotes) and LaTeX formulas",
+          "Photos from the library, camera or clipboard; files via iTunes File Sharing and \"Open in…\"; PDF and office documents",
+          "Vision relay for models that cannot see images; image generation with models that can draw",
+          "Continue a cut-off reply, edit and resend, regenerate; personas, reasoning display and effort; optional web search",
+          "A running reply finishes in the background and posts a notification",
+          "Chat history, light and dark theme, English and Czech"
+        ],
+        "cs": [
+          "Výběr modelu s hledáním, filtry „jen zdarma“ a „obrázky“, informace o modelu s velikostí kontextu a cenami",
+          "Streamované odpovědi s Markdownem (nadpisy, seznamy, kód, tabulky, citace) a vzorci v LaTeXu",
+          "Fotky z knihovny, fotoaparátu nebo schránky; soubory přes iTunes File Sharing a „Otevřít v…“; PDF a kancelářské dokumenty",
+          "Předávání obrázků modelům, které nevidí; generování obrázků modely, které kreslí",
+          "Pokračování useknuté odpovědi, úprava a znovuodeslání, regenerace; persony, zobrazení uvažování a jeho míra; volitelné hledání na webu",
+          "Rozepsaná odpověď se dokončí na pozadí a pošle oznámení",
+          "Historie chatů, světlý a tmavý motiv, angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Needs your own OpenRouter API key (openrouter.ai/keys); the key stays on the device"
+        ],
+        "cs": [
+          "Potřebuje vlastní API klíč OpenRouteru (openrouter.ai/keys); klíč zůstává v zařízení"
+        ]
+      },
+      "changes": {
+        "en": [
+          "Also for 64-bit devices with iOS 14–17 (iPhone X and newer): the iphoneos-arm64 package for rootless jailbreaks (Sileo, Zebra) and a TrollStore IPA on GitHub, with the same iOS 6 look; not tried on a device yet",
+          "Settings → About: a \"Support the development\" row that opens the author's Ko-fi page; the app stays free",
+          "First version in this Cydia repository"
+        ],
+        "cs": [
+          "Nově i pro 64bitová zařízení s iOS 14–17 (iPhone X a novější): balíček iphoneos-arm64 pro rootless jailbreak (Sileo, Zebra) a IPA pro TrollStore na GitHubu, se stejným vzhledem iOS 6; zatím nevyzkoušeno na zařízení",
+          "Nastavení → O aplikaci: řádek „Podpořit vývoj“ s odkazem na Ko-fi autora; aplikace zůstává zdarma",
+          "První verze v tomto repozitáři"
+        ]
+      }
+    },
+    "com.samcejko.kodium": {
+      "name": "Kodium",
+      "github": "",
+      "tagline": {
+        "en": "A code editor: the VS Code workbench on an iPad 2",
+        "cs": "Editor kódu: workbench VS Code na iPadu 2"
+      },
+      "about": {
+        "en": "The workbench of the open-source VS Code (Code - OSS), running on the device itself on the engine of the Surfari browser: explorer, editor tabs, syntax highlighting, search in files, the command palette, settings and keybindings, themes, the Outline and Timeline views, a terminal and extensions from Open VSX. Text is selected as on iOS, with the loupe, the handles and the system clipboard. An early version, made for a 512 MB iPad 2.",
+        "cs": "Workbench open-source VS Code (Code - OSS) běžící přímo v zařízení na jádru prohlížeče Surfari: průzkumník, karty editoru, zvýraznění syntaxe, hledání v souborech, paleta příkazů, nastavení a klávesové zkratky, motivy, Osnova a Časová osa, terminál a rozšíření z Open VSX. Text se vybírá jako na iOS, s lupou, úchyty a systémovou schránkou. Raná verze, dělaná pro iPad 2 s 512 MB."
+      },
+      "features": {
+        "en": [
+          "Syntax highlighting for 31 languages; snippets, language configurations and Emmet from VS Code's built-in extensions",
+          "JavaScript: problems, outline, Go to Definition, Find All References, Rename Symbol, Format Document",
+          "Search in files, the command palette, settings, keybindings, themes, Outline and Timeline with local history",
+          "A terminal (xterm.js) on the iPad's own shells with the Kodium Shell package",
+          "Touch: long press for the loupe, double tap selects a word, selection handles and the Cut/Copy/Paste callout, the system clipboard both ways",
+          "A warm-up behind the splash, so the first actions are quick on an iPad 2",
+          "English and Czech"
+        ],
+        "cs": [
+          "Zvýraznění syntaxe pro 31 jazyků; snippety, konfigurace jazyků a Emmet z vestavěných rozšíření VS Code",
+          "JavaScript: problémy, osnova, Přejít na definici, Najít všechny reference, Přejmenovat symbol, Formátovat dokument",
+          "Hledání v souborech, paleta příkazů, nastavení, klávesové zkratky, motivy, Osnova a Časová osa s místní historií",
+          "Terminál (xterm.js) na vlastních shellech iPadu s balíčkem Kodium Shell",
+          "Dotyk: dlouhý stisk pro lupu, dvojité klepnutí vybere slovo, úchyty výběru a bublina Vyjmout/Kopírovat/Vložit, systémová schránka oběma směry",
+          "Zahřátí za úvodní obrazovkou, aby první akce na iPadu 2 byly rychlé",
+          "Angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "An early version, made for iOS 6 on an iPad 2 with 512 MB",
+          "For the terminal install Kodium Shell as well",
+          "Not affiliated with Microsoft; \"Visual Studio Code\" is their trademark. MIT licensed, the third-party notices are inside the app"
+        ],
+        "cs": [
+          "Raná verze, dělaná pro iOS 6 na iPadu 2 s 512 MB",
+          "Pro terminál nainstaluj i Kodium Shell",
+          "Bez vazby na Microsoft; „Visual Studio Code“ je jejich ochranná známka. Licence MIT, licence třetích stran jsou v aplikaci"
+        ]
+      },
+      "changes": {
+        "en": [
+          "The first build"
+        ],
+        "cs": [
+          "První sestavení"
+        ]
+      }
+    },
+    "com.samcejko.kodium-shell": {
+      "name": "Kodium Shell",
+      "github": "",
+      "icon": "com.samcejko.kodium-shell.png",
+      "tagline": {
+        "en": "Shells for Kodium's terminal",
+        "cs": "Shelly pro terminál Kodia"
+      },
+      "about": {
+        "en": "iOS lets no app of the App Store kind start processes, Kodium neither. This small daemon, started by launchd for each connection on 127.0.0.1:47070 only, runs a login shell (bash) on a pseudo terminal as the user mobile for Kodium's terminal panel. It answers only Kodium: a connection has to present the token Kodium keeps in its container.",
+        "cs": "iOS nedovolí aplikaci typu App Store spouštět procesy, Kodiu také ne. Tento malý démon, spouštěný launchd pro každé spojení jen na 127.0.0.1:47070, pouští přihlašovací shell (bash) na pseudoterminálu jako uživatel mobile pro terminálový panel Kodia. Odpovídá jen Kodiu: spojení musí předložit token, který si Kodium drží ve svém kontejneru."
+      },
+      "features": {
+        "en": [
+          "bash as the user mobile on a pseudo terminal",
+          "Listens on 127.0.0.1:47070 only, started on demand by launchd",
+          "Answers only connections that carry Kodium's token"
+        ],
+        "cs": [
+          "bash jako uživatel mobile na pseudoterminálu",
+          "Poslouchá jen na 127.0.0.1:47070, spouští ho launchd podle potřeby",
+          "Odpovídá jen spojením, která nesou token Kodia"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Install together with Kodium; without it the terminal panel has no shell"
+        ],
+        "cs": [
+          "Instaluj spolu s Kodiem; bez něj nemá terminálový panel žádný shell"
+        ]
+      },
+      "changes": {
+        "en": [
+          "First version"
+        ],
+        "cs": [
+          "První verze"
+        ]
+      }
+    }
+  }
+}

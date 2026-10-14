@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>{{name}}</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<div class="lang"><a href="{{t_switch_href}}">{{t_switch}}</a></div>
+<div class="hdr">
+  <img class="appicon" src="../../icons/{{icon}}" alt="">
+  <div class="hdrt"><h1>{{name}}</h1><p>{{tagline}}</p></div>
+</div>
+<div class="box"><p>{{about}}</p></div>
+<h2>{{t_features}}</h2>
+<div class="box"><ul>
+{{features}}
+</ul></div>
+{{#notes}}
+<h2>{{t_notes}}</h2>
+<div class="box"><ul>
+{{notes}}
+</ul></div>
+{{/notes}}
+{{#screens}}
+<h2>{{t_screens}}</h2>
+<div class="shots">
+{{screens}}
+</div>
+{{/screens}}
+{{#changes}}
+<h2>{{t_changes}}</h2>
+<div class="box"><ul>
+{{changes}}
+</ul></div>
+{{/changes}}
+<h2>{{t_info}}</h2>
+<div class="box list">
+  <div class="row"><span class="k">{{t_version}}</span><span class="v">{{version}}</span></div>
+  <div class="row"><span class="k">{{t_size}}</span><span class="v">{{size}}</span></div>
+  <div class="row"><span class="k">{{t_updated}}</span><span class="v">{{date}}</span></div>
+  <div class="row"><span class="k">{{t_requires}}</span><span class="v">{{t_requires_v}}</span></div>
+</div>
+<div class="box list">
+{{#github}}
+  <a class="row link" href="{{github}}"><span class="k">{{t_source}}</span><span class="chev">&#8250;</span></a>
+{{/github}}
+{{#support}}
+  <a class="row link" href="{{support}}"><span class="k">{{t_support}}</span><span class="chev">&#8250;</span></a>
+{{/support}}
+</div>
+{{#trollstore}}
+<div class="box list">
+  <a class="row link" href="{{trollstore_link}}"><span class="k">{{t_trollstore}}</span><span class="chev">&#8250;</span></a>
+  <a class="row link" href="{{ipa_url}}"><span class="k">{{t_ipa}}</span><span class="chev">&#8250;</span></a>
+</div>
+{{/trollstore}}
+<p class="foot">{{footer}}</p>
+<p class="foot"><a href="{{repo_url}}">{{repo_url}}</a></p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="lang"><a href="{{t_switch_href}}">{{t_switch}}</a></div>
+<div class="hdr">
+  <img class="appicon" src="CydiaIcon.png" alt="">
+  <div class="hdrt"><h1>{{title}}</h1><p>{{repo_url}}</p></div>
+</div>
+<div class="box"><p>{{intro}}</p></div>
+<h2>{{t_add_title}}</h2>
+<div class="box">
+  <p>{{t_add_steps}}</p>
+  <p class="url">{{repo_url}}</p>
+  <a class="button" href="{{cydia_link}}">{{t_add_cydia}}</a>
+  <a class="button alt" href="{{sileo_link}}">{{t_add_sileo}}</a>
+  <a class="button alt" href="{{zebra_link}}">{{t_add_zebra}}</a>
+  <a class="button alt" href="{{installer_link}}">{{t_add_installer}}</a>
+  <p class="note">{{t_trollstore_note}}</p>
+</div>
+<h2>{{t_packages}}</h2>
+<div class="box list">
+{{rows}}
+</div>
+<h2>{{t_about_repo}}</h2>
+<div class="box"><p>{{about_repo_text}}</p></div>
+<div class="box list">
+{{#support}}
+  <a class="row link" href="{{support}}"><span class="k">{{t_support}}</span><span class="chev">&#8250;</span></a>
+{{/support}}
+  <a class="row link" href="{{github}}"><span class="k">GitHub</span><span class="chev">&#8250;</span></a>
+</div>
+<p class="foot">{{footer}}</p>
+</body>
+</html>
