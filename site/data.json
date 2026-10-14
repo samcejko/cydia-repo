@@ -201,13 +201,17 @@
       },
       "changes": {
         "en": [
+          "Playback speed works: iOS 6 cannot speed up an HLS stream, so another speed than 1× plays the video's 360p MP4 and 1× returns to full quality at the same spot; iOS 15+ changes the speed directly",
+          "The chosen speed stays after a pause, buffering, the mini player and the background, and is remembered for the next videos; a speed pill in the player, also in full screen; 1.75× added",
+          "Hold a finger on the picture for 2×, as on YouTube",
           "Links in descriptions, comments and on channel pages are tappable; YouTube links open in Tubie, links to Twitch, Kick and TikTok in the sister apps when they are installed",
-          "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
           "The iOS 6 package is offered on iOS 6.x only (64-bit devices with iOS 15 and newer use the arm64 package)"
         ],
         "cs": [
+          "Rychlost přehrávání funguje: iOS 6 neumí zrychlit HLS stream, takže jiná rychlost než 1× přehraje verzi videa v MP4 (360p) a 1× vrátí plnou kvalitu na stejném místě; iOS 15+ mění rychlost přímo",
+          "Zvolená rychlost vydrží pauzu, načítání, mini přehrávač i pozadí a pamatuje se pro další videa; tlačítko rychlosti v přehrávači, i na celé obrazovce; přibyla 1,75×",
+          "Podržením prstu na obraze 2×, jako na YouTube",
           "Odkazy v popiscích, komentářích a na stránkách kanálů jsou klikací; odkazy na YouTube se otevřou v Tubie, odkazy na Twitch, Kick a TikTok v sesterských appkách, pokud jsou nainstalované",
-          "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
           "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
         ]
       }
