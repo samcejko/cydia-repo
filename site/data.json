@@ -96,10 +96,10 @@
       },
       "changes": {
         "en": [
-          "1.0.0, the first public release"
+          "Log in with cookies: on sites whose login needs a CAPTCHA this engine cannot run (Cloudflare Turnstile and the like), log in to the site in another browser and paste its cookies - long press Reload, then \"Log in with cookies\""
         ],
         "cs": [
-          "1.0.0, první veřejné vydání"
+          "Přihlášení přes cookies: na webech, jejichž přihlášení vyžaduje CAPTCHA, kterou tento engine neumí zobrazit (Cloudflare Turnstile apod.), se přihlas v jiném prohlížeči a vlož cookies webu - podrž Načíst znovu a zvol „Přihlásit přes cookies“"
         ]
       }
     },

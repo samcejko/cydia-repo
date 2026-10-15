@@ -25,6 +25,7 @@ import io
 import json
 import lzma
 import os
+import re
 import shutil
 import sys
 import tarfile
@@ -224,6 +225,95 @@ def parse_control(text):
     return fields
 
 
+def effective_depends(meta, repo, arch, own):
+    """What a stanza's Depends says: the package's own override in data.json ("depends": a string for every
+    architecture, or {arch: string}), else the repository's default for the architecture ("depends_by_arch", e.g.
+    the 32-bit builds on iOS 6.x only), else what the deb itself declares."""
+    dep = (meta or {}).get("depends")
+    if isinstance(dep, dict):
+        dep = dep.get(arch)
+    if dep:
+        return dep
+    return (repo.get("depends_by_arch") or {}).get(arch) or own
+
+
+def _set_control_depends(text, value):
+    """The control text with its Depends field (continuation lines included) replaced, or added."""
+    out, replaced, skipping = [], False, False
+    for line in text.split("\n"):
+        if skipping and line[:1] in (" ", "\t"):
+            continue
+        skipping = False
+        if line.lower().startswith("depends:"):
+            out.append("Depends: " + value)
+            replaced, skipping = True, True
+            continue
+        out.append(line)
+    if not replaced:
+        while out and out[-1] == "":
+            out.pop()
+        out.append("Depends: " + value)
+        out.append("")
+    result = "\n".join(out)
+    return result if result.endswith("\n") else result + "\n"
+
+
+def repack_deb_depends(path, value):
+    """Writes a copy of a deb whose control file says `Depends: value` (everything else, the app included,
+    byte for byte the same) and returns its path. Needed whenever the index narrows a deb's Depends: APT tells
+    versions apart by a hash that covers Depends, so an installed deb whose own Depends differs from the index's
+    would be offered as an "upgrade" to the very same version forever (Cydia, 2026-10-15). The copy gets a new
+    name (Cloudflare caches debs by name) and is deterministic, so a second run writes the identical file."""
+    with open(path, "rb") as f:
+        blob = f.read()
+    if blob[:8] != b"!<arch>\n":
+        raise ValueError("not an ar archive: %s" % path)
+    members, pos = [], 8
+    while pos + 60 <= len(blob):
+        hdr = blob[pos:pos + 60]
+        size = int(hdr[48:58].decode("ascii").strip())
+        data = blob[pos + 60:pos + 60 + size]
+        members.append((hdr, data))
+        pos += 60 + size + (size % 2)
+    out = bytearray(b"!<arch>\n")
+    for hdr, data in members:
+        name = hdr[0:16].decode("ascii", "replace").strip().rstrip("/")
+        if name.startswith("control.tar"):
+            with open_tar(name, data) as tar:
+                items = []
+                for member in tar.getmembers():
+                    content = tar.extractfile(member).read() if member.isfile() else None
+                    if member.isfile() and os.path.basename(member.name) == "control":
+                        content = _set_control_depends(content.decode("utf-8"), value).encode("utf-8")
+                        member.size = len(content)
+                    items.append((member, content))
+            buf = io.BytesIO()
+            with tarfile.open(fileobj=buf, mode="w", format=tarfile.GNU_FORMAT) as tar:
+                for member, content in items:
+                    tar.addfile(member, io.BytesIO(content) if content is not None else None)
+            raw = buf.getvalue()
+            if name.endswith(".gz"):
+                data = gzip.compress(raw, compresslevel=9, mtime=0)
+            elif name.endswith(".xz"):
+                data = lzma.compress(raw, format=lzma.FORMAT_XZ)
+            elif name.endswith(".lzma"):
+                data = lzma.compress(raw, format=lzma.FORMAT_ALONE)
+            elif name.endswith(".bz2"):
+                data = bz2.compress(raw)
+            else:
+                data = raw
+            hdr = hdr[:48] + ("%-10d" % len(data)).encode("ascii") + hdr[58:]
+        out += hdr + data
+        if len(data) % 2:
+            out += b"\n"
+    stem = os.path.basename(path)[:-4]
+    stem = re.sub(r"-d[0-9a-f]{6}$", "", stem)
+    new_path = os.path.join(os.path.dirname(path), "%s-d%s.deb" % (stem, hashlib.md5(value.encode("utf-8")).hexdigest()[:6]))
+    with open(new_path, "wb") as f:
+        f.write(bytes(out))
+    return new_path
+
+
 def read_deb(path):
     control = None
     for name, data in read_ar(path):
@@ -413,6 +503,37 @@ def main():
             except Exception as e:  # a broken upload must not take the whole repo down
                 print("skipping %s: %s" % (name, e), file=sys.stderr)
 
+    # A deb whose Depends the index narrows (iOS 6 only...) is repacked so that the deb and the index agree, else
+    # Cydia offers the installed version as an upgrade to itself forever (see repack_deb_depends). The original
+    # goes to debs/original/; the repacked copy is the one listed.
+    original_dir = os.path.join(debs_dir, "original")
+    repacked = []
+    for d in debs:
+        arch = d["info"].get("Architecture", "iphoneos-arm")
+        own = d["info"].get("Depends")
+        want = effective_depends(packages_meta.get(d["info"]["Package"]), repo, arch, own)
+        if want and want != own:
+            try:
+                new_path = repack_deb_depends(d["path"], want)
+                d2 = read_deb(new_path)
+                if d2["info"].get("Depends") != want:
+                    raise ValueError("the repacked control says %r" % d2["info"].get("Depends"))
+            except Exception as e:
+                print("could not repack %s (listed as it is): %s" % (d["file"], e), file=sys.stderr)
+                repacked.append(d)
+                continue
+            os.makedirs(original_dir, exist_ok=True)
+            os.replace(d["path"], os.path.join(original_dir, d["file"]))
+            print("repacked %s -> %s (Depends: %s)" % (d["file"], d2["file"], want))
+            d = d2
+        repacked.append(d)
+    seen = set()
+    debs = []
+    for d in repacked:
+        if d["path"] not in seen:
+            seen.add(d["path"])
+            debs.append(d)
+
     # newest first per package and architecture, prune the rest
     by_pkg = {}
     for d in debs:
@@ -438,16 +559,8 @@ def main():
         if pkg not in newest or arch == "iphoneos-arm":
             newest[pkg] = items[0]
 
-    # What a stanza's Depends says: the package's own override in data.json ("depends": a string for every
-    # architecture, or {arch: string}), else the repository's default for the architecture ("depends_by_arch", e.g.
-    # the 32-bit builds on iOS 6.x only), else what the deb itself declares
     def depends_for(pkg, arch, own):
-        dep = packages_meta.get(pkg, {}).get("depends")
-        if isinstance(dep, dict):
-            dep = dep.get(arch)
-        if dep:
-            return dep
-        return (repo.get("depends_by_arch") or {}).get(arch) or own
+        return effective_depends(packages_meta.get(pkg), repo, arch, own)
 
     def requires_text(pkg, lang):
         custom = packages_meta.get(pkg, {}).get("requires")  # data.json: {"en": ..., "cs": ...} for a special case
