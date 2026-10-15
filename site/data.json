@@ -31,6 +31,7 @@
   "order": [
     "com.samcejko.browser",
     "com.samcejko.twitcher",
+    "com.samcejko.chirpie",
     "com.samcejko.tubie",
     "com.samcejko.tikie",
     "com.samcejko.spot6",
@@ -162,6 +163,60 @@
         "cs": [
           "Odkazy v chatu, na stránce kanálu a v titulcích jsou klikací; odkazy na Twitch se otevřou v Twitcheru, odkazy na YouTube, Kick a TikTok v sesterských appkách, pokud jsou nainstalované",
           "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
+          "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
+        ]
+      }
+    },
+    "com.samcejko.chirpie": {
+      "name": "Chirpie",
+      "github": "",
+      "tagline": {
+        "en": "X (Twitter): timeline, threads, profiles, search, posting and DMs",
+        "cs": "X (Twitter): timeline, vlákna, profily, hledání, psaní a DM"
+      },
+      "about": {
+        "en": "An unofficial X (Twitter) client for iPhone and iPad in the glossy look of iOS 6. Read your For You and Following timelines, open threads and profiles, search tweets and people, see the trends, and post, reply, quote, like, retweet, bookmark, follow and send direct messages - all from your own account. X's site only speaks today's TLS and signs every request with code iOS 6 cannot run, so a tiny helper does that signing; the app carries its own TLS stack and streams photos and video straight from X's own servers. Nothing is stored on the helper: you log in with cookies from a browser (the safer way) or with your username and password.",
+        "cs": "Neoficiální klient X (Twitteru) pro iPhone i iPad v lesklém vzhledu iOS 6. Čti timeline For You i Sledující, otevírej vlákna a profily, hledej tweety i lidi, sleduj trendy a piš, odpovídej, cituj, lajkuj, retweetuj, ukládej, sleduj a posílej přímé zprávy - všechno z vlastního účtu. Web X mluví jen dnešním TLS a každý požadavek podepisuje kódem, který iOS 6 neumí spustit, proto to podepisování dělá malý pomocník; aplikace má vlastní TLS vrstvu a fotky i videa tahá rovnou ze serverů X. Na pomocníkovi se nic neukládá: přihlásíš se cookies z prohlížeče (bezpečnější způsob) nebo uživatelským jménem a heslem."
+      },
+      "features": {
+        "en": [
+          "For You and Following timelines, threads with replies, profiles, who you follow and who follows you",
+          "Search tweets and people, trends, bookmarks, notifications (all and mentions)",
+          "Post, reply and quote with a photo; like, retweet, bookmark, follow and unfollow; delete your own tweets",
+          "Direct messages: inbox, conversations and sending",
+          "Photos and video shown in the look of iOS 6; web links in tweets are tappable",
+          "Your login stays on the device; one helper serves several people, each with their own account",
+          "English and Czech"
+        ],
+        "cs": [
+          "Timeline For You i Sledující, vlákna s odpověďmi, profily, koho sleduješ a kdo sleduje tebe",
+          "Hledání tweetů i lidí, trendy, záložky, oznámení (vše i zmínky)",
+          "Psaní, odpovědi a citace s fotkou; lajk, retweet, záložka, sledování a odsledování; mazání vlastních tweetů",
+          "Přímé zprávy: schránka, konverzace a odesílání",
+          "Fotky a videa ve vzhledu iOS 6; webové odkazy v tweetech jsou klikací",
+          "Přihlášení zůstává v zařízení; jeden pomocník obslouží víc lidí, každého s jeho účtem",
+          "Angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Needs a helper server: in Settings set the server address (for samcejko's public one, https://chirpie.samcejko.eu), then log in",
+          "Log in with cookies from a desktop browser on x.com (auth_token and ct0) - the safer way - or with your username and password. The password is sent once to the helper to fetch the login cookies and is never stored or logged, on the device or the server; only the cookies are kept, on the device. Cookies are the safer option",
+          "This uses X's web API the unofficial way; heavy automated use can get an account rate-limited or locked. Use your own account and expect occasional limits"
+        ],
+        "cs": [
+          "Potřebuje pomocný server: v Nastavení zadej adresu serveru (veřejný od samcejko je https://chirpie.samcejko.eu) a přihlas se",
+          "Přihlas se cookies z prohlížeče na počítači na x.com (auth_token a ct0) - bezpečnější způsob - nebo uživatelským jménem a heslem. Heslo jde jednou na pomocníka pro získání přihlašovacích cookies a nikdy se neukládá ani neloguje, v zařízení ani na serveru; drží se jen cookies, v zařízení. Cookies jsou bezpečnější volba",
+          "Používá webové API X neoficiální cestou; při větším automatickém provozu může být účet omezen nebo zablokován. Používej vlastní účet a počítej s občasnými limity"
+        ]
+      },
+      "changes": {
+        "en": [
+          "First release",
+          "The iOS 6 package is offered on iOS 6.x only (64-bit devices with iOS 15 and newer use the arm64 package)"
+        ],
+        "cs": [
+          "První vydání",
           "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
         ]
       }
