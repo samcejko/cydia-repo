@@ -16,16 +16,16 @@
       "cs": "Aplikace samcejko pro iOS 6"
     },
     "intro": {
-      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): a web browser for today's websites, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, game streaming from your own PC, Minecraft: Java Edition, an AI chat, a code editor and the original Vine app brought back with diVine's videos. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. English and Czech, most of them open source.",
-      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): webový prohlížeč pro dnešní weby, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, streamování her z vlastního počítače, Minecraft: Java Edition, AI chat, editor kódu a původní aplikaci Vine oživenou videi z diVine. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Anglicky a česky, většina z nich open source."
+      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): a web browser for today's websites, Twitch, YouTube, TikTok, Spotify, YouTube Music with your Apple Music library, Kick, GeForce NOW, game streaming from your own PC, Minecraft: Java Edition, an AI chat, a code editor and the original Vine app brought back with diVine's videos. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. English and Czech, most of them open source.",
+      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): webový prohlížeč pro dnešní weby, Twitch, YouTube, TikTok, Spotify, YouTube Music s tvou knihovnou Apple Music, Kick, GeForce NOW, streamování her z vlastního počítače, Minecraft: Java Edition, AI chat, editor kódu a původní aplikaci Vine oživenou videi z diVine. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Anglicky a česky, většina z nich open source."
     },
     "about": {
       "en": "Everything here is free and stays free. If an app is useful to you, you can support the development with a coffee; it also helps keep the server behind some of the apps running. The 32-bit packages are made and tested for iOS 6 and are offered on iOS 6.x only; iOS 7 to 14 are not supported. They install into /Applications: do not keep an app's IPA from GitHub installed at the same time as its package from here. Most apps also come as arm64 packages for 64-bit devices with iOS 15 and newer and a rootless jailbreak (Sileo, Zebra; they install into /var/jb/Applications), with the same iOS 6 look.",
       "cs": "Všechno tady je zdarma a zdarma zůstane. Pokud ti některá aplikace pomáhá, můžeš vývoj podpořit kafem; pomůže to i udržet v běhu server, na kterém část aplikací stojí. 32bitové balíčky jsou dělané a testované pro iOS 6 a nabízejí se jen na iOS 6.x; iOS 7 až 14 podporované nejsou. Instalují se do /Applications: neměj zároveň nainstalované IPA aplikace z GitHubu a její balíček odsud. Většina aplikací je i jako balíček arm64 pro 64bitová zařízení s iOS 15 a novějším a rootless jailbreakem (Sileo, Zebra; instalují se do /var/jb/Applications), se stejným vzhledem iOS 6."
     },
     "footer": {
-      "en": "Unofficial apps by samcejko, not affiliated with or endorsed by Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter, Vine, X, diVine or the Moonlight, Sunshine and Apollo projects.",
-      "cs": "Neoficiální aplikace od samcejko, bez vazby na Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter, Vine, X, diVine ani projekty Moonlight, Sunshine a Apollo."
+      "en": "Unofficial apps by samcejko, not affiliated with or endorsed by Twitch, Google, Apple, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter, Vine, X, diVine or the Moonlight, Sunshine and Apollo projects.",
+      "cs": "Neoficiální aplikace od samcejko, bez vazby na Twitch, Google, Apple, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter, Vine, X, diVine ani projekty Moonlight, Sunshine a Apollo."
     }
   },
   "order": [
@@ -34,6 +34,7 @@
     "com.samcejko.tubie",
     "com.samcejko.tikie",
     "com.samcejko.spot6",
+    "com.samcejko.muzika",
     "com.samcejko.kicker",
     "com.samcejko.gfn6",
     "com.samcejko.artlight",
@@ -296,7 +297,7 @@
           "Home with recently played, your top artists and songs, your playlists, new releases",
           "Search as you type: songs, artists, albums, playlists, podcasts; browse categories",
           "Your library: Liked Songs, playlists (create, add, remove), saved albums, followed artists, podcasts",
-          "Playback up to 320 kbit/s, gapless, normalized volume, queue, shuffle, repeat, song radio, autoplay",
+          "Playback up to 320 kbit/s, gapless, normalized volume, crossfade, data saver, an editable queue kept between launches, shuffle, repeat, song radio, autoplay, sleep timer",
           "Now playing with big artwork and synced lyrics; lock screen and headphone remote; music in the background",
           "Spotify Connect: hand the music over from your phone and control it from there",
           "iPad sidebar and player bar, iPhone tabs; English and Czech"
@@ -305,7 +306,7 @@
           "Domů s nedávno přehrávaným, tvými top umělci a skladbami, playlisty, novinkami",
           "Hledání během psaní: skladby, umělci, alba, playlisty, podcasty; procházení kategorií",
           "Knihovna: oblíbené skladby, playlisty (vytvořit, přidat, odebrat), uložená alba, sledovaní umělci, podcasty",
-          "Přehrávání až 320 kbit/s, bez mezer, normalizovaná hlasitost, fronta, náhodně, opakování, rádio skladby, autoplay",
+          "Přehrávání až 320 kbit/s, bez mezer, normalizovaná hlasitost, prolínání, úspora dat, upravitelná fronta zachovaná po zavření, náhodně, opakování, rádio skladby, autoplay, časovač spánku",
           "Právě hraje s velkým obalem a synchronizovaným textem; zamčená obrazovka a ovladač na sluchátkách; hudba na pozadí",
           "Spotify Connect: předej hudbu z telefonu a ovládej ji odtud",
           "Postranní panel a lišta přehrávače na iPadu, karty na iPhonu; angličtina a čeština"
@@ -323,14 +324,64 @@
       },
       "changes": {
         "en": [
-          "Links in playlist and podcast descriptions open with a tap; links to YouTube, Twitch, Kick and TikTok offer the sister app when it is installed",
-          "On iOS 6 other links offer Safari or Surfari; newer iOS opens Safari at once",
-          "The iOS 6 package is offered on iOS 6.x only (64-bit devices with iOS 15 and newer use the arm64 package)"
+          "Sleep timer (the moon in Now Playing): the music stops after 5 to 90 minutes or at the end of the song",
+          "Crossfade (3 to 12 s) and a data saver (Normal quality on mobile data) in Settings; the queue can be edited (move, remove) and is kept between launches",
+          "Lyrics keep the sung line in view (it was half cut off at the top on 3.5\" iPhones); the Home greeting sits in its place on newer iOS"
         ],
         "cs": [
-          "Odkazy v popiscích playlistů a podcastů se otevřou klepnutím; odkazy na YouTube, Twitch, Kick a TikTok nabídnou sesterskou appku, pokud je nainstalovaná",
-          "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
-          "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
+          "Časovač spánku (měsíc v přehrávači): hudba skončí za 5 až 90 minut nebo na konci skladby",
+          "Prolínání (3 až 12 s) a úspora dat (normální kvalita na mobilních datech) v Nastavení; frontu jde upravovat (přesouvat, mazat) a zůstává i po zavření aplikace",
+          "Text písně drží zpívaný řádek na očích (na 3,5\" iPhonech byl nahoře napůl uříznutý); pozdrav na Domů sedí na novějších iOS na svém místě"
+        ]
+      }
+    },
+    "com.samcejko.muzika": {
+      "name": "Muzika",
+      "github": "",
+      "tagline": {
+        "en": "YouTube Music with your Apple Music library, lyrics and downloads",
+        "cs": "YouTube Music s tvou knihovnou Apple Music, texty a stahováním"
+      },
+      "about": {
+        "en": "An unofficial YouTube Music client in the look of the iOS 6 years: dark textured panels, glossy black bars, YouTube red. No account is needed: the music comes straight from YouTube to the device. Connect your Apple Music library and its playlists, songs, albums and artists play from YouTube Music, every song found by its ISRC code. Spotify and YouTube playlists come in by their link.",
+        "cs": "Neoficiální klient YouTube Music ve vzhledu iOS 6: tmavé texturované panely, lesklé černé lišty, červená YouTube. Žádný účet není potřeba: hudba jde z YouTube rovnou do zařízení. Připoj knihovnu Apple Music a její playlisty, skladby, alba a interpreti hrají z YouTube Music, každá skladba nalezená podle kódu ISRC. Playlisty ze Spotify a YouTube přidáš odkazem."
+      },
+      "features": {
+        "en": [
+          "Home, Explore with moods, genres and charts, Apple Music charts, search with suggestions; album, artist and playlist pages",
+          "Endless song radio, gapless playback, the same loudness for every song, crossfade, sleep timer, data saver on mobile data",
+          "Synced lyrics (tap a line to jump there); an editable queue kept between launches",
+          "Downloads: songs, albums and playlists play without the internet",
+          "Your own playlists, plus playlists imported from Apple Music, Spotify and YouTube links",
+          "Apple Music: your library plays from YouTube Music, add songs to your Apple playlists, likes go to Apple Music's love",
+          "iPad sidebar with Up next or lyrics beside the content in landscape, iPhone tabs; English and Czech"
+        ],
+        "cs": [
+          "Domů, Objevovat s náladami, žánry a žebříčky, žebříčky Apple Music, hledání s návrhy; stránky alb, interpretů a playlistů",
+          "Nekonečné rádio skladby, přehrávání bez mezer, stejná hlasitost všech skladeb, prolínání, časovač spánku, úspora dat",
+          "Synchronizované texty (klepnutím na řádek skočíš na to místo); upravitelná fronta zachovaná po zavření",
+          "Stahování: skladby, alba a playlisty hrají bez internetu",
+          "Vlastní playlisty a playlisty importované z odkazů Apple Music, Spotify a YouTube",
+          "Apple Music: tvoje knihovna hraje z YouTube Music, přidávání skladeb do playlistů Apple, lajky jdou do Apple Music",
+          "Postranní panel na iPadu a na šířku Další nebo text vedle obsahu, karty na iPhonu; angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "No account needed for YouTube Music; Apple Music needs your own subscription",
+          "Not affiliated with Google, YouTube or Apple"
+        ],
+        "cs": [
+          "YouTube Music nepotřebuje účet; Apple Music potřebuje tvoje vlastní předplatné",
+          "Bez vazby na Google, YouTube ani Apple"
+        ]
+      },
+      "changes": {
+        "en": [
+          "The first version"
+        ],
+        "cs": [
+          "První verze"
         ]
       }
     },
