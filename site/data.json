@@ -96,10 +96,16 @@
       },
       "changes": {
         "en": [
-          "Log in with cookies: on sites whose login needs a CAPTCHA this engine cannot run (Cloudflare Turnstile and the like), log in to the site in another browser and paste its cookies - long press Reload, then \"Log in with cookies\""
+          "Log in with cookies (long press Reload) keeps the cookies for the page's own site, a leading www. dropped - no longer for the last two labels of its name, which for sites under co.uk, github.io and the like would have sent them to every site there",
+          "Cookies of the same name that the site had set before are replaced, and if the import does not take, everything is put back as it was",
+          "The clipboard is read only with the Paste button above the keyboard; more paste formats are understood (document.cookie in quotes, Set-Cookie lines, request headers, Copy as cURL, JSON exports, cookie tables, cookies.txt), and of a file with many sites only this site's cookies are taken",
+          "Logged-out pages from the cache are no longer shown after the login; on an iPhone the text box stays above the keyboard"
         ],
         "cs": [
-          "Přihlášení přes cookies: na webech, jejichž přihlášení vyžaduje CAPTCHA, kterou tento engine neumí zobrazit (Cloudflare Turnstile apod.), se přihlas v jiném prohlížeči a vlož cookies webu - podrž Načíst znovu a zvol „Přihlásit přes cookies“"
+          "Přihlášení přes cookies (podrž Načíst znovu) je ukládá jen pro web dané stránky, bez úvodního www. - už ne pro poslední dvě části názvu, které by u webů pod co.uk, github.io apod. poslaly cookies všem webům tam",
+          "Cookies stejného jména, které web nastavil dřív, se nahradí, a když se import nepovede, všechno se vrátí, jak bylo",
+          "Schránka se čte jen tlačítkem Vložit nad klávesnicí; rozumí víc formátům (document.cookie v uvozovkách, řádky Set-Cookie, hlavičky požadavku, Copy as cURL, exporty v JSON, tabulky cookies, cookies.txt) a ze souboru s víc weby vezme jen cookies tohoto webu",
+          "Odhlášené stránky z cache se po přihlášení už neukazují; na iPhonu zůstane textové pole nad klávesnicí"
         ]
       }
     },
