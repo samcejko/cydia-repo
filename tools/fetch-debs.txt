@@ -2,3 +2,4 @@
 # (the file name as the repository keeps it, <package>_<version>_<architecture>.deb; the SHA-256 from the release's
 # SHA256SUMS). Lines starting with # are comments.
 com.samcejko.browser_1.1.1_iphoneos-arm.deb https://github.com/samcejko/browser-ios6/releases/download/v1.1.1/Surfari-1.1.1.deb ee3251aefb3c2bd2ff029ef5d2449edb77fde62c7126748d6b33478cd3a72fb7
+com.samcejko.revine_0.1.0_iphoneos-arm.deb https://github.com/samcejko/vine-ios6/releases/download/v0.1.0/com.samcejko.revine_0.1.0_iphoneos-arm.deb 00dfe134f04b0f0c74e642cceb24363e764774ea133851bc6dab523734df84d2

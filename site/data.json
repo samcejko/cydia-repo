@@ -16,16 +16,16 @@
       "cs": "Aplikace samcejko pro iOS 6"
     },
     "intro": {
-      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): a web browser for today's websites, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, game streaming from your own PC, Minecraft: Java Edition, an AI chat and a code editor. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. English and Czech, most of them open source.",
-      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): webový prohlížeč pro dnešní weby, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, streamování her z vlastního počítače, Minecraft: Java Edition, AI chat a editor kódu. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Anglicky a česky, většina z nich open source."
+      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): a web browser for today's websites, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, game streaming from your own PC, Minecraft: Java Edition, an AI chat, a code editor and the original Vine app brought back with diVine's videos. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. English and Czech, most of them open source.",
+      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): webový prohlížeč pro dnešní weby, Twitch, YouTube, TikTok, Spotify, Kick, GeForce NOW, streamování her z vlastního počítače, Minecraft: Java Edition, AI chat, editor kódu a původní aplikaci Vine oživenou videi z diVine. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Anglicky a česky, většina z nich open source."
     },
     "about": {
       "en": "Everything here is free and stays free. If an app is useful to you, you can support the development with a coffee; it also helps keep the server behind some of the apps running. The 32-bit packages are made and tested for iOS 6 and are offered on iOS 6.x only; iOS 7 to 14 are not supported. They install into /Applications: do not keep an app's IPA from GitHub installed at the same time as its package from here. Most apps also come as arm64 packages for 64-bit devices with iOS 15 and newer and a rootless jailbreak (Sileo, Zebra; they install into /var/jb/Applications), with the same iOS 6 look.",
       "cs": "Všechno tady je zdarma a zdarma zůstane. Pokud ti některá aplikace pomáhá, můžeš vývoj podpořit kafem; pomůže to i udržet v běhu server, na kterém část aplikací stojí. 32bitové balíčky jsou dělané a testované pro iOS 6 a nabízejí se jen na iOS 6.x; iOS 7 až 14 podporované nejsou. Instalují se do /Applications: neměj zároveň nainstalované IPA aplikace z GitHubu a její balíček odsud. Většina aplikací je i jako balíček arm64 pro 64bitová zařízení s iOS 15 a novějším a rootless jailbreakem (Sileo, Zebra; instalují se do /var/jb/Applications), se stejným vzhledem iOS 6."
     },
     "footer": {
-      "en": "Unofficial apps by samcejko, not affiliated with or endorsed by Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter or the Moonlight, Sunshine and Apollo projects.",
-      "cs": "Neoficiální aplikace od samcejko, bez vazby na Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter ani projekty Moonlight, Sunshine a Apollo."
+      "en": "Unofficial apps by samcejko, not affiliated with or endorsed by Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter, Vine, X, diVine or the Moonlight, Sunshine and Apollo projects.",
+      "cs": "Neoficiální aplikace od samcejko, bez vazby na Twitch, Google, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter, Vine, X, diVine ani projekty Moonlight, Sunshine a Apollo."
     }
   },
   "order": [
@@ -41,7 +41,8 @@
     "com.samcejko.aichat",
     "com.samcejko.kodium",
     "com.samcejko.kodium-shell",
-    "com.samcejko.nasa"
+    "com.samcejko.nasa",
+    "com.samcejko.revine"
   ],
   "packages": {
     "com.samcejko.browser": {
@@ -702,6 +703,64 @@
         ],
         "cs": [
           "3.12-1: aplikace z roku 2013 přesměrovaná na náhradní server"
+        ]
+      }
+    },
+    "com.samcejko.revine": {
+      "name": "Revine",
+      "github": "https://github.com/samcejko/vine-ios6",
+      "depends": "mobilesubstrate, firmware (>= 6.0), firmware (<< 7.0)",
+      "requires": {
+        "en": "iOS 6.x, armv7; Vine 2.5.1 installed by you",
+        "cs": "iOS 6.x, armv7; Vine 2.5.1 si nainstaluješ sám"
+      },
+      "shots_portrait": true,
+      "tagline": {
+        "en": "The original Vine app works again, with diVine's classic and new loops",
+        "cs": "Původní aplikace Vine zase funguje, s klasickými i novými smyčkami z diVine"
+      },
+      "about": {
+        "en": "A tweak for the original Vine app (version 2.5.1). Vine's servers have been gone since 2017, so the app opens to nothing. Revine answers everything the app asks its old servers for with the content of diVine, the Vine reboot: the archive of classic Vines with their original loop counts, and new six-second loops. Nothing in Vine is changed: the tweak sits inside the app, turns diVine's public API into the answers Vine expects and carries its own TLS stack, because diVine's servers only accept today's ciphers.",
+        "cs": "Tweak pro původní aplikaci Vine (verze 2.5.1). Servery Vine jsou od roku 2017 pryč, takže aplikace ukáže jen prázdno. Revine odpovídá na všechno, na co se aplikace ptá svých starých serverů, obsahem z diVine, nového Vine: archivem klasických Vinů s jejich původními počty smyček a novými šestivteřinovými smyčkami. Ve Vine se nic nemění: tweak běží uvnitř aplikace, překládá veřejné API diVine na odpovědi, které Vine čeká, a nese vlastní TLS vrstvu, protože servery diVine berou jen dnešní šifry."
+      },
+      "features": {
+        "en": [
+          "Home: the most loved classic Vines with their original loops, likes and comment counts",
+          "Popular now, channels (Classic Vines, New on diVine, comedy, animals, music, dance...) and trending hashtags in Explore",
+          "Profiles in their original Vine colours, a user's posts, followers and following",
+          "Comments, likes and revines lists, people and tag search",
+          "Videos download and loop as they used to; archived Vines whose video is missing on diVine are left out",
+          "Sign in with any e-mail and password: you become a guest, no account needed"
+        ],
+        "cs": [
+          "Domů: nejoblíbenější klasické Viny s jejich původními smyčkami, lajky a počty komentářů",
+          "Teď populární, kanály (Klasické Viny, Nové na diVine, komedie, zvířata, hudba, tanec...) a populární hashtagy v Explore",
+          "Profily v původních barvách Vine, příspěvky uživatele, sledující a sledovaní",
+          "Komentáře, seznamy lajků a revinů, hledání lidí a tagů",
+          "Videa se stahují a smyčkují jako dřív; archivní Viny, jejichž video na diVine chybí, se vynechají",
+          "Přihlášení libovolným e-mailem a heslem: jsi host, účet není potřeba"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Vine 2.5.1 is not included: install its IPA yourself (AppSync Unified and ipainstaller)",
+          "Viewing only: liking, commenting, following, revining and posting need a diVine account, which Vine cannot sign in to yet; Revine says so when you try",
+          "Removes the VineRedirect tweak if you have it: it rewrites Vine's addresses and breaks every feed",
+          "Tested on an iPad 2 with iOS 6.1.3. Not affiliated with Vine, X (Twitter) or diVine"
+        ],
+        "cs": [
+          "Vine 2.5.1 není součástí: jeho IPA si nainstaluj sám (AppSync Unified a ipainstaller)",
+          "Jen prohlížení: lajky, komentáře, sledování, reviny a přidávání videí potřebují účet na diVine, ke kterému se Vine zatím přihlásit neumí; Revine to při pokusu řekne",
+          "Odebere tweak VineRedirect, pokud ho máš: ten přepisuje adresy Vine a rozbije všechny feedy",
+          "Testováno na iPadu 2 s iOS 6.1.3. Bez vazby na Vine, X (Twitter) nebo diVine"
+        ]
+      },
+      "changes": {
+        "en": [
+          "0.1.0, the first version"
+        ],
+        "cs": [
+          "0.1.0, první verze"
         ]
       }
     },
