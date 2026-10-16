@@ -14,10 +14,13 @@ Paths (with or without the /feedback/api prefix):
                  stay empty). Answers with an HTML page in the form's language, or JSON for an "Accept: application/json"
                  or JSON request.
   GET  /list?token=<token>[&format=json]   the stored reports, newest first (HTML), or the raw JSON file
+  POST /delete   token + id: removes a report from feedback.json (it is kept in deleted.jsonl); the list page has a
+                 "Smazat" button per report; answers with a redirect to the list, or JSON for a JSON client
   GET  /health   {"ok": true, "count": N}
 
 Files in --data: feedback.json (all reports, an array of objects, rewritten atomically), feedback.jsonl (one line
-appended per report, a safety copy), token (the secret of /list, created at the first start, mode 600).
+appended per report, a safety copy; report numbers are never reused, even after a delete), deleted.jsonl (the
+removed reports), token (the secret of /list and /delete, created at the first start, mode 600).
 """
 import argparse
 import html
@@ -97,8 +100,30 @@ class Store:
         os.makedirs(data_dir, exist_ok=True)
         self.path = os.path.join(data_dir, "feedback.json")
         self.log_path = os.path.join(data_dir, "feedback.jsonl")
+        self.deleted_path = os.path.join(data_dir, "deleted.jsonl")
         self.lock_path = os.path.join(data_dir, ".lock")
         self.lock = threading.Lock()
+
+    def _max_id(self, data):
+        """The highest number ever given: a deleted report's number must not be given to the next one."""
+        ids = [e.get("id", 0) for e in data if isinstance(e.get("id"), int)]
+        if os.path.exists(self.log_path):
+            with open(self.log_path, encoding="utf-8") as f:
+                for line in f:
+                    try:
+                        rid = json.loads(line).get("id")
+                    except Exception:
+                        continue
+                    if isinstance(rid, int):
+                        ids.append(rid)
+        return max(ids + [0])
+
+    def _write(self, data):
+        tmp = self.path + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=1)
+            f.write("\n")
+        os.replace(tmp, self.path)
 
     def _locked(self):
         return _FileLock(self.lock_path) if fcntl else _NoLock()
@@ -115,16 +140,26 @@ class Store:
     def add(self, entry):
         with self.lock, self._locked():
             data = self.load()
-            entry["id"] = max([e.get("id", 0) for e in data if isinstance(e.get("id"), int)] + [0]) + 1
+            entry["id"] = self._max_id(data) + 1
             data.append(entry)
-            tmp = self.path + ".tmp"
-            with open(tmp, "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False, indent=1)
-                f.write("\n")
-            os.replace(tmp, self.path)
+            self._write(data)
             with open(self.log_path, "a", encoding="utf-8") as f:
                 f.write(json.dumps(entry, ensure_ascii=False) + "\n")
             return entry["id"]
+
+    def remove(self, rid):
+        """Takes report rid out of feedback.json (into deleted.jsonl); False when there is no such report."""
+        with self.lock, self._locked():
+            data = self.load()
+            gone = [e for e in data if e.get("id") == rid]
+            if not gone:
+                return False
+            self._write([e for e in data if e.get("id") != rid])
+            with open(self.deleted_path, "a", encoding="utf-8") as f:
+                for e in gone:
+                    e = dict(e, deleted=datetime.now().astimezone().isoformat(timespec="seconds"))
+                    f.write(json.dumps(e, ensure_ascii=False) + "\n")
+            return True
 
     def count(self):
         with self.lock:
@@ -208,14 +243,15 @@ class Names:
         return self.names.get(pkg, "")
 
 
-def page(lang, title, body, css="../../style.css", icon="../../CydiaIcon.png"):
+def page(lang, title, body, css="../../style.css", icon="../../CydiaIcon.png", extra_css=""):
     """A page in the repository's look (the form posts to /feedback/api/submit, so ../../ is the repository root)."""
     s = STRINGS[lang]
+    style = ("<style>\n%s\n</style>\n" % extra_css) if extra_css else ""
     return ("<!DOCTYPE html>\n<html lang=\"%s\">\n<head>\n<meta charset=\"utf-8\">\n"
             "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\n"
-            "<title>%s</title>\n<link rel=\"stylesheet\" href=\"%s\">\n</head>\n<body>\n"
+            "<title>%s</title>\n<link rel=\"stylesheet\" href=\"%s\">\n%s</head>\n<body>\n"
             "<div class=\"hdr\"><img class=\"appicon\" src=\"%s\" alt=\"\"><div class=\"hdrt\"><h1>%s</h1><p>%s</p></div></div>\n"
-            "%s\n</body>\n</html>\n") % (lang, esc(title), esc(css), esc(icon), esc(title), esc(s["feedback"]), body)
+            "%s\n</body>\n</html>\n") % (lang, esc(title), esc(css), style, esc(icon), esc(title), esc(s["feedback"]), body)
 
 
 def index_href(lang):
@@ -274,11 +310,18 @@ def list_page(entries, token):
             box.append("<p class=\"meta\">%s</p>" % esc(who))
         if e.get("ua"):
             box.append("<p class=\"meta\">%s</p>" % esc(e["ua"]))
+        if isinstance(e.get("id"), int):
+            box.append("<form class=\"del\" method=\"post\" action=\"delete\" onsubmit=\"return confirm('Smazat hlášení #%d?')\">"
+                       "<input type=\"hidden\" name=\"token\" value=\"%s\"><input type=\"hidden\" name=\"id\" value=\"%d\">"
+                       "<button type=\"submit\" class=\"button alt\">Smazat #%d</button></form>" % (e["id"], esc(token), e["id"], e["id"]))
         box.append("</div>")
         parts.append("\n".join(box))
     body = ("<div class=\"box\"><p>%d hlášení · <a href=\"list?token=%s&amp;format=json\">feedback.json</a></p></div>\n%s"
             % (len(entries), esc(urllib.parse.quote(token, safe="")), "\n".join(parts) if parts else ""))
-    return page("cs", "Feedback (%d)" % len(entries), body)
+    css = ("form.del { margin: 0; padding: 2px 12px 10px; text-align: right; }\n"
+           "form.del .button { display: inline-block; width: auto; margin: 0; padding: 6px 14px; font-size: 14px;"
+           " font-family: inherit; -webkit-appearance: none; cursor: pointer; }")
+    return page("cs", "Feedback (%d)" % len(entries), body, extra_css=css)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -367,6 +410,8 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         path, _ = self.route()
+        if path == "/delete":
+            return self.delete()
         if path != "/submit":
             return self.reply(404, "not found\n", "text/plain; charset=utf-8")
         lang = "cs" if (self.headers.get("Accept-Language") or "").lower().startswith("cs") else "en"
@@ -411,6 +456,34 @@ class Handler(BaseHTTPRequestHandler):
         self.server.note_recent(key)
         self.log_message("stored #%d %s %s %s", rid, entry["type"], entry["app"] or entry["app_other"], entry["device"] or "")
         return self.ok(lang, rid, wants_json)
+
+    def delete(self):
+        """The list page's "Smazat" button: token + id; back to the list afterwards."""
+        try:
+            fields, wants_json = self.read_form()
+        except Exception as e:
+            self.log_message("bad delete request: %s", e)
+            return self.reply(400, "bad request\n", "text/plain; charset=utf-8")
+        token = clean(fields.get("token"), 200)
+        if not token or not hmac.compare_digest(token.encode("utf-8"), self.server.token.encode("utf-8")):
+            return self.reply(403, "forbidden\n", "text/plain; charset=utf-8")
+        try:
+            rid = int(clean(fields.get("id"), 12))
+        except ValueError:
+            return self.reply(400, "bad id\n", "text/plain; charset=utf-8")
+        try:
+            removed = self.server.store.remove(rid)
+        except Exception as e:
+            print("cannot delete a report: %s" % e, file=sys.stderr)
+            return self.reply(500, "cannot delete: %s\n" % e, "text/plain; charset=utf-8")
+        self.log_message("deleted #%d: %s", rid, "ok" if removed else "no such report")
+        if wants_json:
+            return self.reply_json(200 if removed else 404, {"ok": removed, "id": rid})
+        self.send_response(303)
+        self.send_header("Location", "list?token=" + urllib.parse.quote(token, safe=""))
+        self.send_header("Content-Length", "0")
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
 
     def ok(self, lang, rid, wants_json):
         if wants_json:
@@ -535,6 +608,26 @@ def selftest():
             check(len(json.load(f)) == 2, "feedback.json")
         with open(os.path.join(tmp, "feedback.jsonl"), encoding="utf-8") as f:
             check(len(f.read().strip().split("\n")) == 2, "feedback.jsonl")
+
+        # delete: refused without the token; with it the report goes to deleted.jsonl, the list redirects back,
+        # and the next report gets a fresh number
+        tok = urllib.parse.quote(srv.token, safe="")
+        status, text, _ = call("/delete", urllib.parse.urlencode({"token": "wrong", "id": "2"}).encode("utf-8"), form)
+        check(status == 403, "delete with a wrong token: %s" % status)
+        status, text, _ = call("/delete", urllib.parse.urlencode({"token": srv.token, "id": "2"}).encode("utf-8"), form)
+        check(status == 200 and "#2 ·" not in text and "#1 ·" in text and "Smazat #1" in text, "delete + list: %s %s" % (status, text[:300]))
+        status, text, _ = call("/delete", urllib.parse.urlencode({"token": srv.token, "id": "2"}).encode("utf-8"), dict(form, Accept="application/json"))
+        check(status == 404 and json.loads(text) == {"ok": False, "id": 2}, "delete twice: %s %s" % (status, text[:200]))
+        with open(os.path.join(tmp, "deleted.jsonl"), encoding="utf-8") as f:
+            gone = [json.loads(l) for l in f.read().strip().split("\n")]
+        check(len(gone) == 1 and gone[0]["id"] == 2 and gone[0]["app_other"] == "Reddit" and gone[0].get("deleted"), "deleted.jsonl: %r" % gone)
+        status, text, _ = call("/health")
+        check(json.loads(text)["count"] == 1, "health after delete: %s" % text)
+        body = json.dumps({"lang": "en", "type": "idea", "app": "com.samcejko.tubie", "text": "After a delete the number must be new"}).encode("utf-8")
+        status, text, _ = call("/submit", body, {"Content-Type": "application/json", "CF-Connecting-IP": "203.0.113.7"})
+        check(status == 200 and json.loads(text) == {"ok": True, "id": 3}, "id after delete: %s %s" % (status, text[:200]))
+        status, text, _ = call("/list?token=%s&format=json" % tok)
+        check([e["id"] for e in json.loads(text)] == [1, 3], "list after delete: %s" % text[:200])
 
         limited = RateLimit(min_gap=0, per_hour=2, per_day=3)
         check(limited.check("a") and limited.check("a") and not limited.check("a"), "rate per hour")

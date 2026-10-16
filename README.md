@@ -27,8 +27,10 @@ of the same version (`"ipa"` in data.json is the IPA's base name).
   `repo-feedback.service`, user samuel) that stores every report in `/home/samuel/feedback/data/feedback.json` (an
   array; `feedback.jsonl` is an append-only copy) and answers with a thank-you page. The reports can be read at
   `https://repo.samcejko.eu/feedback/api/list?token=…` (`&format=json` for the raw file); the token is in
-  `/home/samuel/feedback/data/token`, created at the first start. Limits: a honeypot field, 15 s between reports and
-  10 per hour from one address. `python3 feedback/feedback_server.py --selftest` exercises it on a free port.
+  `/home/samuel/feedback/data/token`, created at the first start. Each report on that page has a "Smazat" button
+  (`POST feedback/api/delete` with token + id): the report leaves `feedback.json` for `deleted.jsonl`, and its number
+  is never given out again. Limits: a honeypot field, 15 s between reports and 10 per hour from one address.
+  `python3 feedback/feedback_server.py --selftest` exercises it on a free port.
 - `tools/pi-update.sh` updates the Pi from GitHub without the LAN (run in the browser SSH): it fetches the debs of
   `tools/fetch-debs.txt`, rebuilds the repository (dry run first), then installs or updates the feedback service and
   `nginx/repo.conf` when they changed.
