@@ -46,7 +46,8 @@
     "com.samcejko.kodium-shell",
     "com.samcejko.nasa",
     "com.samcejko.revine",
-    "com.samcejko.backcap"
+    "com.samcejko.backcap",
+    "com.samcejko.whatsapp6"
   ],
   "packages": {
     "com.samcejko.browser": {
@@ -1014,6 +1015,62 @@
         "cs": [
           "Nastavuje se v Nastavení → Backcap; změny se projeví hned bez respringu",
           "Testováno na iOS 6.1.3 (armv7: iPhone 4S, iPad 2 a další zařízení s iOS 6.x)"
+        ]
+      },
+      "changes": {
+        "en": [
+          "0.1.0, the first version"
+        ],
+        "cs": [
+          "0.1.0, první verze"
+        ]
+      }
+    },
+    "com.samcejko.whatsapp6": {
+      "name": "WhatsApp6",
+      "github": "",
+      "requires": {
+        "en": "iOS 6.x only, armv7",
+        "cs": "jen iOS 6.x, armv7"
+      },
+      "tagline": {
+        "en": "WhatsApp as a linked device: 1:1 voice and video calls, chats",
+        "cs": "WhatsApp jako propojené zařízení: hovory 1:1 i video, chaty"
+      },
+      "about": {
+        "en": "An unofficial WhatsApp client for iPhone and iPad in the glossy look of iOS 6. It links to your own account the way WhatsApp Web and Desktop do - you scan a QR code once from WhatsApp on your phone - and then places and receives 1:1 voice and video calls and exchanges text, group chats, media and voice messages, all from the device. Everything runs in the app: its own modern TLS 1.2, the Noise handshake, the Signal end-to-end encryption and the call media stack, so a system from 2012 talks to today's WhatsApp servers directly. No proxy and no server in the middle: your messages and keys never leave the device.",
+        "cs": "Neoficiální klient WhatsAppu pro iPhone i iPad v lesklém vzhledu iOS 6. Propojí se s tvým účtem stejně jako WhatsApp Web a Desktop - jednou naskenuješ QR kód z WhatsAppu v telefonu - a pak volá i přijímá hovory 1:1 i video a posílá text, skupinové chaty, média a hlasové zprávy, všechno ze zařízení. Běží to celé v aplikaci: vlastní moderní TLS 1.2, Noise handshake, koncové šifrování Signal a vrstva pro hovory, takže systém z roku 2012 mluví s dnešními servery WhatsAppu přímo. Bez proxy a bez serveru uprostřed: tvoje zprávy ani klíče zařízení neopustí."
+      },
+      "features": {
+        "en": [
+          "Links to your account by scanning a QR code, like WhatsApp Web / Desktop; the keys stay on the device",
+          "1:1 voice and video calls, incoming and outgoing, over the call media stack (its own WebRTC with DTLS-SRTP)",
+          "Text and group chats, media and voice messages, read and delivery receipts",
+          "Its own TLS 1.2, Noise handshake and Signal (X3DH + Double Ratchet) end-to-end encryption, all on the device",
+          "Hears the official app's MLow audio and sends Opus; two WhatsApp6 devices call each other directly",
+          "Skeuomorphic iOS 6 look, iPhone and iPad, English and Czech"
+        ],
+        "cs": [
+          "Propojení s účtem naskenováním QR kódu jako WhatsApp Web / Desktop; klíče zůstávají v zařízení",
+          "Hovory 1:1 i video, příchozí i odchozí, přes vlastní vrstvu pro hovory (vlastní WebRTC s DTLS-SRTP)",
+          "Text a skupinové chaty, média a hlasové zprávy, potvrzení o doručení a přečtení",
+          "Vlastní TLS 1.2, Noise handshake a koncové šifrování Signal (X3DH + Double Ratchet), vše v zařízení",
+          "Slyší zvuk oficiální aplikace (MLow) a posílá Opus; dvě zařízení s WhatsApp6 volají přímo mezi sebou",
+          "Skeuomorfní vzhled iOS 6, iPhone i iPad, angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Links your own WhatsApp account as a linked device. Using an unofficial client can get a WhatsApp account banned - use it at your own risk, ideally not on a number you cannot afford to lose",
+          "Not tested on a device yet and may be rough; the whole app (pairing, messages, calls) is still to be tried on hardware",
+          "Install this package (the DEB), not an IPA: calls need the microphone, camera and background VoIP that only an app in /Applications gets",
+          "Unofficial, not affiliated with WhatsApp or Meta"
+        ],
+        "cs": [
+          "Propojí tvůj vlastní účet WhatsApp jako propojené zařízení. Používání neoficiálního klienta může vést k zablokování účtu WhatsApp - používáš na vlastní riziko, ideálně ne na čísle, o které nechceš přijít",
+          "Zatím neotestováno na zařízení a může drhnout; celá aplikace (párování, zprávy, hovory) se teprve bude zkoušet na hardwaru",
+          "Instaluj tento balíček (DEB), ne IPA: hovory potřebují mikrofon, kameru a VoIP na pozadí, které dostane jen aplikace v /Applications",
+          "Neoficiální, bez vazby na WhatsApp ani Metu"
         ]
       },
       "changes": {
