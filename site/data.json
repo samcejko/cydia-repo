@@ -16,22 +16,23 @@
       "cs": "Aplikace samcejko pro iOS 6"
     },
     "intro": {
-      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): a web browser for today's websites, Twitch, YouTube, TikTok, Spotify, YouTube Music with your Apple Music library, Kick, GeForce NOW, game streaming from your own PC, Minecraft: Java Edition, an AI chat, a code editor and the original Vine app brought back with diVine's videos. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. English and Czech, most of them open source.",
-      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): webový prohlížeč pro dnešní weby, Twitch, YouTube, TikTok, Spotify, YouTube Music s tvou knihovnou Apple Music, Kick, GeForce NOW, streamování her z vlastního počítače, Minecraft: Java Edition, AI chat, editor kódu a původní aplikaci Vine oživenou videi z diVine. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Anglicky a česky, většina z nich open source."
+      "en": "Free apps for jailbroken iOS 6 devices (the iPad 2, iPad 3, iPhone 4S and iPhone 5 era): a web browser for today's websites, Twitch, YouTube, TikTok, Instagram, Spotify, YouTube Music with your Apple Music library, Kick, GeForce NOW, game streaming from your own PC, Minecraft: Java Edition, an AI chat, a code editor and the original Vine app brought back with diVine's videos. Each app carries its own modern TLS stack, so a system from 2012 talks to today's servers. English and Czech, most of them open source.",
+      "cs": "Aplikace zdarma pro iOS 6 s jailbreakem (éra iPadu 2 a 3, iPhonu 4S a 5): webový prohlížeč pro dnešní weby, Twitch, YouTube, TikTok, Instagram, Spotify, YouTube Music s tvou knihovnou Apple Music, Kick, GeForce NOW, streamování her z vlastního počítače, Minecraft: Java Edition, AI chat, editor kódu a původní aplikaci Vine oživenou videi z diVine. Každá aplikace nese vlastní moderní TLS vrstvu, takže systém z roku 2012 mluví s dnešními servery. Anglicky a česky, většina z nich open source."
     },
     "about": {
       "en": "Everything here is free and stays free. If an app is useful to you, you can support the development with a coffee; it also helps keep the server behind some of the apps running. The 32-bit packages are made and tested for iOS 6 and are offered on iOS 6.x only; iOS 7 to 14 are not supported. They install into /Applications: do not keep an app's IPA from GitHub installed at the same time as its package from here. Most apps also come as arm64 packages for 64-bit devices with iOS 15 and newer and a rootless jailbreak (Sileo, Zebra; they install into /var/jb/Applications), with the same iOS 6 look.",
       "cs": "Všechno tady je zdarma a zdarma zůstane. Pokud ti některá aplikace pomáhá, můžeš vývoj podpořit kafem; pomůže to i udržet v běhu server, na kterém část aplikací stojí. 32bitové balíčky jsou dělané a testované pro iOS 6 a nabízejí se jen na iOS 6.x; iOS 7 až 14 podporované nejsou. Instalují se do /Applications: neměj zároveň nainstalované IPA aplikace z GitHubu a její balíček odsud. Většina aplikací je i jako balíček arm64 pro 64bitová zařízení s iOS 15 a novějším a rootless jailbreakem (Sileo, Zebra; instalují se do /var/jb/Applications), se stejným vzhledem iOS 6."
     },
     "footer": {
-      "en": "Unofficial apps by samcejko, not affiliated with or endorsed by Twitch, Google, Apple, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter, Vine, X, diVine or the Moonlight, Sunshine and Apollo projects.",
-      "cs": "Neoficiální aplikace od samcejko, bez vazby na Twitch, Google, Apple, TikTok, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter, Vine, X, diVine ani projekty Moonlight, Sunshine a Apollo."
+      "en": "Unofficial apps by samcejko, not affiliated with or endorsed by Twitch, Google, Apple, TikTok, Instagram, Meta, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter, Vine, X, diVine or the Moonlight, Sunshine and Apollo projects.",
+      "cs": "Neoficiální aplikace od samcejko, bez vazby na Twitch, Google, Apple, TikTok, Instagram, Metu, Spotify, Kick, NVIDIA, Mojang, Microsoft, OpenRouter, Vine, X, diVine ani projekty Moonlight, Sunshine a Apollo."
     }
   },
   "order": [
     "com.samcejko.browser",
     "com.samcejko.twitcher",
     "com.samcejko.chirpie",
+    "com.samcejko.shutter",
     "com.samcejko.tubie",
     "com.samcejko.tikie",
     "com.samcejko.spot6",
@@ -218,6 +219,67 @@
         "cs": [
           "První vydání",
           "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
+        ]
+      }
+    },
+    "com.samcejko.shutter": {
+      "name": "Gramify",
+      "github": "",
+      "shots_portrait": true,
+      "tagline": {
+        "en": "Instagram: feed, stories, reels, profiles and Direct",
+        "cs": "Instagram: feed, příběhy, reels, profily a zprávy"
+      },
+      "about": {
+        "en": "An unofficial Instagram client for iPhone and iPad in the look of the iOS 6 years: dark linen, list rows with etched lines, glossy chat bubbles and posts as the app looked back then, every glyph drawn, no emoji. Sign in with your own account: the app talks to Instagram the way its Android app does, over its own modern TLS stack, straight from the device - no helper server.",
+        "cs": "Neoficiální klient Instagramu pro iPhone i iPad ve vzhledu iOS 6: tmavé plátno, řádky s rytými čarami, lesklé bubliny chatu a příspěvky jako v tehdejší aplikaci, každá ikonka kreslená, žádné emoji. Přihlásíš se vlastním účtem: aplikace mluví s Instagramem jako jeho aplikace pro Android, přes vlastní moderní TLS vrstvu, přímo ze zařízení - bez pomocného serveru."
+      },
+      "features": {
+        "en": [
+          "Home feed with stories (the ones seen turn grey), Explore, reels in a full-screen player, Activity with follow requests",
+          "Profiles with highlights, followers and following, follow, saved posts",
+          "Likes, comments, sending a post into a chat; @names, #hashtags and links open where they lead, the people tagged on a photo, mentions on stories",
+          "Direct: chats update on their own with a badge for unread ones, read receipts, photos from the camera or the library, voice messages, view-once photos, calls in the history, message requests",
+          "Instagram's security check can be passed in the app, with a code by e-mail or text message",
+          "iPhone and iPad, English and Czech"
+        ],
+        "cs": [
+          "Domovský feed s příběhy (zobrazené zešednou), Prozkoumat, reels v přehrávači přes celou obrazovku, Aktivita s žádostmi o sledování",
+          "Profily s highlighty, sledující a sledovaní, sledování, uložené příspěvky",
+          "Lajky, komentáře, posílání příspěvku do chatu; @jména, #hashtagy a odkazy otevřou, kam vedou, označení lidé na fotkách, zmínky v příbězích",
+          "Zprávy: chaty se obnovují samy a nepřečtené ukazuje odznak, potvrzení přečtení, fotky z foťáku i galerie, hlasové zprávy, fotky na jedno zobrazení, hovory v historii, žádosti o zprávy",
+          "Bezpečnostní kontrolu Instagramu projdeš přímo v aplikaci, kódem z e-mailu nebo SMS",
+          "iPhone i iPad, angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Sign in with your own Instagram account; the password goes only to Instagram, encrypted the way its app does it, and is never stored",
+          "Instagram may slow down or restrict an account used from an unofficial client - use it at your own risk",
+          "Calls are not possible: Instagram's calling is a closed system",
+          "Not affiliated with Instagram or Meta"
+        ],
+        "cs": [
+          "Přihlásíš se vlastním účtem Instagramu; heslo jde jen na Instagram, zašifrované jako v jeho aplikaci, a nikde se neukládá",
+          "Instagram může účet používaný z neoficiálního klienta zpomalit nebo omezit - používáš na vlastní riziko",
+          "Hovory nejdou: volání Instagramu je uzavřený systém",
+          "Bez vazby na Instagram ani Metu"
+        ]
+      },
+      "changes": {
+        "en": [
+          "The first version in the repository",
+          "Direct: chats and the list update on their own, a badge for unread chats, read receipts both ways",
+          "Photos and voice messages are sent again (Instagram's new upload); view-once photos from the chat camera open with a tap",
+          "Highlights on profiles, calls in a chat's history, follow and message requests",
+          "Reels: a back button for the creator's profile, the comments and the post"
+        ],
+        "cs": [
+          "První verze v repozitáři",
+          "Zprávy: chaty i seznam se obnovují samy, odznak nepřečtených chatů, potvrzení přečtení oběma směry",
+          "Fotky a hlasové zprávy se zase posílají (nové nahrávání Instagramu); fotky na jedno zobrazení z foťáku chatu se otevřou klepnutím",
+          "Highlighty na profilech, hovory v historii chatu, žádosti o sledování a o zprávy",
+          "Reels: tlačítko zpět z profilu autora, komentářů i příspěvku"
         ]
       }
     },
