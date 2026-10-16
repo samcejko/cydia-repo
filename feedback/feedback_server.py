@@ -39,7 +39,7 @@ except ImportError:  # not Linux: the thread lock alone
 
 TYPES = ("bug", "idea", "newapp", "other")
 MAX_BODY = 64 * 1024
-LIMITS = {"text": 6000, "proposal": 6000, "app_other": 200, "device_other": 120, "ios": 40, "app_version": 40,
+LIMITS = {"type": 10, "text": 6000, "proposal": 6000, "app_other": 200, "device_other": 120, "ios": 40, "app_version": 40,
           "name": 120, "contact": 200, "app": 120, "device": 60, "installed_via": 30, "lang": 5}
 
 STRINGS = {
