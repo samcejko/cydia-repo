@@ -240,7 +240,7 @@
           "Home feed with stories (the ones seen turn grey), Explore, reels in a full-screen player, Activity with follow requests",
           "Profiles with highlights, followers and following, follow, saved posts",
           "Likes, comments, sending a post into a chat; @names, #hashtags and links open where they lead, the people tagged on a photo, mentions on stories",
-          "Direct: chats update on their own with a badge for unread ones, read receipts, photos from the camera or the library, voice messages, view-once photos, calls in the history, message requests",
+          "Direct over Instagram's live connection: messages arrive at once, typing, a badge for unread chats, read receipts, photos from the camera or the library, voice messages, view-once photos, calls in the history, message requests",
           "Instagram's security check can be passed in the app, with a code by e-mail or text message",
           "iPhone and iPad, English and Czech"
         ],
@@ -248,7 +248,7 @@
           "Domovský feed s příběhy (zobrazené zešednou), Prozkoumat, reels v přehrávači přes celou obrazovku, Aktivita s žádostmi o sledování",
           "Profily s highlighty, sledující a sledovaní, sledování, uložené příspěvky",
           "Lajky, komentáře, posílání příspěvku do chatu; @jména, #hashtagy a odkazy otevřou, kam vedou, označení lidé na fotkách, zmínky v příbězích",
-          "Zprávy: chaty se obnovují samy a nepřečtené ukazuje odznak, potvrzení přečtení, fotky z foťáku i galerie, hlasové zprávy, fotky na jedno zobrazení, hovory v historii, žádosti o zprávy",
+          "Zprávy přes živé spojení Instagramu: dorazí hned, indikátor psaní, odznak nepřečtených chatů, potvrzení přečtení, fotky z foťáku i galerie, hlasové zprávy, fotky na jedno zobrazení, hovory v historii, žádosti o zprávy",
           "Bezpečnostní kontrolu Instagramu projdeš přímo v aplikaci, kódem z e-mailu nebo SMS",
           "iPhone i iPad, angličtina a čeština"
         ]
@@ -269,18 +269,16 @@
       },
       "changes": {
         "en": [
-          "The first version in the repository",
-          "Direct: chats and the list update on their own, a badge for unread chats, read receipts both ways",
-          "Photos and voice messages are sent again (Instagram's new upload); view-once photos from the chat camera open with a tap",
-          "Highlights on profiles, calls in a chat's history, follow and message requests",
-          "Reels: a back button for the creator's profile, the comments and the post"
+          "Direct over Instagram's live connection, like the official app: a new message arrives in about two seconds, and the open chat, the list of chats and the badge update at once",
+          "Typing: three dots in the chat and \"Typing...\" in the list while the other side types",
+          "\"Seen\" appears as soon as they have read your message, and a message they unsend disappears",
+          "Far fewer requests to Instagram while the live connection is up; without it, everything updates as before"
         ],
         "cs": [
-          "První verze v repozitáři",
-          "Zprávy: chaty i seznam se obnovují samy, odznak nepřečtených chatů, potvrzení přečtení oběma směry",
-          "Fotky a hlasové zprávy se zase posílají (nové nahrávání Instagramu); fotky na jedno zobrazení z foťáku chatu se otevřou klepnutím",
-          "Highlighty na profilech, hovory v historii chatu, žádosti o sledování a o zprávy",
-          "Reels: tlačítko zpět z profilu autora, komentářů i příspěvku"
+          "Zprávy přes živé spojení Instagramu jako v oficiální aplikaci: nová zpráva dorazí zhruba za dvě sekundy a otevřený chat, seznam chatů i odznak se aktualizují hned",
+          "Psaní: tři tečky v chatu a „Píše…“ v seznamu, když druhá strana píše",
+          "„Zobrazeno“ se objeví, jakmile si tvou zprávu přečtou, a zpráva, kterou zruší, zmizí",
+          "Mnohem méně dotazů na Instagram, dokud je živé spojení navázané; bez něj se všechno obnovuje jako dřív"
         ]
       }
     },
