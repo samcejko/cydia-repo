@@ -74,6 +74,7 @@
           "WOFF2 fonts and WebP images converted on the device",
           "Ad and tracker blocking with built-in lists, hiding of cookie banners",
           "Reader view, find on page, translate, print and save as PDF, downloads, view source",
+          "Playing in the background: music and videos of a page go on when you leave the app or lock the screen, with lock-screen buttons",
           "Saved passwords in the device's keychain (secure sites only), private browsing, dark theme and dark pages",
           "Tabs, bookmarks, history, search engines with suggestions, swipe gestures; English and Czech"
         ],
@@ -84,6 +85,7 @@
           "Písma WOFF2 a obrázky WebP převedené v zařízení",
           "Blokování reklam a sledovačů s vestavěnými seznamy, skrývání cookie lišt",
           "Čtečka, hledání na stránce, překlad, tisk a uložení do PDF, stahování, zobrazení zdroje",
+          "Přehrávání na pozadí: hudba a videa stránky hrají dál po odchodu z aplikace i po zamknutí displeje, s tlačítky na zamčené obrazovce",
           "Uložená hesla v klíčence zařízení (jen zabezpečené weby), anonymní prohlížení, tmavý motiv a tmavé stránky",
           "Karty, záložky, historie, vyhledávače s návrhy, gesta; angličtina a čeština"
         ]
@@ -102,12 +104,14 @@
       },
       "changes": {
         "en": [
+          "Play in the background (Settings > Pages, on by default): music and videos of a page go on when you leave the app or lock the screen - an internet radio, a YouTube video, a live stream; the lock screen's and a headset's buttons pause and resume them and the lock screen shows the page's title",
           "Log in with cookies (long press Reload) keeps the cookies for the page's own site, a leading www. dropped - no longer for the last two labels of its name, which for sites under co.uk, github.io and the like would have sent them to every site there",
           "Cookies of the same name that the site had set before are replaced, and if the import does not take, everything is put back as it was",
           "The clipboard is read only with the Paste button above the keyboard; more paste formats are understood (document.cookie in quotes, Set-Cookie lines, request headers, Copy as cURL, JSON exports, cookie tables, cookies.txt), and of a file with many sites only this site's cookies are taken",
           "Logged-out pages from the cache are no longer shown after the login; on an iPhone the text box stays above the keyboard"
         ],
         "cs": [
+          "Přehrávání na pozadí (Nastavení > Stránky, ve výchozím stavu zapnuté): hudba a videa stránky hrají dál, když z aplikace odejdeš nebo zamkneš displej - internetové rádio, video z YouTube, živý stream; tlačítka na zamčené obrazovce a na sluchátkách je pozastaví a spustí a zamčená obrazovka ukazuje název stránky",
           "Přihlášení přes cookies (podrž Načíst znovu) je ukládá jen pro web dané stránky, bez úvodního www. - už ne pro poslední dvě části názvu, které by u webů pod co.uk, github.io apod. poslaly cookies všem webům tam",
           "Cookies stejného jména, které web nastavil dřív, se nahradí, a když se import nepovede, všechno se vrátí, jak bylo",
           "Schránka se čte jen tlačítkem Vložit nad klávesnicí; rozumí víc formátům (document.cookie v uvozovkách, řádky Set-Cookie, hlavičky požadavku, Copy as cURL, exporty v JSON, tabulky cookies, cookies.txt) a ze souboru s víc weby vezme jen cookies tohoto webu",
