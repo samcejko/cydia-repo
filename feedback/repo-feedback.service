@@ -1,0 +1,14 @@
+[Unit]
+Description=Feedback form of repo.samcejko.eu (stores bug reports and ideas as JSON)
+After=network.target
+
+[Service]
+Type=simple
+User=samuel
+ExecStart=/usr/bin/python3 /home/samuel/feedback/feedback_server.py --bind 0.0.0.0 --port 8732 --data /home/samuel/feedback/data --data-json /home/samuel/cydia-repo/site/data.json
+Restart=on-failure
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

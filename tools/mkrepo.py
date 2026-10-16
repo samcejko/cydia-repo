@@ -14,6 +14,8 @@ Debs:          <out>/debs/*.deb (uploaded there by tools/repo-publish.ps1); a pa
 Output (--out): Packages, Packages.gz, Packages.bz2, Release, index.html, index.cs.html,
                depictions/<package>/index.html + index.cs.html (web depictions: Cydia, Installer, Zebra),
                sileo/<package>.json + <package>.cs.json (native depictions: Sileo, Zebra), sileo-featured.json,
+               feedback/index.html + index.cs.html (the bug/idea form, lists every published app; it posts to
+               feedback/api/, which nginx hands to feedback/feedback_server.py),
                icons/, banners/, screenshots/, style.css, CydiaIcon.png
 """
 import argparse
@@ -72,6 +74,46 @@ STRINGS = {
         "trollstore": "Install with TrollStore (iOS 14–17, no jailbreak)",
         "ipa": "Download the IPA for TrollStore",
         "trollstore_note": "No jailbreak? With TrollStore on iOS 14–17 open an app below and tap \"Install with TrollStore\".",
+        # the feedback form (feedback/) and the links to it
+        "feedback_title": "Bugs and ideas",
+        "feedback": "Report a bug or send an idea",
+        "feedback_newapp": "Request a new app",
+        "fb_title": "Feedback",
+        "fb_tagline": "Bugs, ideas and app requests",
+        "fb_intro": "Something does not work, or you have an idea? Pick the app and write it down, it goes straight to me. Requests for new apps are welcome too. English or Czech, as you like.",
+        "fb_what": "What is it about",
+        "fb_type": "Type",
+        "fb_type_bug": "A bug",
+        "fb_type_idea": "An idea for an app",
+        "fb_type_newapp": "A request for a new app",
+        "fb_type_other": "Something else",
+        "fb_app": "App",
+        "fb_app_other": "Other / not in the list",
+        "fb_app_name": "Which app or service",
+        "fb_device_title": "Your device",
+        "fb_device": "Device",
+        "fb_device_other_opt": "Other",
+        "fb_device_other": "Device model",
+        "fb_ios": "iOS version",
+        "fb_app_version": "App version",
+        "fb_installed": "Installed with",
+        "fb_installed_ipa": "IPA / other",
+        "fb_desc_title": "Description",
+        "fb_text_hint_bug": "What happens, what you did before it and what you expected. The more detail the better.",
+        "fb_text_hint_idea": "What you would like the app to do, and why.",
+        "fb_text_hint_newapp": "Which app or service you miss on iOS 6 and what it should do.",
+        "fb_text_hint_other": "Your message.",
+        "fb_proposal": "How would you solve it? (optional)",
+        "fb_proposal_hint": "If you have an idea how it should work or look, write it here.",
+        "fb_contact_title": "Contact (optional)",
+        "fb_name": "Name or nickname",
+        "fb_contact": "E-mail or Discord",
+        "fb_send": "Send",
+        "fb_sending": "Sending…",
+        "fb_need_text": "Please write a description first.",
+        "fb_need_app": "Please pick the app.",
+        "fb_foot": "Reports are stored on my server, no account needed. Thanks for helping!",
+        "fb_back": "Back to the repository",
     },
     "cs": {
         "features": "Funkce",
@@ -104,8 +146,66 @@ STRINGS = {
         "trollstore": "Nainstalovat přes TrollStore (iOS 14–17, bez jailbreaku)",
         "ipa": "Stáhnout IPA pro TrollStore",
         "trollstore_note": "Bez jailbreaku? S TrollStore na iOS 14–17 otevři appku níže a klepni na „Nainstalovat přes TrollStore“.",
+        # the feedback form (feedback/) and the links to it
+        "feedback_title": "Chyby a nápady",
+        "feedback": "Nahlásit chybu nebo poslat nápad",
+        "feedback_newapp": "Navrhnout novou aplikaci",
+        "fb_title": "Zpětná vazba",
+        "fb_tagline": "Chyby, nápady a návrhy na aplikace",
+        "fb_intro": "Něco nefunguje, nebo máš nápad? Vyber aplikaci a napiš mi to, jde to rovnou ke mně. Návrhy na nové aplikace jsou taky vítané. Česky nebo anglicky, jak chceš.",
+        "fb_what": "O co jde",
+        "fb_type": "Typ",
+        "fb_type_bug": "Chyba",
+        "fb_type_idea": "Nápad na vylepšení",
+        "fb_type_newapp": "Návrh nové aplikace",
+        "fb_type_other": "Něco jiného",
+        "fb_app": "Aplikace",
+        "fb_app_other": "Jiná / není v seznamu",
+        "fb_app_name": "Jaká aplikace nebo služba",
+        "fb_device_title": "Tvoje zařízení",
+        "fb_device": "Zařízení",
+        "fb_device_other_opt": "Jiné",
+        "fb_device_other": "Model zařízení",
+        "fb_ios": "Verze iOS",
+        "fb_app_version": "Verze aplikace",
+        "fb_installed": "Nainstalováno přes",
+        "fb_installed_ipa": "IPA / jinak",
+        "fb_desc_title": "Popis",
+        "fb_text_hint_bug": "Co se děje, co jsi udělal předtím a co jsi čekal. Čím víc detailů, tím líp.",
+        "fb_text_hint_idea": "Co by měla aplikace umět a proč.",
+        "fb_text_hint_newapp": "Jaká aplikace nebo služba ti na iOS 6 chybí a co by měla umět.",
+        "fb_text_hint_other": "Tvoje zpráva.",
+        "fb_proposal": "Jak bys to řešil ty? (nepovinné)",
+        "fb_proposal_hint": "Když máš představu, jak by to mělo fungovat nebo vypadat, napiš ji sem.",
+        "fb_contact_title": "Kontakt (nepovinné)",
+        "fb_name": "Jméno nebo přezdívka",
+        "fb_contact": "E-mail nebo Discord",
+        "fb_send": "Odeslat",
+        "fb_sending": "Odesílám…",
+        "fb_need_text": "Napiš prosím nejdřív popis.",
+        "fb_need_app": "Vyber prosím aplikaci.",
+        "fb_foot": "Hlášení se ukládají na můj server, bez účtu. Díky za pomoc!",
+        "fb_back": "Zpět na repozitář",
     },
 }
+
+# The device picker of the feedback form: value (stored as it is), label per language when it differs
+DEVICES = [
+    ("iPhone 3GS", None), ("iPhone 4", None), ("iPhone 4S", None), ("iPhone 5", None),
+    ("iPad 2", None), ("iPad 3", None), ("iPad 4", None), ("iPad mini", None),
+    ("iPod touch 4", None), ("iPod touch 5", None),
+    ("iPhone 6s-8 / SE", None), ("iPhone X-11", None),
+    ("iPhone 12+", {"en": "iPhone 12 or newer", "cs": "iPhone 12 nebo novější"}),
+    ("iPad 64-bit", {"en": "iPad (64-bit, iOS 15+)", "cs": "iPad (64bit, iOS 15+)"}),
+]
+INSTALLERS = [("cydia", "Cydia"), ("sileo", "Sileo"), ("zebra", "Zebra"), ("installer", "Installer"), ("trollstore", "TrollStore")]
+
+
+def feedback_href(lang, pkg=None, query=None):
+    """The feedback form in the page's language, with the app (or another query) preselected."""
+    page = "index.html" if lang == "en" else "index.%s.html" % lang
+    q = ("?app=" + quote(pkg, safe="")) if pkg else (("?" + query) if query else "")
+    return page + q
 
 
 def trollstore_urls(meta, by_pkg, pkg):
@@ -159,6 +259,7 @@ def sileo_depiction(pkg, meta, d, lang, shots, base, support, repo, tint, banner
         views.append({"class": "DepictionTableButtonView", "title": s["support"], "action": support, "openExternal": True})
     if ipa_url:
         views.append({"class": "DepictionTableButtonView", "title": s["ipa"], "action": ipa_url, "openExternal": True})
+    views.append({"class": "DepictionTableButtonView", "title": s["feedback"], "action": "%s/feedback/%s" % (base, feedback_href(lang, pkg)), "openExternal": True})
     views.append({"class": "DepictionSpacerView", "spacing": 8})
     views.append({"class": "DepictionLabelView", "text": pick(repo.get("footer"), lang), "fontSize": 12, "textColor": "#8e8e93", "alignment": 1})
     tabs = [{"tabname": s["details"], "class": "DepictionStackView", "views": views}]
@@ -714,6 +815,7 @@ def main():
                 "footer": esc(pick(repo.get("footer"), lang)),
                 "repo_url": esc(base + "/"),
                 "repo_label": esc(repo["label"]),
+                "feedback_href": esc("../../feedback/" + feedback_href(lang, pkg)),
             }
             for key, value in s.items():
                 values["t_" + key] = esc(value.replace("{v}", version))
@@ -770,10 +872,49 @@ def main():
             "zebra_link": esc("zbra://sources/add/" + base + "/"),
             "installer_link": esc("installer://add/repo=" + base + "/"),
             "count": str(len(rows)),
+            "feedback_href": esc("feedback/" + feedback_href(lang)),
+            "feedback_newapp_href": esc("feedback/" + feedback_href(lang, query="type=newapp")),
         }
         for key, value in s.items():
             values["t_" + key] = esc(value)
         write_text(os.path.join(out, "index.html" if lang == "en" else "index.%s.html" % lang), render(t, values))
+
+    # the feedback form: every published app in its picker (the page is rebuilt with the repository, so the list is
+    # always complete); it posts to feedback/api/submit, which nginx passes to feedback/feedback_server.py
+    fb_path = os.path.join(src, "templates", "feedback.html")
+    if os.path.exists(fb_path):
+        with open(fb_path, encoding="utf-8") as f:
+            fb_tpl = f.read()
+        for lang in LANGS:
+            s = STRINGS[lang]
+            apps = []
+            for pkg in order:
+                meta = packages_meta.get(pkg)
+                if meta and pkg in newest:
+                    apps.append('<option value="%s">%s</option>' % (esc(pkg), esc(meta.get("name") or pkg)))
+            devices = []
+            for value, label in DEVICES:
+                devices.append('<option value="%s">%s</option>' % (esc(value), esc(pick(label, lang) if label else value)))
+            installers = ['<option value="%s">%s</option>' % (esc(v), esc(n)) for v, n in INSTALLERS]
+            installers.append('<option value="ipa">%s</option>' % esc(s["fb_installed_ipa"]))
+            js = {
+                "hint_bug": s["fb_text_hint_bug"], "hint_idea": s["fb_text_hint_idea"],
+                "hint_newapp": s["fb_text_hint_newapp"], "hint_other": s["fb_text_hint_other"],
+                "need_text": s["fb_need_text"], "need_app": s["fb_need_app"], "sending": s["fb_sending"],
+            }
+            values = {
+                "lang": lang,
+                "apps": "\n".join(apps),
+                "devices": "\n".join(devices),
+                "installers": "\n".join(installers),
+                "repo_url": esc(base + "/"),
+                "repo_label": esc(repo["label"]),
+                "index_href": esc("../" + ("index.html" if lang == "en" else "index.%s.html" % lang)),
+                "js_strings": json.dumps(js, ensure_ascii=False).replace("</", "<\\/"),
+            }
+            for key, value in s.items():
+                values["t_" + key] = esc(value)
+            write_text(os.path.join(out, "feedback", "index.html" if lang == "en" else "index.%s.html" % lang), render(fb_tpl, values))
 
     print("%d package(s), %d deb(s) listed in %s" % (len(archs), len(kept), out))
     for pkg in order:

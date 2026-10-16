@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>{{t_fb_title}} – {{repo_label}}</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="lang"><a href="{{t_switch_href}}">{{t_switch}}</a></div>
+<div class="hdr">
+  <img class="appicon" src="../CydiaIcon.png" alt="">
+  <div class="hdrt"><h1>{{t_fb_title}}</h1><p>{{t_fb_tagline}}</p></div>
+</div>
+<div class="box"><p>{{t_fb_intro}}</p></div>
+<form id="fb" method="post" action="api/submit" accept-charset="utf-8">
+<input type="hidden" name="lang" value="{{lang}}">
+<div class="hp"><input type="text" name="website" value="" tabindex="-1" autocomplete="off"></div>
+<h2>{{t_fb_what}}</h2>
+<div class="box list">
+  <div class="row field"><label class="k" for="type">{{t_fb_type}}</label><select name="type" id="type">
+    <option value="bug">{{t_fb_type_bug}}</option>
+    <option value="idea">{{t_fb_type_idea}}</option>
+    <option value="newapp">{{t_fb_type_newapp}}</option>
+    <option value="other">{{t_fb_type_other}}</option>
+  </select><span class="chev">&#8250;</span></div>
+  <div class="row field" id="row-app"><label class="k" for="app">{{t_fb_app}}</label><select name="app" id="app">
+    <option value="">&#8212;</option>
+{{apps}}
+    <option value="other">{{t_fb_app_other}}</option>
+  </select><span class="chev">&#8250;</span></div>
+  <div class="row field" id="row-app-other"><label class="k" for="app_other">{{t_fb_app_name}}</label><input type="text" name="app_other" id="app_other" autocorrect="off"></div>
+</div>
+<h2>{{t_fb_device_title}}</h2>
+<div class="box list">
+  <div class="row field"><label class="k" for="device">{{t_fb_device}}</label><select name="device" id="device">
+    <option value="">&#8212;</option>
+{{devices}}
+    <option value="other">{{t_fb_device_other_opt}}</option>
+  </select><span class="chev">&#8250;</span></div>
+  <div class="row field" id="row-device-other"><label class="k" for="device_other">{{t_fb_device_other}}</label><input type="text" name="device_other" id="device_other" autocorrect="off"></div>
+  <div class="row field"><label class="k" for="ios">{{t_fb_ios}}</label><input type="text" name="ios" id="ios" placeholder="6.1.3" autocapitalize="off" autocorrect="off"></div>
+  <div class="row field"><label class="k" for="app_version">{{t_fb_app_version}}</label><input type="text" name="app_version" id="app_version" placeholder="0.2.1" autocapitalize="off" autocorrect="off"></div>
+  <div class="row field"><label class="k" for="installed_via">{{t_fb_installed}}</label><select name="installed_via" id="installed_via">
+    <option value="">&#8212;</option>
+{{installers}}
+  </select><span class="chev">&#8250;</span></div>
+</div>
+<h2>{{t_fb_desc_title}}</h2>
+<div class="box">
+  <p class="hint" id="text-hint">{{t_fb_text_hint_bug}}</p>
+  <textarea name="text" id="text" rows="6"></textarea>
+</div>
+<div class="box">
+  <p class="hint"><b>{{t_fb_proposal}}</b><br>{{t_fb_proposal_hint}}</p>
+  <textarea name="proposal" id="proposal" rows="4"></textarea>
+</div>
+<h2>{{t_fb_contact_title}}</h2>
+<div class="box list">
+  <div class="row field"><label class="k" for="name">{{t_fb_name}}</label><input type="text" name="name" id="name" autocorrect="off"></div>
+  <div class="row field"><label class="k" for="contact">{{t_fb_contact}}</label><input type="text" name="contact" id="contact" autocapitalize="off" autocorrect="off"></div>
+</div>
+<div class="btnwrap"><button type="submit" class="button" id="send">{{t_fb_send}}</button></div>
+</form>
+<p class="foot">{{t_fb_foot}}</p>
+<p class="foot"><a href="{{index_href}}">{{t_fb_back}}</a></p>
+<script>
+/* iOS 6 Safari: ES5 only (no let/const, arrow functions, fetch or HTML5 form validation) */
+var S = {{js_strings}};
+(function () {
+  function $(id) { return document.getElementById(id); }
+  function val(id) { var e = $(id); return e ? e.value : ''; }
+  function show(id, on) { var e = $(id); if (e) { e.style.display = on ? '' : 'none'; } }
+  function query(name) {
+    var m = new RegExp('[?&]' + name + '=([^&#]*)').exec(window.location.search || '');
+    try { return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : ''; } catch (e) { return ''; }
+  }
+  function select(id, value) {
+    var e = $(id);
+    if (!e || !value) { return; }
+    for (var i = 0; i < e.options.length; i++) {
+      if (e.options[i].value === value) { e.selectedIndex = i; return; }
+    }
+  }
+  function setText(el, text) {
+    if (!el) { return; }
+    while (el.firstChild) { el.removeChild(el.firstChild); }
+    el.appendChild(document.createTextNode(text));
+  }
+  function refresh() {
+    var type = val('type'), newapp = (type === 'newapp');
+    show('row-app', !newapp);
+    show('row-app-other', newapp || val('app') === 'other');
+    show('row-device-other', val('device') === 'other');
+    setText($('text-hint'), S['hint_' + type] || S.hint_other);
+  }
+  function listen(id, handler) {
+    var e = $(id);
+    if (!e) { return; }
+    if (e.addEventListener) { e.addEventListener('change', handler, false); } else { e.onchange = handler; }
+  }
+
+  // the iOS version is in the user agent ("CPU OS 6_1_3"); the exact model is not
+  var m = /OS (\d+)_(\d+)(?:_(\d+))?/.exec(navigator.userAgent || '');
+  if (m && !val('ios')) { $('ios').value = m[1] + '.' + m[2] + (m[3] ? '.' + m[3] : ''); }
+  // links from the repository pages preselect the app or the type: ?app=com.samcejko.twitcher, ?type=newapp
+  select('type', query('type'));
+  select('app', query('app'));
+  listen('type', refresh);
+  listen('app', refresh);
+  listen('device', refresh);
+  refresh();
+
+  $('fb').onsubmit = function () {
+    var type = val('type');
+    if (type !== 'newapp' && type !== 'other' && !val('app')) { alert(S.need_app); return false; }
+    if (val('text').replace(/^\s+|\s+$/g, '').length < 3) { alert(S.need_text); $('text').focus(); return false; }
+    var b = $('send');
+    b.disabled = true;
+    setText(b, S.sending);
+    return true;
+  };
+})();
+</script>
+</body>
+</html>

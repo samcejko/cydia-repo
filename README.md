@@ -19,6 +19,19 @@ of the same version (`"ipa"` in data.json is the IPA's base name).
   `colors.json` for the native depictions' tint; `site/screenshots/<package>/` the screenshots shown on a page.
 - `nginx/repo.conf` is the server configuration (the `repo.samcejko.eu` server block, no cache on the index, plain
   http for Cydia on iOS 6, Czech pages by Accept-Language). The hostname is a public hostname of the Cloudflare tunnel.
+- `feedback/`: the bug-report / idea / app-request form at `http://repo.samcejko.eu/feedback/` (linked from the
+  landing page and every depiction, which preselects the app). The page itself is static: `site/templates/feedback.html`
+  rendered by mkrepo in both languages with every published app in its picker, so the list is complete after each
+  rebuild; it works in Safari on iOS 6 (ES5, no HTML5 validation). It posts to `feedback/api/submit`, which nginx
+  passes to `feedback/feedback_server.py`, a Python 3 service on the Pi (port 8732, systemd unit
+  `repo-feedback.service`, user samuel) that stores every report in `/home/samuel/feedback/data/feedback.json` (an
+  array; `feedback.jsonl` is an append-only copy) and answers with a thank-you page. The reports can be read at
+  `https://repo.samcejko.eu/feedback/api/list?token=…` (`&format=json` for the raw file); the token is in
+  `/home/samuel/feedback/data/token`, created at the first start. Limits: a honeypot field, 15 s between reports and
+  10 per hour from one address. `python3 feedback/feedback_server.py --selftest` exercises it on a free port.
+- `tools/pi-update.sh` updates the Pi from GitHub without the LAN (run in the browser SSH): it fetches the debs of
+  `tools/fetch-debs.txt`, rebuilds the repository (dry run first), then installs or updates the feedback service and
+  `nginx/repo.conf` when they changed.
 
 Publishing a new version of an app:
 

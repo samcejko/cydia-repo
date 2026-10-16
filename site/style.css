@@ -56,3 +56,31 @@ h2 { font-size: 17px; font-weight: bold; color: #4c566c; text-shadow: 0 1px 0 rg
 }
 .box p.note { color: #666; font-size: 13px; padding-top: 0; }
 .foot { color: #4c566c; font-size: 12px; text-align: center; margin: 14px 10px 0; text-shadow: 0 1px 0 rgba(255,255,255,.7); }
+
+/* The feedback form (feedback/): fields sit in table rows like Settings; 16 px so that Safari does not zoom in on them */
+.row.field { padding: 6px 12px; min-height: 32px; }
+.row.field .k { padding: 5px 0; }
+.row.field input, .row.field select {
+  -webkit-appearance: none; border: 0; margin: 0; padding: 5px 0; background: transparent;
+  font-family: inherit; font-size: 16px; line-height: 1.3; color: #324f85; outline: none; -webkit-border-radius: 0;
+}
+.row.field input { -webkit-box-flex: 2; box-flex: 2; width: 50%; min-width: 0; text-align: right; }
+.row.field select { max-width: 62%; }
+.row.field .chev { margin-left: 6px; }
+.box textarea {
+  display: block; width: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; min-height: 120px;
+  margin: 0; padding: 8px 12px 10px; border: 0; background: transparent; resize: none; outline: none;
+  -webkit-appearance: none; font-family: inherit; font-size: 16px; line-height: 1.35; color: #000;
+}
+.box p.hint { color: #666; font-size: 13px; padding: 9px 12px 0; }
+.box p.hint b { color: #000; font-size: 15px; }
+.btnwrap { padding: 2px 0 8px; }
+button.button {
+  display: block; width: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0;
+  font-family: inherit; -webkit-appearance: none; cursor: pointer;
+}
+button.button[disabled] { opacity: .6; }
+.hp { display: none; }
+/* the stored reports (feedback/api/list) */
+.box p.meta { color: #666; font-size: 13px; padding-top: 0; }
+.box p.txt { white-space: pre-wrap; word-wrap: break-word; }
