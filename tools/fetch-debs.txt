@@ -4,5 +4,5 @@
 com.samcejko.browser_1.1.1_iphoneos-arm.deb https://github.com/samcejko/browser-ios6/releases/download/v1.1.1/Surfari-1.1.1.deb ee3251aefb3c2bd2ff029ef5d2449edb77fde62c7126748d6b33478cd3a72fb7
 com.samcejko.revine_0.1.0_iphoneos-arm.deb https://github.com/samcejko/vine-ios6/releases/download/v0.1.0/com.samcejko.revine_0.1.0_iphoneos-arm.deb 00dfe134f04b0f0c74e642cceb24363e764774ea133851bc6dab523734df84d2
 com.samcejko.backcap_0.1.0_iphoneos-arm.deb https://github.com/samcejko/backcap-ios6/releases/download/v0.1.0/com.samcejko.backcap_0.1.0_iphoneos-arm.deb 04472051a9ceaf5557ca055aeb0d11955a765046925b74af2feb7474d4cc5908
-com.samcejko.shutter_0.3.3_iphoneos-arm.deb https://github.com/samcejko/cydia-repo/releases/download/gramify-0.3.3/com.samcejko.shutter_0.3.3_iphoneos-arm.deb 091e4fd5091ad7639042039dc4d75d5a46cbcc9305f79cab71e1c6323fae89b5
-com.samcejko.shutter_0.3.3_iphoneos-arm64.deb https://github.com/samcejko/cydia-repo/releases/download/gramify-0.3.3/com.samcejko.shutter_0.3.3_iphoneos-arm64.deb 9361f3539fecd5e31a37c1fee0f9e2700dd11bc6883a3fc21c1dca88e16128c2
+com.samcejko.shutter_0.3.4_iphoneos-arm.deb https://github.com/samcejko/cydia-repo/releases/download/gramify-0.3.4/com.samcejko.shutter_0.3.4_iphoneos-arm.deb 78254f168522e0b6a8c2f2e73ddadf8d01a034a05b3b3dcc5a2a3259c0fc49ce
+com.samcejko.shutter_0.3.4_iphoneos-arm64.deb https://github.com/samcejko/cydia-repo/releases/download/gramify-0.3.4/com.samcejko.shutter_0.3.4_iphoneos-arm64.deb 2222be47be92518cff31de9484969b07d433188ff0e83d2fb7b9f5584c7aa0ff
