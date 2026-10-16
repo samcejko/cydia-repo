@@ -1151,9 +1151,11 @@
       },
       "changes": {
         "en": [
+          "1.0.1: native drawn iOS vector icons (no emojis), OpenRouter key import from AI Chat, only free models toggle",
           "1.0.0, initial release"
         ],
         "cs": [
+          "1.0.1: nativní vektorové ikony iOS (žádné emoji), import klíče z AI Chatu, přepínač pouze pro bezplatné modely",
           "1.0.0, první vydání"
         ]
       }
