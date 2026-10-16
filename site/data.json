@@ -466,6 +466,13 @@
         ]
       }
     },
+    "com.samcejko.spot6": {
+      "name": "Spot6",
+      "depends": {
+        "iphoneos-arm": "com.samcejko.sixify (>= 0.2.3), firmware (>= 6.0), firmware (<< 7.0)",
+        "iphoneos-arm64": "com.samcejko.sixify (>= 0.2.3), firmware (>= 15.0)"
+      }
+    },
     "com.samcejko.muzika": {
       "name": "Muzika",
       "github": "",
