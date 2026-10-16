@@ -276,6 +276,7 @@
       },
       "changes": {
         "en": [
+          "Signing in where Instagram wants the login approved on another device now chooses \"send a code\" instead, so you can finish here",
           "Hold a message in a chat for Copy, Reply, Save and Unsend; replies are shown with a line of what they answer",
           "The sounds of iOS Messages when a message comes in or goes out (Settings > Sounds turns them off)",
           "Save to Photos for posts and reels (on the \"Send to\" screen) and for photos and videos in chats; Settings > Appearance: dark or light",
@@ -284,6 +285,7 @@
           "Fixed: signing in to an account Instagram asks a code for (two-factor authentication, or the code that confirms a new device) opened the app without a session, and every screen said \"Your session expired\". The app now asks for the code and opens only with a session"
         ],
         "cs": [
+          "Přihlášení, které Instagram chce potvrdit na jiném zařízení, teď místo toho zvolí „poslat kód“, takže ho dokončíš tady",
           "Podržením zprávy v chatu: Kopírovat, Odpovědět, Uložit a Zrušit odeslání; odpovědi ukazují řádek s tím, na co odpovídají",
           "Zvuky zpráv jako v iOS Zprávách, když zpráva přijde nebo odejde (vypnout jdou v Nastavení > Zvuky)",
           "Uložit do Fotek u příspěvků a reels (na obrazovce „Odeslat“) i u fotek a videí v chatu; Nastavení > Vzhled: tmavý nebo světlý",
