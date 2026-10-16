@@ -47,7 +47,7 @@
     "com.samcejko.nasa",
     "com.samcejko.revine",
     "com.samcejko.backcap",
-    "com.samcejko.whatsapp6"
+    "com.samcejko.wazzup"
   ],
   "packages": {
     "com.samcejko.browser": {
@@ -1026,8 +1026,8 @@
         ]
       }
     },
-    "com.samcejko.whatsapp6": {
-      "name": "WhatsApp6",
+    "com.samcejko.wazzup": {
+      "name": "Wazzup",
       "github": "",
       "requires": {
         "en": "iOS 6.x only, armv7",
@@ -1047,7 +1047,7 @@
           "1:1 voice and video calls, incoming and outgoing, over the call media stack (its own WebRTC with DTLS-SRTP)",
           "Text and group chats, media and voice messages, read and delivery receipts",
           "Its own TLS 1.2, Noise handshake and Signal (X3DH + Double Ratchet) end-to-end encryption, all on the device",
-          "Hears the official app's MLow audio and sends Opus; two WhatsApp6 devices call each other directly",
+          "Hears the official app's MLow audio and sends Opus; two Wazzup devices call each other directly",
           "Skeuomorphic iOS 6 look, iPhone and iPad, English and Czech"
         ],
         "cs": [
@@ -1055,7 +1055,7 @@
           "Hovory 1:1 i video, příchozí i odchozí, přes vlastní vrstvu pro hovory (vlastní WebRTC s DTLS-SRTP)",
           "Text a skupinové chaty, média a hlasové zprávy, potvrzení o doručení a přečtení",
           "Vlastní TLS 1.2, Noise handshake a koncové šifrování Signal (X3DH + Double Ratchet), vše v zařízení",
-          "Slyší zvuk oficiální aplikace (MLow) a posílá Opus; dvě zařízení s WhatsApp6 volají přímo mezi sebou",
+          "Slyší zvuk oficiální aplikace (MLow) a posílá Opus; dvě zařízení s Wazzup volají přímo mezi sebou",
           "Skeuomorfní vzhled iOS 6, iPhone i iPad, angličtina a čeština"
         ]
       },
