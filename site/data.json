@@ -274,18 +274,18 @@
       },
       "changes": {
         "en": [
+          "The code that confirms a sign-in from a new device: the alert says where Instagram sent it (the e-mail address or phone number, masked)",
           "For accounts that still could not sign in: when Instagram's answer leads nowhere the app knows, it signs in once more the way Instagram's current app does, or through Instagram's older login when Instagram sends it there. A failed sign-in shows details under the message",
           "Fixed: signing in to an account Instagram asks a code for (two-factor authentication, or the code that confirms a new device) opened the app without a session, and every screen said \"Your session expired\". The app now asks for the code and opens only with a session",
           "When Instagram ends a session, the app goes back to the login screen with Instagram's reason",
-          "When the home feed cannot load, the screen now says why under \"Couldn't load the feed.\" (Instagram's own words or the network error)",
-          "Fixed: signing in could end in \"Your session expired\" on every screen. The session is now read whole from Instagram's reply, checked before the app opens, and kept where it is read back from"
+          "When the home feed cannot load, the screen now says why under \"Couldn't load the feed.\" (Instagram's own words or the network error)"
         ],
         "cs": [
+          "Kód pro potvrzení přihlášení z nového zařízení: upozornění řekne, kam ho Instagram poslal (zamaskovaný e-mail nebo telefonní číslo)",
           "Pro účty, které se pořád nemohly přihlásit: když odpověď Instagramu nevede nikam, kam aplikace umí, přihlásí se ještě jednou tak, jak to dělá současná aplikace Instagramu, nebo přes starší přihlášení, když tam Instagram přihlášení pošle. Nepovedené přihlášení ukáže pod hláškou podrobnosti",
           "Opraveno: přihlášení k účtu, po kterém Instagram chce kód (dvoufaktorové ověření nebo kód pro potvrzení nového zařízení), otevřelo aplikaci bez přihlášení a každá obrazovka hlásila „Your session expired“. Aplikace teď o kód požádá a otevře se jen přihlášená",
           "Když Instagram přihlášení ukončí, aplikace se vrátí na přihlašovací obrazovku i s důvodem od Instagramu",
-          "Když se domovský feed nenačte, obrazovka teď pod „Feed se nepodařilo načíst.“ napíše proč (slovy Instagramu nebo chybu sítě)",
-          "Opraveno: přihlášení mohlo skončit hláškou „Your session expired“ na každé obrazovce. Přihlášení se teď z odpovědi Instagramu přečte celé, ověří se před otevřením aplikace a uloží se tam, odkud se čte"
+          "Když se domovský feed nenačte, obrazovka teď pod „Feed se nepodařilo načíst.“ napíše proč (slovy Instagramu nebo chybu sítě)"
         ]
       }
     },
