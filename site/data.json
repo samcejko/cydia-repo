@@ -245,6 +245,7 @@
           "Home feed with stories (the ones seen turn grey), Explore, reels in a full-screen player, Activity with follow requests",
           "Profiles with highlights, followers and following, follow, saved posts",
           "Likes, comments, sending a post into a chat; @names, #hashtags and links open where they lead, the people tagged on a photo, mentions on stories",
+          "Posts, reels and the photos and videos of chats saved to Photos; a dark or a light look",
           "Direct over Instagram's live connection: messages arrive at once, typing, a badge for unread chats, read receipts, photos from the camera or the library, voice messages, view-once photos, calls in the history, message requests",
           "Instagram's security check can be passed in the app, with a code by e-mail or text message",
           "iPhone and iPad, English and Czech"
@@ -253,6 +254,7 @@
           "Domovský feed s příběhy (zobrazené zešednou), Prozkoumat, reels v přehrávači přes celou obrazovku, Aktivita s žádostmi o sledování",
           "Profily s highlighty, sledující a sledovaní, sledování, uložené příspěvky",
           "Lajky, komentáře, posílání příspěvku do chatu; @jména, #hashtagy a odkazy otevřou, kam vedou, označení lidé na fotkách, zmínky v příbězích",
+          "Ukládání příspěvků, reels a fotek a videí z chatu do Fotek; tmavý nebo světlý vzhled",
           "Zprávy přes živé spojení Instagramu: dorazí hned, indikátor psaní, odznak nepřečtených chatů, potvrzení přečtení, fotky z foťáku i galerie, hlasové zprávy, fotky na jedno zobrazení, hovory v historii, žádosti o zprávy",
           "Bezpečnostní kontrolu Instagramu projdeš přímo v aplikaci, kódem z e-mailu nebo SMS",
           "iPhone i iPad, angličtina a čeština"
@@ -274,18 +276,20 @@
       },
       "changes": {
         "en": [
+          "Hold a message in a chat for Copy, Reply, Save and Unsend; replies are shown with a line of what they answer",
+          "The sounds of iOS Messages when a message comes in or goes out (Settings > Sounds turns them off)",
+          "Save to Photos for posts and reels (on the \"Send to\" screen) and for photos and videos in chats; Settings > Appearance: dark or light",
           "The code that confirms a sign-in from a new device: the alert says where Instagram sent it (the e-mail address or phone number, masked)",
           "For accounts that still could not sign in: when Instagram's answer leads nowhere the app knows, it signs in once more the way Instagram's current app does, or through Instagram's older login when Instagram sends it there. A failed sign-in shows details under the message",
-          "Fixed: signing in to an account Instagram asks a code for (two-factor authentication, or the code that confirms a new device) opened the app without a session, and every screen said \"Your session expired\". The app now asks for the code and opens only with a session",
-          "When Instagram ends a session, the app goes back to the login screen with Instagram's reason",
-          "When the home feed cannot load, the screen now says why under \"Couldn't load the feed.\" (Instagram's own words or the network error)"
+          "Fixed: signing in to an account Instagram asks a code for (two-factor authentication, or the code that confirms a new device) opened the app without a session, and every screen said \"Your session expired\". The app now asks for the code and opens only with a session"
         ],
         "cs": [
+          "Podržením zprávy v chatu: Kopírovat, Odpovědět, Uložit a Zrušit odeslání; odpovědi ukazují řádek s tím, na co odpovídají",
+          "Zvuky zpráv jako v iOS Zprávách, když zpráva přijde nebo odejde (vypnout jdou v Nastavení > Zvuky)",
+          "Uložit do Fotek u příspěvků a reels (na obrazovce „Odeslat“) i u fotek a videí v chatu; Nastavení > Vzhled: tmavý nebo světlý",
           "Kód pro potvrzení přihlášení z nového zařízení: upozornění řekne, kam ho Instagram poslal (zamaskovaný e-mail nebo telefonní číslo)",
           "Pro účty, které se pořád nemohly přihlásit: když odpověď Instagramu nevede nikam, kam aplikace umí, přihlásí se ještě jednou tak, jak to dělá současná aplikace Instagramu, nebo přes starší přihlášení, když tam Instagram přihlášení pošle. Nepovedené přihlášení ukáže pod hláškou podrobnosti",
-          "Opraveno: přihlášení k účtu, po kterém Instagram chce kód (dvoufaktorové ověření nebo kód pro potvrzení nového zařízení), otevřelo aplikaci bez přihlášení a každá obrazovka hlásila „Your session expired“. Aplikace teď o kód požádá a otevře se jen přihlášená",
-          "Když Instagram přihlášení ukončí, aplikace se vrátí na přihlašovací obrazovku i s důvodem od Instagramu",
-          "Když se domovský feed nenačte, obrazovka teď pod „Feed se nepodařilo načíst.“ napíše proč (slovy Instagramu nebo chybu sítě)"
+          "Opraveno: přihlášení k účtu, po kterém Instagram chce kód (dvoufaktorové ověření nebo kód pro potvrzení nového zařízení), otevřelo aplikaci bez přihlášení a každá obrazovka hlásila „Your session expired“. Aplikace teď o kód požádá a otevře se jen přihlášená"
         ]
       }
     },
