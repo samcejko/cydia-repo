@@ -270,12 +270,16 @@
       },
       "changes": {
         "en": [
+          "Fixed: signing in could end in \"Your session expired\" on every screen. The session is now read whole from Instagram's reply, checked before the app opens, and kept where it is read back from",
+          "A session Instagram ends (signed out elsewhere, a new password) leads back to the login screen once, with Instagram's reason",
           "Direct over Instagram's live connection, like the official app: a new message arrives in about two seconds, and the open chat, the list of chats and the badge update at once",
           "Typing: three dots in the chat and \"Typing...\" in the list while the other side types",
           "\"Seen\" appears as soon as they have read your message, and a message they unsend disappears",
           "Far fewer requests to Instagram while the live connection is up; without it, everything updates as before"
         ],
         "cs": [
+          "Opraveno: přihlášení mohlo skončit hláškou „Your session expired“ na každé obrazovce. Přihlášení se teď z odpovědi Instagramu přečte celé, ověří se před otevřením aplikace a uloží se tam, odkud se čte",
+          "Když Instagram přihlášení ukončí (odhlášení jinde, nové heslo), aplikace jednou vrátí na přihlašovací obrazovku i s důvodem od Instagramu",
           "Zprávy přes živé spojení Instagramu jako v oficiální aplikaci: nová zpráva dorazí zhruba za dvě sekundy a otevřený chat, seznam chatů i odznak se aktualizují hned",
           "Psaní: tři tečky v chatu a „Píše…“ v seznamu, když druhá strana píše",
           "„Zobrazeno“ se objeví, jakmile si tvou zprávu přečtou, a zpráva, kterou zruší, zmizí",
