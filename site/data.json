@@ -35,7 +35,7 @@
     "com.samcejko.shutter",
     "com.samcejko.tubie",
     "com.samcejko.tikie",
-    "com.samcejko.spot6",
+    "com.samcejko.sixify",
     "com.samcejko.muzika",
     "com.samcejko.kicker",
     "com.samcejko.gfn6",
@@ -409,9 +409,9 @@
         ]
       }
     },
-    "com.samcejko.spot6": {
-      "name": "Spot6",
-      "ipa": "Spot6",
+    "com.samcejko.sixify": {
+      "name": "Sixify",
+      "ipa": "Sixify",
       "github": "https://github.com/samcejko/spotify-ios6",
       "tagline": {
         "en": "Spotify: your music, playlists and lyrics, Spotify Connect",
@@ -453,11 +453,13 @@
       },
       "changes": {
         "en": [
+          "Renamed from Spot6 to Sixify; classic iOS 6 graphite player screen option in Settings → Playback with live switching",
           "Sleep timer (the moon in Now Playing): the music stops after 5 to 90 minutes or at the end of the song",
           "Crossfade (3 to 12 s) and a data saver (Normal quality on mobile data) in Settings; the queue can be edited (move, remove) and is kept between launches",
           "Lyrics keep the sung line in view (it was half cut off at the top on 3.5\" iPhones); the Home greeting sits in its place on newer iOS"
         ],
         "cs": [
+          "Přejmenováno ze Spot6 na Sixify; možnost klasického grafitového přehrávače iOS 6 v Nastavení → Přehrávání s živým přepínáním",
           "Časovač spánku (měsíc v přehrávači): hudba skončí za 5 až 90 minut nebo na konci skladby",
           "Prolínání (3 až 12 s) a úspora dat (normální kvalita na mobilních datech) v Nastavení; frontu jde upravovat (přesouvat, mazat) a zůstává i po zavření aplikace",
           "Text písně drží zpívaný řádek na očích (na 3,5\" iPhonech byl nahoře napůl uříznutý); pozdrav na Domů sedí na novějších iOS na svém místě"
@@ -998,8 +1000,8 @@
         "cs": "Omezuje počet aplikací na pozadí (0–6) a zavírá nečinné aplikace při zamknutí"
       },
       "about": {
-        "en": "A SpringBoard tweak for iOS 6 that keeps background applications under control so you do not have to double-click the physical Home button and close apps by hand. Set how many background apps may stay open (0 to close every app as soon as you leave it with the Home button, 1 to 6 apps, or Unlimited), choose whether to close the oldest app in the switcher or the previous background app, and let Backcap close all unused background apps automatically when you lock the screen. Apps playing music or audio in the background (such as Pandora, Music, Spot6 or Muzika), recording audio or in a phone call are kept open automatically.",
-        "cs": "Tweak pro SpringBoard na iOS 6, který hlídá aplikace na pozadí, abys nemusel pořád mačkat fyzické tlačítko plochy a zavírat je ručně. Nastav si, kolik aplikací smí zůstat otevřených na pozadí (0 pro okamžité zavření po odchodu tlačítkem plochy, 1 až 6 aplikací nebo bez omezení), vyber, zda se má zavřít nejstarší aplikace v přepínači nebo předchozí použitá aplikace, a nech Backcap při zamknutí obrazovky automaticky ukončit všechny nečinné aplikace. Aplikace, které na pozadí přehrávají hudbu nebo zvuk (například Pandora, Hudba, Spot6 nebo Muzika), nahrávají zvuk nebo mají aktivní hovor, zůstávají běžet automaticky."
+        "en": "A SpringBoard tweak for iOS 6 that keeps background applications under control so you do not have to double-click the physical Home button and close apps by hand. Set how many background apps may stay open (0 to close every app as soon as you leave it with the Home button, 1 to 6 apps, or Unlimited), choose whether to close the oldest app in the switcher or the previous background app, and let Backcap close all unused background apps automatically when you lock the screen. Apps playing music or audio in the background (such as Pandora, Music, Sixify or Muzika), recording audio or in a phone call are kept open automatically.",
+        "cs": "Tweak pro SpringBoard na iOS 6, který hlídá aplikace na pozadí, abys nemusel pořád mačkat fyzické tlačítko plochy a zavírat je ručně. Nastav si, kolik aplikací smí zůstat otevřených na pozadí (0 pro okamžité zavření po odchodu tlačítkem plochy, 1 až 6 aplikací nebo bez omezení), vyber, zda se má zavřít nejstarší aplikace v přepínači nebo předchozí použitá aplikace, a nech Backcap při zamknutí obrazovky automaticky ukončit všechny nečinné aplikace. Aplikace, které na pozadí přehrávají hudbu nebo zvuk (například Pandora, Hudba, Sixify nebo Muzika), nahrávají zvuk nebo mají aktivní hovor, zůstávají běžet automaticky."
       },
       "features": {
         "en": [
@@ -1007,7 +1009,7 @@
           "Choose whether to close the oldest app in the switcher or the last used background app when the limit is exceeded",
           "Removes closed apps from the iOS 6 multitasking switcher bar automatically",
           "Closes all unused background apps when you lock the device or turn off the screen, with an option to keep the active foreground app",
-          "Automatically keeps apps playing background audio (Pandora, Music, Spot6, Muzika...), recording audio or in an active phone call open",
+          "Automatically keeps apps playing background audio (Pandora, Music, Sixify, Muzika...), recording audio or in an active phone call open",
           "Protected Apps list and a one-tap \"Close Background Apps Now\" button in Settings → Backcap, in English and Czech"
         ],
         "cs": [
@@ -1015,7 +1017,7 @@
           "Možnost zvolit, zda se při překročení limitu zavře nejstarší aplikace v přepínači, nebo poslední použitá aplikace na pozadí",
           "Automaticky odebírá zavřené aplikace ze spodní lišty přepínače aplikací v iOS 6",
           "Při zamknutí zařízení nebo vypnutí obrazovky ukončí všechny nečinné aplikace na pozadí, s volbou nechat běžet právě otevřenou aplikaci",
-          "Automaticky nechává běžet aplikace přehrávající zvuk na pozadí (Pandora, Hudba, Spot6, Muzika...), nahrávající zvuk nebo s aktivním hovorem",
+          "Automaticky nechává běžet aplikace přehrávající zvuk na pozadí (Pandora, Hudba, Sixify, Muzika...), nahrávající zvuk nebo s aktivním hovorem",
           "Seznam chráněných aplikací a tlačítko „Zavřít aplikace na pozadí teď“ přímo v Nastavení → Backcap, anglicky i česky"
         ]
       },

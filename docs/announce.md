@@ -17,7 +17,7 @@ What is in it:
 - **Twitcher**: Twitch with live streams, chat (BTTV/FFZ/7TV emotes), past broadcasts with chat replay, clips, optional login
 - **Tubie**: YouTube in the look of the old built-in app: videos, shorts, live streams, channels, comments, SponsorBlock, captions
 - **TikTak**: a TikTok viewer with a For You feed that learns on the device (needs a small yt-dlp helper on your own server)
-- **Spot6**: Spotify in the look of the 2012 iPad app, up to 320 kbit/s, synced lyrics, Spotify Connect (needs Premium)
+- **Sixify**: Spotify in the look of the 2012 iPad app, up to 320 kbit/s, synced lyrics, Spotify Connect (needs Premium)
 - **Kicker**: Kick with live streams, chat, past broadcasts, clips
 - **GFN6**: GeForce NOW streaming on a 2012 iPad: WebRTC built from scratch, hardware H.264, touch gamepad (needs a GFN account)
 - **MC6**: a launcher of Minecraft: Java Edition: Java 8 ported to 32-bit iOS, LWJGL 2 on gl4es; every version from
