@@ -676,11 +676,16 @@ def main():
         names = [ARCH_NAMES.get(a, {}).get(lang, a) for a in sorted(archs.get(pkg, ()))]
         return "; ".join(names) if names else STRINGS[lang]["requires_v"]
 
-    # static files
+    # static files; the pages link style.css with a hash of its content, so that a cached copy (Cloudflare keeps
+    # .css for hours, Safari too) is never used after a change
+    css_v = ""
     for name in ("style.css", "CydiaIcon.png"):
         p = os.path.join(src, name)
         if os.path.exists(p):
             shutil.copy2(p, os.path.join(out, name))
+            if name == "style.css":
+                with open(p, "rb") as f:
+                    css_v = hashlib.md5(f.read()).hexdigest()[:8]
     for sub in ("icons", "screenshots", "banners"):
         sp = os.path.join(src, sub)
         if os.path.isdir(sp):
@@ -822,6 +827,7 @@ def main():
                 "repo_url": esc(base + "/"),
                 "repo_label": esc(repo["label"]),
                 "feedback_href": esc("../../feedback/" + feedback_href(lang, pkg)),
+                "css_v": css_v,
             }
             for key, value in s.items():
                 values["t_" + key] = esc(value.replace("{v}", version))
@@ -880,6 +886,7 @@ def main():
             "count": str(len(rows)),
             "feedback_href": esc("feedback/" + feedback_href(lang)),
             "feedback_newapp_href": esc("feedback/" + feedback_href(lang, query="type=newapp")),
+            "css_v": css_v,
         }
         for key, value in s.items():
             values["t_" + key] = esc(value)
@@ -917,6 +924,7 @@ def main():
                 "repo_label": esc(repo["label"]),
                 "index_href": esc("../" + ("index.html" if lang == "en" else "index.%s.html" % lang)),
                 "js_strings": json.dumps(js, ensure_ascii=False).replace("</", "<\\/"),
+                "css_v": css_v,
             }
             for key, value in s.items():
                 values["t_" + key] = esc(value)
