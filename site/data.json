@@ -270,6 +270,7 @@
       },
       "changes": {
         "en": [
+          "When the home feed cannot load, the screen now says why under \"Couldn't load the feed.\" (Instagram's own words or the network error)",
           "Fixed: signing in could end in \"Your session expired\" on every screen. The session is now read whole from Instagram's reply, checked before the app opens, and kept where it is read back from",
           "A session Instagram ends (signed out elsewhere, a new password) leads back to the login screen once, with Instagram's reason",
           "Direct over Instagram's live connection, like the official app: a new message arrives in about two seconds, and the open chat, the list of chats and the badge update at once",
@@ -278,6 +279,7 @@
           "Far fewer requests to Instagram while the live connection is up; without it, everything updates as before"
         ],
         "cs": [
+          "Když se domovský feed nenačte, obrazovka teď pod „Feed se nepodařilo načíst.“ napíše proč (slovy Instagramu nebo chybu sítě)",
           "Opraveno: přihlášení mohlo skončit hláškou „Your session expired“ na každé obrazovce. Přihlášení se teď z odpovědi Instagramu přečte celé, ověří se před otevřením aplikace a uloží se tam, odkud se čte",
           "Když Instagram přihlášení ukončí (odhlášení jinde, nové heslo), aplikace jednou vrátí na přihlašovací obrazovku i s důvodem od Instagramu",
           "Zprávy přes živé spojení Instagramu jako v oficiální aplikaci: nová zpráva dorazí zhruba za dvě sekundy a otevřený chat, seznam chatů i odznak se aktualizují hned",
