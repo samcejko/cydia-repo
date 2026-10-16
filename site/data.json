@@ -47,7 +47,8 @@
     "com.samcejko.nasa",
     "com.samcejko.revine",
     "com.samcejko.backcap",
-    "com.samcejko.wazzup"
+    "com.samcejko.wazzup",
+    "com.samcejko.shuttercalc"
   ],
   "packages": {
     "com.samcejko.browser": {
@@ -1100,6 +1101,60 @@
         ],
         "cs": [
           "0.1.0, první verze"
+        ]
+      }
+    },
+    "com.samcejko.shuttercalc": {
+      "name": "ShutterCalc",
+      "github": "photomath-ios6",
+      "tagline": {
+        "en": "Point your camera at a math problem to scan, solve and see step-by-step calculations",
+        "cs": "Namiř fotoaparát na matematický příklad: naskenuje, vyřeší a ukáže postup krok za krokem"
+      },
+      "about": {
+        "en": "A native math camera scanner and solver for iOS 6. Point your device's camera at a printed or handwritten equation, tap the shutter, and get an instant mathematical solution with step-by-step explanations rendered in crisp LaTeX. Also includes a full manual on-screen math keyboard for fractions, roots, powers and trigonometry. The app connects directly to OpenRouter using its own embedded TLS 1.2/1.3 stack (Mbed TLS), queries live vision models dynamically, and automatically falls back if a model fails or rate-limits.",
+        "cs": "Nativní kalkulačka s fotoaparátem a řešič matematických úloh pro iOS 6. Namiř kameru zařízení na tištěnou nebo ručně psanou rovnici, stiskni spoušť a získej okamžité řešení včetně podrobného postupu krok za krokem vykresleného v ostrém LaTeXu. Obsahuje také plnohodnotnou matematickou klávesnici pro zlomky, odmocniny, mocniny a goniometrii. Aplikace se připojuje přímo k OpenRouteru přes vlastní vestavěnou TLS 1.2/1.3 vrstvu (Mbed TLS), dynamicky vybírá z živého katalogu vision modelů a při chybě automaticky přepíná na další dostupný model."
+      },
+      "features": {
+        "en": [
+          "Live camera viewfinder with targeting reticle, tap-to-focus and flashlight torch toggle",
+          "Step-by-step mathematical solutions explaining each transformation",
+          "Native formula rendering with iosMath and LaTeX",
+          "Custom on-screen math keyboard with fractions, exponents, roots, variables and trig functions",
+          "Dynamic OpenRouter model fallback without hardcoded lists, avoiding content-safety models",
+          "Local history of solved equations stored on the device for offline review",
+          "Import images from Camera Roll or clipboard",
+          "Skeuomorphic iOS 6 appearance with glossy buttons and textures; English and Czech"
+        ],
+        "cs": [
+          "Živý hledáček kamery se zaměřovacím rámečkem, zaostřením klepnutím a bleskem/svítilnou",
+          "Podrobné postupy řešení vysvětlující každý krok úpravy",
+          "Nativní vykreslování matematických vzorců pomocí iosMath a LaTeXu",
+          "Vlastní matematická klávesnice na displeji se zlomky, exponenty, odmocninami, proměnnými a goniometrií",
+          "Dynamický fallback modelů přes OpenRouter bez pevně daných seznamů s vynecháním moderovaných modelů",
+          "Místní historie vyřešených příkladů uložená v zařízení pro procházení offline",
+          "Import fotografií z alba fotoaparátu nebo ze schránky",
+          "Skeuomorfní design iOS 6 s lesklými tlačítky a texturami; angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Requires an OpenRouter API key set in Settings to query vision AI models",
+          "Runs natively on iOS 6.x (armv7); also available as an arm64 package for iOS 14-17 (rootless/TrollStore)",
+          "Connects directly over embedded Mbed TLS without requiring proxy or helper servers"
+        ],
+        "cs": [
+          "Pro dotazování vision AI modelů vyžaduje zadání OpenRouter API klíče v Nastavení",
+          "Běží nativně na iOS 6.x (armv7); dostupný také jako balíček arm64 pro iOS 14-17 (rootless/TrollStore)",
+          "Připojuje se přímo přes vestavěné Mbed TLS bez nutnosti proxy či pomocného serveru"
+        ]
+      },
+      "changes": {
+        "en": [
+          "1.0.0, initial release"
+        ],
+        "cs": [
+          "1.0.0, první vydání"
         ]
       }
     }
