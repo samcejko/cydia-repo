@@ -29,7 +29,7 @@
 {{apps}}
     <option value="other">{{t_fb_app_other}}</option>
   </select><span class="chev">&#8250;</span></div>
-  <div class="row field" id="row-app-other"><label class="k" for="app_other">{{t_fb_app_name}}</label><input type="text" name="app_other" id="app_other" autocorrect="off"></div>
+  <div class="row field" id="row-app-other"><label class="k" for="app_other">{{t_fb_app_name}}</label><input type="text" name="app_other" id="app_other" placeholder="{{t_fb_ph_app_other}}" autocorrect="off"></div>
 </div>
 <h2>{{t_fb_device_title}}</h2>
 <div class="box list">
@@ -38,7 +38,7 @@
 {{devices}}
     <option value="other">{{t_fb_device_other_opt}}</option>
   </select><span class="chev">&#8250;</span></div>
-  <div class="row field" id="row-device-other"><label class="k" for="device_other">{{t_fb_device_other}}</label><input type="text" name="device_other" id="device_other" autocorrect="off"></div>
+  <div class="row field" id="row-device-other"><label class="k" for="device_other">{{t_fb_device_other}}</label><input type="text" name="device_other" id="device_other" placeholder="{{t_fb_ph_device_other}}" autocorrect="off"></div>
   <div class="row field"><label class="k" for="ios">{{t_fb_ios}}</label><input type="text" name="ios" id="ios" placeholder="6.1.3" autocapitalize="off" autocorrect="off"></div>
   <div class="row field"><label class="k" for="app_version">{{t_fb_app_version}}</label><input type="text" name="app_version" id="app_version" placeholder="0.2.1" autocapitalize="off" autocorrect="off"></div>
   <div class="row field"><label class="k" for="installed_via">{{t_fb_installed}}</label><select name="installed_via" id="installed_via">
@@ -57,8 +57,8 @@
 </div>
 <h2>{{t_fb_contact_title}}</h2>
 <div class="box list">
-  <div class="row field"><label class="k" for="name">{{t_fb_name}}</label><input type="text" name="name" id="name" autocorrect="off"></div>
-  <div class="row field"><label class="k" for="contact">{{t_fb_contact}}</label><input type="text" name="contact" id="contact" autocapitalize="off" autocorrect="off"></div>
+  <div class="row field"><label class="k" for="name">{{t_fb_name}}</label><input type="text" name="name" id="name" placeholder="{{t_fb_ph_optional}}" autocorrect="off"></div>
+  <div class="row field"><label class="k" for="contact">{{t_fb_contact}}</label><input type="text" name="contact" id="contact" placeholder="{{t_fb_ph_optional}}" autocapitalize="off" autocorrect="off"></div>
 </div>
 <div class="btnwrap"><button type="submit" class="button" id="send">{{t_fb_send}}</button></div>
 </form>

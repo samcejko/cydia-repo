@@ -114,6 +114,9 @@ STRINGS = {
         "fb_need_app": "Please pick the app.",
         "fb_foot": "Reports are stored on my server, no account needed. Thanks for helping!",
         "fb_back": "Back to the repository",
+        "fb_ph_optional": "optional",
+        "fb_ph_app_other": "e.g. Reddit",
+        "fb_ph_device_other": "e.g. iPhone 5c",
     },
     "cs": {
         "features": "Funkce",
@@ -186,6 +189,9 @@ STRINGS = {
         "fb_need_app": "Vyber prosím aplikaci.",
         "fb_foot": "Hlášení se ukládají na můj server, bez účtu. Díky za pomoc!",
         "fb_back": "Zpět na repozitář",
+        "fb_ph_optional": "nepovinné",
+        "fb_ph_app_other": "např. Reddit",
+        "fb_ph_device_other": "např. iPhone 5c",
     },
 }
 
