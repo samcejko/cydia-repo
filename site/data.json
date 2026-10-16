@@ -45,7 +45,8 @@
     "com.samcejko.kodium",
     "com.samcejko.kodium-shell",
     "com.samcejko.nasa",
-    "com.samcejko.revine"
+    "com.samcejko.revine",
+    "com.samcejko.backcap"
   ],
   "packages": {
     "com.samcejko.browser": {
@@ -970,6 +971,59 @@
         ],
         "cs": [
           "První verze"
+        ]
+      }
+    },
+    "com.samcejko.backcap": {
+      "name": "Backcap",
+      "github": "https://github.com/samcejko/backcap-ios6",
+      "depends": "mobilesubstrate, preferenceloader, firmware (>= 6.0), firmware (<< 7.0)",
+      "requires": {
+        "en": "iOS 6.x, armv7; MobileSubstrate and PreferenceLoader",
+        "cs": "iOS 6.x, armv7; MobileSubstrate a PreferenceLoader"
+      },
+      "tagline": {
+        "en": "Limits background apps (0–6) and closes unused apps when locking the screen",
+        "cs": "Omezuje počet aplikací na pozadí (0–6) a zavírá nečinné aplikace při zamknutí"
+      },
+      "about": {
+        "en": "A SpringBoard tweak for iOS 6 that keeps background applications under control so you do not have to double-click the physical Home button and close apps by hand. Set how many background apps may stay open (0 to close every app as soon as you leave it with the Home button, 1 to 6 apps, or Unlimited), choose whether to close the oldest app in the switcher or the previous background app, and let Backcap close all unused background apps automatically when you lock the screen. Apps playing music or audio in the background (such as Pandora, Music, Spot6 or Muzika), recording audio or in a phone call are kept open automatically.",
+        "cs": "Tweak pro SpringBoard na iOS 6, který hlídá aplikace na pozadí, abys nemusel pořád mačkat fyzické tlačítko plochy a zavírat je ručně. Nastav si, kolik aplikací smí zůstat otevřených na pozadí (0 pro okamžité zavření po odchodu tlačítkem plochy, 1 až 6 aplikací nebo bez omezení), vyber, zda se má zavřít nejstarší aplikace v přepínači nebo předchozí použitá aplikace, a nech Backcap při zamknutí obrazovky automaticky ukončit všechny nečinné aplikace. Aplikace, které na pozadí přehrávají hudbu nebo zvuk (například Pandora, Hudba, Spot6 nebo Muzika), nahrávají zvuk nebo mají aktivní hovor, zůstávají běžet automaticky."
+      },
+      "features": {
+        "en": [
+          "Keep at most 0, 1, 2, 3, 4, 5 or 6 background apps open (0 closes every app right after pressing the Home button)",
+          "Choose whether to close the oldest app in the switcher or the last used background app when the limit is exceeded",
+          "Removes closed apps from the iOS 6 multitasking switcher bar automatically",
+          "Closes all unused background apps when you lock the device or turn off the screen, with an option to keep the active foreground app",
+          "Automatically keeps apps playing background audio (Pandora, Music, Spot6, Muzika...), recording audio or in an active phone call open",
+          "Protected Apps list and a one-tap \"Close Background Apps Now\" button in Settings → Backcap, in English and Czech"
+        ],
+        "cs": [
+          "Nechá na pozadí otevřených nejvýš 0, 1, 2, 3, 4, 5 nebo 6 aplikací (0 zavře každou aplikaci hned po stisknutí tlačítka plochy)",
+          "Možnost zvolit, zda se při překročení limitu zavře nejstarší aplikace v přepínači, nebo poslední použitá aplikace na pozadí",
+          "Automaticky odebírá zavřené aplikace ze spodní lišty přepínače aplikací v iOS 6",
+          "Při zamknutí zařízení nebo vypnutí obrazovky ukončí všechny nečinné aplikace na pozadí, s volbou nechat běžet právě otevřenou aplikaci",
+          "Automaticky nechává běžet aplikace přehrávající zvuk na pozadí (Pandora, Hudba, Spot6, Muzika...), nahrávající zvuk nebo s aktivním hovorem",
+          "Seznam chráněných aplikací a tlačítko „Zavřít aplikace na pozadí teď“ přímo v Nastavení → Backcap, anglicky i česky"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Configure in Settings → Backcap; changes take effect immediately without a respring",
+          "Tested on iOS 6.1.3 (armv7: iPhone 4S, iPad 2 and other iOS 6.x devices)"
+        ],
+        "cs": [
+          "Nastavuje se v Nastavení → Backcap; změny se projeví hned bez respringu",
+          "Testováno na iOS 6.1.3 (armv7: iPhone 4S, iPad 2 a další zařízení s iOS 6.x)"
+        ]
+      },
+      "changes": {
+        "en": [
+          "0.1.0, the first version"
+        ],
+        "cs": [
+          "0.1.0, první verze"
         ]
       }
     }
