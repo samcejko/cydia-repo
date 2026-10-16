@@ -66,7 +66,7 @@ h2 { font-size: 17px; font-weight: bold; color: #4c566c; text-shadow: 0 1px 0 rg
 }
 .row.field input { display: block; -webkit-box-flex: 2; box-flex: 2; width: 50%; min-width: 0; text-align: right; }
 .row.field input::-webkit-input-placeholder { color: #b0b3b8; }
-.row.field select { max-width: 70%; text-align: right; }
+.row.field select { display: block; -webkit-box-flex: 2; box-flex: 2; width: 50%; min-width: 0; text-align: right; }
 .row.field .chev { margin-left: 6px; }
 .box textarea {
   display: block; width: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; min-height: 120px;
