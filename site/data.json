@@ -682,10 +682,14 @@
       },
       "changes": {
         "en": [
-          "Initial release of City VOD: all seasons, episodes, clips, subtitles, resume and background playback"
+          "Instant offline-ready search across all seasons (1–28) as you type",
+          "Fixed white box background artifacts around time scrubber labels on iOS 6",
+          "Removed act buttons from video player controls for a clean, unobstructed view"
         ],
         "cs": [
-          "První vydání City VOD: všechny série, epizody, klipy, titulky, pokračování a přehrávání na pozadí"
+          "Okamžité vyhledávání napříč všemi sériemi (1–28) přímo při psaní",
+          "Opraveny bílé obdélníky v pozadí popisků časové osy na iOS 6",
+          "Odstraněna tlačítka aktů z přehrávače pro čisté a nerušené zobrazení"
         ]
       }
     },
