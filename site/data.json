@@ -35,9 +35,11 @@
     "com.samcejko.shutter",
     "com.samcejko.tubie",
     "com.samcejko.tikie",
+    "com.samcejko.tikieplus",
     "com.samcejko.sixify",
     "com.samcejko.muzika",
     "com.samcejko.kicker",
+    "com.samcejko.cityvod",
     "com.samcejko.gfn6",
     "com.samcejko.artlight",
     "com.samcejko.kostka",
@@ -410,6 +412,63 @@
         ]
       }
     },
+    "com.samcejko.tikieplus": {
+      "name": "TikTak+",
+      "ipa": "TikTakPlus",
+      "github": "https://github.com/samcejko/tiktok-plus-ios6",
+      "tagline": {
+        "en": "TikTok client with login: personal For You, following, profile, likes and comments",
+        "cs": "TikTok klient s přihlášením: osobní For You, sledovaní, profil, lajky a komentáře"
+      },
+      "about": {
+        "en": "An enhanced TikTok client building on TikTak with full session support. Import your browser session file (ttsession.json) to unlock your personal feed, following feed, own profile, notifications, and liked videos. Includes experimental actions support to like videos, follow creators, and post comments directly on TikTok with safety rate guards.",
+        "cs": "Rozšířený TikTok klient vycházející z aplikace TikTak s plnou podporou přihlášení. Importujte relaci z prohlížeče (ttsession.json) a získejte svůj osobní feed, feed sledovaných, profil, oznámení i oblíbená videa. Obsahuje také experimentální podporu pro lajkování, sledování tvůrců a komentování přímo na TikToku s bezpečnostními limity."
+      },
+      "features": {
+        "en": [
+          "Optional login via session file import (ttsession.json via iTunes or Filza) - cookies stored securely on your helper, never on device",
+          "Personalized For You feed with automatic fallback to local taste engine",
+          "Following feed with videos from creators you follow",
+          "Account profile, notifications list, and liked videos grid",
+          "Optional account actions toggle: like videos, follow/unfollow creators, and post comments",
+          "Search with suggestions, hashtag and sound pages, tappable #hashtags and @mentions",
+          "TikTok LIVE streaming repacked to HLS on the device",
+          "Landscape iPad comments panel; English and Czech"
+        ],
+        "cs": [
+          "Volitelné přihlášení přes import souboru relace (ttsession.json přes iTunes nebo Filzu) – cookies jsou bezpečně na vašem helperu, ne v zařízení",
+          "Personalizovaný For You feed s automatickým přepnutím na lokální doporučování v případě potřeby",
+          "Feed sledovaných tvůrců s jejich nejnovějšími videi",
+          "Vlastní profil, přehled oznámení a mřížka oblíbených videí",
+          "Volitelné zapnutí akcí na účtu: lajkování, sledování tvůrců a psaní komentářů",
+          "Vyhledávání s našeptávačem, stránky hashtagů a zvuků, klikací #hashtagy a @zmínky",
+          "Sledování TikTok LIVE s přebalováním do HLS přímo na zařízení",
+          "iPad na šířku: panel komentářů vedle videa; angličtina a čeština"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Needs the updated helper service from the project's pi/ folder on your own server (Docker, yt-dlp); set its address in Settings",
+          "Unofficial client; recommended to use a secondary or throwaway account when enabling account writes"
+        ],
+        "cs": [
+          "Potřebuje aktualizovanou pomocnou službu ze složky pi/ na vašem serveru (Docker, yt-dlp); adresu nastavte v Nastavení",
+          "Neoficiální klient; při zapnutí akcí na účtu doporučujeme používat vedlejší účet"
+        ]
+      },
+      "changes": {
+        "en": [
+          "Initial release of TikTak+ 0.4.0 with Method A session file import (ttsession.json)",
+          "Personal feeds, following feed, notifications, liked videos, and profile viewer",
+          "Phase 3 write actions: like/digg, follow, and comment composer with safety toggle"
+        ],
+        "cs": [
+          "První vydání TikTak+ 0.4.0 s importem relace metodou A (ttsession.json)",
+          "Osobní feedy, sledovaní tvůrci, oznámení, oblíbená videa a zobrazení profilu",
+          "Zápisové akce fáze 3: lajkování, sledování a přidávání komentářů s bezpečnostní pojistkou"
+        ]
+      }
+    },
     "com.samcejko.sixify": {
       "name": "Sixify",
       "ipa": "Sixify",
@@ -574,6 +633,59 @@
           "Odkazy v chatu, v biu kanálu a v titulcích jsou klikací a stránka kanálu ukazuje jeho sociální sítě; odkazy na Kick se otevřou v Kickeru, odkazy na YouTube, Twitch a TikTok v sesterských appkách, pokud jsou nainstalované",
           "Na iOS 6 ostatní odkazy nabídnou Safari nebo Surfari; novější iOS otevře rovnou Safari",
           "Balíček pro iOS 6 se nabízí jen na iOS 6.x (64bitová zařízení s iOS 15 a novějším používají balíček arm64)"
+        ]
+      }
+    },
+    "com.samcejko.cityvod": {
+      "name": "City VOD",
+      "ipa": "CityVOD",
+      "github": "https://github.com/samcejko/southpark-ios6",
+      "tagline": {
+        "en": "South Park: all episodes, clips, subtitles and resume",
+        "cs": "South Park: všechny epizody, klipy, titulky a pokračování"
+      },
+      "about": {
+        "en": "An unofficial, universal South Park Studios client in the authentic glossy iOS 6 look. Watch all full episodes from Season 1 to Season 27+, clips, and specials with synchronized WebVTT subtitles, playback resume, background audio, and act chapters. Parody tribute to City Wok (\"Try our City VOD!\"). Ships its own Mbed TLS stack and local proxy for modern CDN compatibility on iOS 6.",
+        "cs": "Neoficiální univerzální klient South Park Studios v autentickém lesklém vzhledu iOS 6. Sledujte všechny celé epizody od 1. do 27.+ série, klipy a speciály se synchronizovanými WebVTT titulky, ukládáním pozice, zvukem na pozadí a skákáním po aktech. Parodická pocta City Woku („Try our City VOD!“). Obsahuje vlastní Mbed TLS vrstvu a lokální proxy pro kompatibilitu s moderními servery na iOS 6."
+      },
+      "features": {
+        "en": [
+          "All 27+ seasons and specials with synopses and original air dates",
+          "Continue watching, playback progress indicator, and resume from exact time",
+          "Fullscreen player with act jumps, ±15s seeking, quality selector, and WebVTT captions",
+          "Background audio and lock-screen controls",
+          "Favorites and watch history with swipe-to-delete",
+          "Instant offline-cached search across all seasons and clips",
+          "Dark and light theme with City VOD crimson accents, English and Czech"
+        ],
+        "cs": [
+          "Všech 27+ sérií a speciálů s popisy a daty vydání",
+          "Pokračovat ve sledování, ukazatel zhlédnutí a pokračování z přesného času",
+          "Přehrávač na celou obrazovku se skoky po aktech, posunem ±15 s, volbou kvality a WebVTT titulky",
+          "Přehrávání zvuku na pozadí a ovládání na zamčené obrazovce",
+          "Oblíbené a historie sledování s mazáním gestem",
+          "Rychlé vyhledávání napříč všemi sériemi a klipy",
+          "Tmavý a světlý motiv s červenými City VOD akcenty, čeština a angličtina"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Tested on an iPad 2 with iOS 6.1.3; universal layout for iPhone and iPad",
+          "Not affiliated with South Park Digital Studios, Paramount, or Comedy Central",
+          "Streams are accessed from public web endpoints without DRM circumvention"
+        ],
+        "cs": [
+          "Testováno na iPadu 2 s iOS 6.1.3; univerzální rozhraní pro iPhone i iPad",
+          "Bez vazby na South Park Digital Studios, Paramount či Comedy Central",
+          "Streamy jsou načítány z veřejných webových endpointů bez obcházení DRM"
+        ]
+      },
+      "changes": {
+        "en": [
+          "Initial release of City VOD: all seasons, episodes, clips, subtitles, resume and background playback"
+        ],
+        "cs": [
+          "První vydání City VOD: všechny série, epizody, klipy, titulky, pokračování a přehrávání na pozadí"
         ]
       }
     },
