@@ -34,6 +34,9 @@ if (Test-Path $cfgPath) {
     $j = Get-Content $cfgPath -Raw -Encoding UTF8 | ConvertFrom-Json
     foreach ($p in $j.PSObject.Properties) { $cfg[$p.Name] = $p.Value }
 }
+if ($cfg.key -and $cfg.key.StartsWith('~')) {
+    $cfg.key = Join-Path $env:USERPROFILE $cfg.key.Substring(1).TrimStart('/','\')
+}
 $target = "$($cfg.user)@$($cfg.host)"
 $sshOpts = @('-i', $cfg.key, '-o', 'ConnectTimeout=20', '-o', 'BatchMode=yes')
 

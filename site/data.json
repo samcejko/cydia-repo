@@ -1,4 +1,4 @@
-﻿{
+{
     "repo":  {
                  "label":  "samcejko",
                  "origin":  "samcejko",
@@ -1166,7 +1166,7 @@
                                                               }
                                               },
                      "com.samcejko.wazzup":  {
-                                                 "name":  "Wazzup",
+                                                 "name":  "Wazzup (W.I.P)",
                                                  "github":  "",
                                                  "requires":  {
                                                                   "en":  "iOS 6.x only, armv7",
