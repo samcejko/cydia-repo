@@ -46,6 +46,7 @@
     "com.samcejko.aichat",
     "com.samcejko.kodium",
     "com.samcejko.kodium-shell",
+    "com.fsrgteam.python3",
     "com.samcejko.nasa",
     "com.samcejko.revine",
     "com.samcejko.backcap",
@@ -921,7 +922,7 @@
           "Syntax highlighting for 31 languages; snippets, language configurations and Emmet from VS Code's built-in extensions",
           "JavaScript: problems, outline, Go to Definition, Find All References, Rename Symbol, Format Document",
           "Search in files, the command palette, settings, keybindings, themes, Outline and Timeline with local history",
-          "A terminal (xterm.js) on the iPad's own shells with the Kodium Shell package",
+          "A terminal (xterm.js) on the iPad's own shells with the Kodium Shell package; run Python directly from the editor",
           "Touch: long press for the loupe, double tap selects a word, selection handles and the Cut/Copy/Paste callout, the system clipboard both ways",
           "A warm-up behind the splash, so the first actions are quick on an iPad 2",
           "English and Czech"
@@ -930,7 +931,7 @@
           "Zvýraznění syntaxe pro 31 jazyků; snippety, konfigurace jazyků a Emmet z vestavěných rozšíření VS Code",
           "JavaScript: problémy, osnova, Přejít na definici, Najít všechny reference, Přejmenovat symbol, Formátovat dokument",
           "Hledání v souborech, paleta příkazů, nastavení, klávesové zkratky, motivy, Osnova a Časová osa s místní historií",
-          "Terminál (xterm.js) na vlastních shellech iPadu s balíčkem Kodium Shell",
+          "Terminál (xterm.js) na vlastních shellech iPadu s balíčkem Kodium Shell; spouštění Pythonu přímo z editoru",
           "Dotyk: dlouhý stisk pro lupu, dvojité klepnutí vybere slovo, úchyty výběru a bublina Vyjmout/Kopírovat/Vložit, systémová schránka oběma směry",
           "Zahřátí za úvodní obrazovkou, aby první akce na iPadu 2 byly rychlé",
           "Angličtina a čeština"
@@ -939,12 +940,12 @@
       "notes": {
         "en": [
           "An early version, made for iOS 6 on an iPad 2 with 512 MB",
-          "For the terminal install Kodium Shell as well",
+          "For the terminal install Kodium Shell as well; for running Python scripts install Python 3",
           "Not affiliated with Microsoft; \"Visual Studio Code\" is their trademark. MIT licensed, the third-party notices are inside the app"
         ],
         "cs": [
           "Raná verze, dělaná pro iOS 6 na iPadu 2 s 512 MB",
-          "Pro terminál nainstaluj i Kodium Shell",
+          "Pro terminál nainstaluj i Kodium Shell; pro spouštění skriptů v Pythonu doinstaluj Python 3",
           "Bez vazby na Microsoft; „Visual Studio Code“ je jejich ochranná známka. Licence MIT, licence třetích stran jsou v aplikaci"
         ]
       },
@@ -1111,6 +1112,61 @@
         ]
       }
     },
+    "com.fsrgteam.python3": {
+      "name": "Python 3",
+      "github": "https://github.com/Alex-FSRG/cpython-ios6-armv7",
+      "depends": "mobilesubstrate, firmware (>= 6.1)",
+      "requires": {
+        "en": "iOS 6.1+, armv7",
+        "cs": "iOS 6.1+, armv7"
+      },
+      "tagline": {
+        "en": "CPython 3.10.11 interpreter for iOS 6 / ARMv7",
+        "cs": "Interpret CPython 3.10.11 pro iOS 6 / ARMv7"
+      },
+      "about": {
+        "en": "An unofficial port of CPython 3.10.11 to legacy jailbroken iOS 6 ARMv7 devices by Alex FSRG. Provides a native python3 CLI interpreter with pip and basic standard library modules in /usr/sbin/python3. Perfect for running Python scripts on your device, in MobileTerminal, over SSH or directly inside Kodium's integrated terminal.",
+        "cs": "Neoficiální port CPythonu 3.10.11 pro jailbreaknutá zařízení s iOS 6 (ARMv7) od Alexe FSRG. Přináší nativní interpret python3 pro příkazovou řádku s pipem a základní standardní knihovnou v /usr/sbin/python3. Skvělé pro spouštění skriptů v Pythonu přímo v zařízení, v MobileTerminalu, přes SSH nebo přímo v integrovaném terminálu Kodia."
+      },
+      "features": {
+        "en": [
+          "Full CPython 3.10.11 interpreter compiled natively for ARMv7 on iOS 6",
+          "Installed into /usr/sbin/python3 with standard library in /usr/local/lib/python3.10",
+          "pip and core standard library modules included",
+          "Runs in MobileTerminal, SSH sessions and Kodium's terminal",
+          "Allows writing and running Python programs directly on legacy devices"
+        ],
+        "cs": [
+          "Plnohodnotný interpret CPython 3.10.11 nativně přeložený pro ARMv7 na iOS 6",
+          "Nainstaluje se do /usr/sbin/python3 se standardní knihovnou v /usr/local/lib/python3.10",
+          "Obsahuje pip a základní moduly standardní knihovny",
+          "Funguje v MobileTerminalu, přes SSH i v terminálu v Kodium",
+          "Umožňuje psát a spouštět programy v Pythonu přímo na starších zařízeních"
+        ]
+      },
+      "notes": {
+        "en": [
+          "Ported by Alex FSRG (github.com/Alex-FSRG/cpython-ios6-armv7)",
+          "Requires iOS 6.1 or newer on ARMv7 (e.g. iPad 2, iPhone 4S, iPod touch 5th gen)",
+          "Some modules (tkinter, nis, ossaudiodev, spwd) are unavailable due to legacy system limitations",
+          "To run Python scripts in Kodium, install both Kodium Shell and this package"
+        ],
+        "cs": [
+          "Portoval Alex FSRG (github.com/Alex-FSRG/cpython-ios6-armv7)",
+          "Vyžaduje iOS 6.1 nebo novější na ARMv7 (např. iPad 2, iPhone 4S, iPod touch 5. gen)",
+          "Některé moduly (tkinter, nis, ossaudiodev, spwd) nejsou dostupné kvůli limitacím starého systému",
+          "Pro spouštění Python skriptů v Kodium nainstalujte jak Kodium Shell, tak tento balíček"
+        ]
+      },
+      "changes": {
+        "en": [
+          "CPython 3.10.11 release for iOS 6 ARMv7"
+        ],
+        "cs": [
+          "Vydání CPython 3.10.11 pro iOS 6 ARMv7"
+        ]
+      }
+    },
     "com.samcejko.backcap": {
       "name": "Backcap",
       "github": "https://github.com/samcejko/backcap-ios6",
@@ -1267,12 +1323,14 @@
       },
       "changes": {
         "en": [
+          "1.0.4: built-in offline math engine for instant keyboard equation solving without network or API keys, Photomath signature long-press popups for alternative symbols (roots with indices, powers, operators, greek letters), fixed exponentiation x^y with smart cursor and brace navigation, rounded pre-rendered icon with iPad support",
           "1.0.3: fixed camera viewfinder cropping orientation and aspect ratio (preventing narrow vertical slices), added safety padding around formula, improved OCR prompt instructions and increased image resolution to 1200px for accurate recognition",
           "1.0.2: responsive layout for all iPhone screen sizes (3.5\", 4.0\", notched OLED and iPad), redesigned touch-friendly 5-column math keyboard, scrollable API key settings with keyboard management, and dynamic LaTeX solution card sizing",
           "1.0.1: native drawn iOS vector icons (no emojis), OpenRouter key import from AI Chat, only free models toggle",
           "1.0.0, initial release"
         ],
         "cs": [
+          "1.0.4: vestavěný offline matematický engine pro okamžité řešení z klávesnice s postupem bez internetu a bez API klíče, typické Photomath vyskakovací nabídky při dlouhém stisku tlačítek pro alternativní symboly (odmocniny s indexem, mocniny, operátory, řecká písmena), oprava mocnění x^y s chytrým kurzorem a navigací v závorkách, zaoblená ikona s podporou iPadu",
           "1.0.3: oprava orientace a poměru stran výřezu fotoaparátu (odstranění úzkého vertikálního ořezu), bezpečnostní okraj kolem vzorce, vylepšené OCR instrukce a zvýšení rozlišení na 1200 px pro přesné rozpoznávání",
           "1.0.2: responzivní rozvržení pro všechny velikosti displejů iPhone (3,5\", 4,0\", OLED s výřezem i iPad), přepracovaná dotyková 5sloupcová klávesnice, scrollovatelné nastavení API klíče a dynamické přizpůsobení LaTeX karet",
           "1.0.1: nativní vektorové ikony iOS (žádné emoji), import klíče z AI Chatu, přepínač pouze pro bezplatné modely",
