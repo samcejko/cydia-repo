@@ -1369,22 +1369,30 @@
                                                                     "en":  [
                                                                                "Parses and displays all XML fields, tags, attributes, and custom namespaces from RSS \u0026 Atom",
                                                                                "Dedicated \u0027All Fields\u0027 inspector to view raw feed metadata and custom author links",
-                                                                               "Direct HTTPS support via embedded Mbed TLS (TLS 1.2 \u0026 1.3) — no proxy required on iOS 6",
-                                                                               "Distraction-free Reader mode with responsive typography and automatic image loading",
+                                                                               "Full-Text Readability Extractor: toggle between original feed snippet and clean, ad-free article text",
+                                                                               "Reader Themes: Day, warm Sepia paper (iBooks style), and Night dark slate",
+                                                                               "Typography Controls: font size steppers (A- / A+) and 5 classic font families (Georgia, Palatino, Baskerville, etc.)",
+                                                                               "Native WebP Image Decoder: renders modern WebP images directly on iOS 6 via bundled libwebp",
+                                                                               "Built-in Podcast / Audio Player: skeuomorphic brushed-metal card with scrubber, time labels, and background audio",
+                                                                               "Full-screen Image Viewer: pinch-to-zoom, double-tap zoom, Save to Camera Roll, Copy, and Safari links",
+                                                                               "Feed Autodiscovery: detects RSS and Atom feeds directly from any website homepage URL",
+                                                                               "Direct HTTPS support via embedded Mbed TLS (TLS 1.2 \u0026 1.3) â€” no proxy required on iOS 6",
                                                                                "Smart disk and memory cache with configurable retention and instant cache clearing",
-                                                                               "Universal app layout: optimized Split View for iPad and sleek navigation stack for iPhone",
-                                                                               "Import popular news feeds or add any custom RSS/Atom URL with instant validation",
-                                                                               "Search across all feed headlines, descriptions, and authors"
+                                                                               "Universal app layout: optimized Split View for iPad and sleek navigation stack for iPhone"
                                                                            ],
                                                                     "cs":  [
-                                                                               "Zpracovává a zobrazuje všechna XML pole, tagy, atributy a vlastní jmenné prostory z RSS i Atomu",
-                                                                               "Speciální inspektor \u0027Všechna pole\u0027 pro zobrazení kompletních metadat a odkazů",
-                                                                               "Přímé HTTPS připojení díky vestavěnému Mbed TLS (TLS 1.2 i 1.3) bez nutnosti proxy",
-                                                                               "Pohodlný čtecí režim s responzivní typografií a automatickým stahováním obrázků",
-                                                                               "Chytrá mezipaměť s nastavitelnou dobou uchování a okamžitým promazáním disku",
-                                                                               "Univerzální rozhraní: Split View pro iPad a přehledné zobrazení pro iPhone",
-                                                                               "Přednastavené kanály zpráv i možnost přidání libovolného RSS/Atom odkazu",
-                                                                               "Rychlé vyhledávání v titulcích, textech i autorech zpráv"
+                                                                               "ZpracovÃ¡vÃ¡ a zobrazuje vÅ¡echna XML pole, tagy, atributy a vlastnÃ­ jmennÃ© prostory z RSS i Atomu",
+                                                                               "SpeciÃ¡lnÃ­ inspektor \u0027VÅ¡echna pole\u0027 pro zobrazenÃ­ kompletnÃ­ch metadat a odkazÅ¯",
+                                                                               "Extrakce celÃ©ho textu (Readability): pÅ™epÃ­naÄ mezi RSS vÃ½taÅ¾kem a ÄistÃ½m textem celÃ©ho ÄlÃ¡nku",
+                                                                               "Motivy ÄteÄky: Den, hÅ™ejivÃ¡ SÃ©pie (styl iBooks) a Noc (tmavÃ¡ bÅ™idlice)",
+                                                                               "NastavenÃ­ typografie: zvÄ›tÅ¡ovÃ¡nÃ­ pÃ­sma (A- / A+) a vÃ½bÄ›r z 5 pÃ­sem (Georgia, Palatino, Baskerville atd.)",
+                                                                               "NativnÃ­ dekodÃ©r WebP pro iOS 6: zobrazuje modernÃ­ WebP obrÃ¡zky pÅ™Ã­mo pÅ™es libwebp",
+                                                                               "VestavÄ›nÃ½ pÅ™ehrÃ¡vaÄ podcastÅ¯ a zvukovÃ½ch pÅ™Ã­loh s liÅ¡tou posunu a bÄ›hem na pozadÃ­",
+                                                                               "CeloobrazovkovÃ½ prohlÃ­Å¾eÄ obrÃ¡zkÅ¯: zoomovÃ¡nÃ­ gesty, uloÅ¾enÃ­ do Fotek, kopÃ­rovÃ¡nÃ­",
+                                                                               "AutomatickÃ© vyhledÃ¡nÃ­ kanÃ¡lu (Autodiscovery) z domovskÃ© strÃ¡nky libovolnÃ©ho webu",
+                                                                               "PÅ™Ã­mÃ© HTTPS pÅ™ipojenÃ­ dÃ­ky vestavÄ›nÃ©mu Mbed TLS (TLS 1.2 i 1.3) bez nutnosti proxy",
+                                                                               "ChytrÃ¡ mezipamÄ›Å¥ s nastavitelnou dobou uchovÃ¡nÃ­ a okamÅ¾itÃ½m promazÃ¡nÃ­m disku",
+                                                                               "UniverzÃ¡lnÃ­ rozhranÃ­: Split View pro iPad a pÅ™ehlednÃ© zobrazenÃ­ pro iPhone"
                                                                            ]
                                                                 },
                                                    "notes":  {
@@ -1402,17 +1410,27 @@
                                                    "changes":  {
                                                                    "en":  [
                                                                               "Initial 1.0.0 release",
+                                                                              "Full-Text Article Extractor (Readability mode with toggle)",
+                                                                              "Reader Themes (Day, Sepia, Night) and Typography controls (A-/A+, 5 font families)",
+                                                                              "Native WebP image decoding for iOS 6 via bundled libwebp",
+                                                                              "Built-in Podcast / Audio Enclosure Player with background playback and scrubbing",
+                                                                              "Full-screen pinch-to-zoom Image Viewer with Save to Camera Roll",
+                                                                              "Feed Autodiscovery from website URLs",
                                                                               "Comprehensive RSS 0.9x/1.0/2.0 and Atom SAX parser with complete tag extraction",
                                                                               "Direct HTTPS networking with embedded Mbed TLS 1.3",
-                                                                              "Universal iPad SplitViewController and iPhone NavigationController UI",
-                                                                              "Automatic cache cleanup, image caching, and full metadata table inspector"
+                                                                              "Universal iPad SplitViewController and iPhone NavigationController UI"
                                                                           ],
                                                                    "cs":  [
-                                                                              "První vydání 1.0.0",
-                                                                              "Kompletní SAX parser pro RSS 0.9x/1.0/2.0 a Atom se zachováním všech polí",
-                                                                              "Přímé HTTPS spojení s vestavěným Mbed TLS 1.3",
-                                                                              "Univerzální rozhraní pro iPad (SplitViewController) i iPhone",
-                                                                              "Automatická správa mezipaměti, ukládání obrázků a tabulka všech metadat"
+                                                                              "PrvnÃ­ vydÃ¡nÃ­ 1.0.0",
+                                                                              "Extrakce celÃ©ho ÄlÃ¡nku (Readability) s okamÅ¾itÃ½m pÅ™epÃ­naÄem",
+                                                                              "Motivy ÄteÄky (Den, SÃ©pie, Noc) a nastavenÃ­ pÃ­sma (velikost, 5 fontÅ¯)",
+                                                                              "NativnÃ­ dekÃ³dovÃ¡nÃ­ modernÃ­ch WebP obrÃ¡zkÅ¯ na iOS 6 pÅ™es libwebp",
+                                                                              "PÅ™ehrÃ¡vaÄ podcastÅ¯ a audia s posuvnÃ­kem a poslechem na pozadÃ­",
+                                                                              "CeloobrazovkovÃ½ prohlÃ­Å¾eÄ obrÃ¡zkÅ¯ s gesty a uklÃ¡dÃ¡nÃ­m do Fotek",
+                                                                              "AutomatickÃ© vyhledÃ¡vÃ¡nÃ­ RSS/Atom kanÃ¡lÅ¯ z adresy webu",
+                                                                              "KompletnÃ­ SAX parser pro RSS 0.9x/1.0/2.0 a Atom se zachovÃ¡nÃ­m vÅ¡ech polÃ­",
+                                                                              "PÅ™Ã­mÃ© HTTPS spojenÃ­ s vestavÄ›nÃ½m Mbed TLS 1.3",
+                                                                              "UniverzÃ¡lnÃ­ rozhranÃ­ pro iPad (SplitViewController) i iPhone"
                                                                           ]
                                                                }
                                                }
