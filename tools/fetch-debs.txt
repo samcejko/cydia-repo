@@ -8,3 +8,4 @@ com.samcejko.backcap_0.1.0_iphoneos-arm.deb https://github.com/samcejko/backcap-
 com.samcejko.shutter_0.3.8_iphoneos-arm.deb https://github.com/samcejko/cydia-repo/releases/download/gramify-0.3.8/com.samcejko.shutter_0.3.8_iphoneos-arm.deb fea4eb6f9587ef352d3d85cb611ebaeb9fb87994615c196c47aa11f7583b5ef5
 com.samcejko.shutter_0.3.8_iphoneos-arm64.deb https://github.com/samcejko/cydia-repo/releases/download/gramify-0.3.8/com.samcejko.shutter_0.3.8_iphoneos-arm64.deb 2b730d94cc30e6aafaf5385f80721e44dfb49380954ba10fd9aa88d9c67f0681
 com.samcejko.wikie_1.0.0_iphoneos-arm.deb https://github.com/samcejko/wikie-ios6/releases/download/v1.0.0/com.samcejko.wikie_1.0.0_iphoneos-arm.deb 75987a7c658406c6991dc71f8870ce3778fcf300cb5fb597aa925c3065021346
+com.samcejko.wikie_1.0.0_iphoneos-arm64.deb https://github.com/samcejko/wikie-ios6/releases/download/v1.0.0/com.samcejko.wikie_1.0.0_iphoneos-arm64.deb d30f1de7dcd9cb61af41c2d752f82f4052d9e3786a75a9ee2fc6f6f969328edc
