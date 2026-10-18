@@ -1334,12 +1334,14 @@
                                                           },
                                                 "changes":  {
                                                                 "en":  [
+                                                                           "1.0.1: Fixed instant launch crash on iOS 6.x caused by CFNetwork symbol resolution and NSArray firstObject fallback",
                                                                            "Initial 1.0.0 release",
                                                                            "Custom OpenZIM v5/v6 reader engine with ARMv7 unaligned-safe streaming",
                                                                            "Built-in Wi-Fi drag-and-drop server and iTunes Documents support",
                                                                            "Native iOS 6 skeuomorphic UI with table index, search bar, and reader toolbars"
                                                                        ],
                                                                 "cs":  [
+                                                                           "1.0.1: Oprava pádu při startu na iOS 6.x (vyřešena kompatibilita symbolů CFNetwork a fallback pro NSArray firstObject)",
                                                                            "První vydání 1.0.0",
                                                                            "Vlastní OpenZIM v5/v6 čtecí engine bezpečný pro ARMv7 zarovnání",
                                                                            "Vestavěný Wi-Fi drag-and-drop server a podpora iTunes Dokumentů",
