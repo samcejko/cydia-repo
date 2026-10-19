@@ -415,7 +415,10 @@ def repack_deb_depends(path, value):
             out += b"\n"
     stem = os.path.basename(path)[:-4]
     stem = re.sub(r"-d[0-9a-f]{6}$", "", stem)
-    new_path = os.path.join(os.path.dirname(path), "%s-d%s.deb" % (stem, hashlib.md5(value.encode("utf-8")).hexdigest()[:6]))
+    stem = re.sub(r"-r[0-9a-f]{64}$", "", stem)
+    # A rebuild of the same version can contain different bytes. Never reuse
+    # a published URL based only on Depends: caches would serve the old deb.
+    new_path = os.path.join(os.path.dirname(path), "%s-r%s.deb" % (stem, hashlib.sha256(out).hexdigest()))
     with open(new_path, "wb") as f:
         f.write(bytes(out))
     return new_path
@@ -639,7 +642,9 @@ def main():
     for d in repacked:
         if d["path"] not in seen:
             seen.add(d["path"])
-            debs.append(d)
+            # Repacking earlier in this pass may have replaced this path.
+            # Always index the final bytes, not the initial directory snapshot.
+            debs.append(read_deb(d["path"]))
 
     # newest first per package and architecture, prune the rest
     by_pkg = {}
@@ -648,6 +653,17 @@ def main():
         by_pkg.setdefault(key, []).append(d)
     kept = []
     for key, items in by_pkg.items():
+        # A rebuild may keep the version number. Publish only the newest
+        # bytes for that version; old immutable URLs remain downloadable.
+        items.sort(key=lambda d: d["mtime"], reverse=True)
+        versions = set()
+        unique = []
+        for d in items:
+            version = d["info"]["Version"]
+            if version not in versions:
+                versions.add(version)
+                unique.append(d)
+        items[:] = unique
         items.sort(key=lambda d: _VersionKey(d["info"]["Version"]), reverse=True)
         for d in items[args.keep:]:
             if args.prune:
