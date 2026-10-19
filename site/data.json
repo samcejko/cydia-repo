@@ -1416,6 +1416,7 @@
       },
       "changes": {
         "en": [
+          "1.0.2: Pure classic UI redesign — removed all emojis across the entire app; replaced emoji arrows with native iOS 6 pointed navigation chevrons (< Feeds, < Articles) and resolution-independent vector UI toolbar glyphs (up/down/left/right navigation, filled/empty star, gear, audio playback). Fully resolved swipe-to-delete feed crash, Add Feed input retention on scroll, feed editing, direct HTTP fallback for Russian CA / TLS error sites (e.g. minjust.gov.ru), reader viewport locking, and authentic Safari User-Agent.",
           "1.0.1: Fixed square icon on iPad, fixed crash on swipe-to-delete feed, fixed Add Feed input field resetting on scroll, added feed editing support, authentic Safari User-Agent to avoid bot-blocking / TLS resets (e.g. minjust.gov.ru), automatic http/https fallback, locked article reader viewport to prevent excessive horizontal scrolling, optimized memory usage and cache flushing on suspend",
           "Initial 1.0.0 release",
           "Full-Text Article Extractor (Readability mode with toggle)",
@@ -1429,6 +1430,8 @@
           "Universal iPad SplitViewController and iPhone NavigationController UI"
         ],
         "cs": [
+          "1.0.2: Čistý klasický iOS 6 design bez emoji — kompletní odstranění všech emotikonů z rozhraní i kódu aplikace; nahrazení emoji šipek nativními špičatými navigačními šipkami (< Kanály, < Články) a vektorovými UI ikonami v lištách (šipky nahoru/dolů/zpět, hvězdičky, ozubené kolo, přehrávač audia). Oprava pádu při smazání kanálu gestem, zachování textu při scrollování v Přidat kanál, úprava existujících kanálů, automatický HTTP fallback při selhání TLS (např. minjust.gov.ru) a uzamčení šířky čtečky.",
+          "1.0.1: Oprava zaoblení ikony na iPadu, oprava pádu při mazání kanálu gestem, oprava mizení textu při scrollování ve formuláři, podpora editace kanálů, autentický Safari User-Agent a HTTP fallback.",
           "PrvnÃ­ vydÃ¡nÃ­ 1.0.0",
           "Extrakce celÃ©ho ÄlÃ¡nku (Readability) s okamÅ¾itÃ½m pÅ™epÃ­naÄem",
           "Motivy ÄteÄky (Den, SÃ©pie, Noc) a nastavenÃ­ pÃ­sma (velikost, 5 fontÅ¯)",
