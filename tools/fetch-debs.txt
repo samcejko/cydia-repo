@@ -11,3 +11,5 @@ com.samcejko.wikie_1.0.0_iphoneos-arm.deb https://github.com/samcejko/wikie-ios6
 com.samcejko.wikie_1.0.0_iphoneos-arm64.deb https://github.com/samcejko/wikie-ios6/releases/download/v1.0.0/com.samcejko.wikie_1.0.0_iphoneos-arm64.deb d30f1de7dcd9cb61af41c2d752f82f4052d9e3786a75a9ee2fc6f6f969328edc
 com.samcejko.wikie_1.0.1_iphoneos-arm.deb https://github.com/samcejko/wikie-ios6/releases/download/v1.0.1/com.samcejko.wikie_1.0.1_iphoneos-arm.deb b8cc6e202fa383e9480a721521eb866b7f67f3763fc244363a5142a5a5b7ebe1
 com.samcejko.wikie_1.0.1_iphoneos-arm64.deb https://github.com/samcejko/wikie-ios6/releases/download/v1.0.1/com.samcejko.wikie_1.0.1_iphoneos-arm64.deb 3ce0868ee6dc49e91bedf64c3f81cfcfbf71a6a25b1ecdcc9505c41819808079
+com.samcejko.wikie_1.0.2_iphoneos-arm.deb https://github.com/samcejko/wikie-ios6/releases/download/v1.0.2/com.samcejko.wikie_1.0.2_iphoneos-arm.deb b6893728a0da3ce507951d18163c1aa8eb9a82550b1a072e150a1bf73f925e9c
+com.samcejko.wikie_1.0.2_iphoneos-arm64.deb https://github.com/samcejko/wikie-ios6/releases/download/v1.0.2/com.samcejko.wikie_1.0.2_iphoneos-arm64.deb b8a01bd931e407ce50cb5743809d3323f4c821ee983c06b8bef7f5a7e8e55cd5
