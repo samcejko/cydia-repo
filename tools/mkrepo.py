@@ -335,7 +335,16 @@ def parse_control(text):
 def effective_depends(meta, repo, arch, own):
     """What a stanza's Depends says: the package's own override in data.json ("depends": a string for every
     architecture, or {arch: string}), else the repository's default for the architecture ("depends_by_arch", e.g.
-    the 32-bit builds on iOS 6.x only), else what the deb itself declares."""
+    the 32-bit builds on iOS 6.x only), else what the deb itself declares.
+    Architectures explicitly listed in depends_from_package preserve their original package
+    dependencies instead. This keeps older releases' limits when new releases widen support."""
+    preserve = (meta or {}).get("depends_from_package", [])
+    if not isinstance(preserve, list) or not all(isinstance(value, str) for value in preserve):
+        raise ValueError("depends_from_package must be a list of architecture names")
+    if arch in preserve:
+        if not own:
+            raise ValueError("Cannot preserve missing package dependencies")
+        return own
     dep = (meta or {}).get("depends")
     if isinstance(dep, dict):
         dep = dep.get(arch)
@@ -686,7 +695,26 @@ def main():
         return effective_depends(packages_meta.get(pkg), repo, arch, own)
 
     def requires_text(pkg, lang):
-        custom = packages_meta.get(pkg, {}).get("requires")  # data.json: {"en": ..., "cs": ...} for a special case
+        meta = packages_meta.get(pkg, {})
+        preserve = meta.get("depends_from_package", [])
+        if preserve:
+            names = []
+            for arch in sorted(archs.get(pkg, ())):
+                label = ARCH_NAMES.get(arch, {}).get(lang, arch)
+                if arch in preserve:
+                    own = by_pkg[(pkg, arch)][0]["info"].get("Depends", "")
+                    lower = re.search(r"firmware\s*\(>=\s*([\d.]+)\)", own)
+                    upper = re.search(r"firmware\s*\(<<\s*([\d.]+)\)", own)
+                    if lower:
+                        label = ("iOS %s nebo novější" if lang == "cs" else "iOS %s or later") % lower.group(1)
+                        if upper:
+                            label += (", před iOS %s" if lang == "cs" else ", below iOS %s") % upper.group(1)
+                        bits = {"iphoneos-arm": 32, "iphoneos-arm64": 64}.get(arch)
+                        if bits:
+                            label += (" (%dbit)" if lang == "cs" else " (%d-bit)") % bits
+                names.append(label)
+            return "; ".join(names)
+        custom = meta.get("requires")  # data.json: {"en": ..., "cs": ...} for a special case
         if custom:
             return custom.get(lang) or custom.get("en") or ""
         names = [ARCH_NAMES.get(a, {}).get(lang, a) for a in sorted(archs.get(pkg, ()))]

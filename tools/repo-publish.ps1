@@ -21,6 +21,21 @@ param(
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 
+# --- Local validation helpers ---
+function Test-DebValid([string]$Path) {
+    try {
+        $out = & dpkg-deb -I $Path 2>$null
+        return $LASTEXITCODE -eq 0 -and $out -match 'Package:'
+    } catch { return $false }
+}
+
+function Test-DataJsonValid([string]$Path) {
+    try {
+        Get-Content $Path -Raw -Encoding UTF8 | ConvertFrom-Json
+        return $true
+    } catch { return $false }
+}
+
 $cfg = @{
     host      = '192.168.1.154'
     user      = 'samuel'
@@ -59,12 +74,35 @@ foreach ($d in $Deb) {
         if ($p.Trim()) { $debs += (Resolve-Path $p.Trim()).Path }
     }
 }
+
+# Validate debs locally before upload
 if ($debs.Count) {
+    Write-Host "Validating debs..."
+    foreach ($deb in $debs) {
+        if (-not (Test-DebValid $deb)) {
+            throw "Invalid deb file: $deb (dpkg-deb -I failed)"
+        }
+    }
+    Write-Host "All $($debs.Count) deb(s) valid"
     Copy-Remote $debs "$($cfg.remoteOut)/debs/"
     Write-Host "uploaded $($debs.Count) deb(s)"
 }
 
 if ($Site) {
+# Validate site sources locally before upload
+    $dataJson = Join-Path $root 'site\data.json'
+    if (-not (Test-Path $dataJson)) { throw "Missing site/data.json" }
+    if (-not (Test-DataJsonValid $dataJson)) { throw "site/data.json is not valid JSON" }
+    Write-Host "site/data.json valid"
+
+    # Check templates exist
+    $templates = Join-Path $root 'site\templates'
+    foreach ($t in 'depiction.html','feedback.html','index.html') {
+        if (-not (Test-Path (Join-Path $templates $t))) {
+            throw "Missing template: site/templates/$t"
+        }
+    }
+    Write-Host "All templates present"
     # a mirror, not a merge: pictures removed here must go away on the Pi too (scp -r only adds and overwrites)
     Invoke-Remote "rm -rf '$($cfg.remoteSrc)/site/screenshots' '$($cfg.remoteSrc)/site/icons' '$($cfg.remoteSrc)/site/banners'"
     Copy-Remote @((Join-Path $root 'site')) "$($cfg.remoteSrc)/"

@@ -7,15 +7,14 @@
 # repacks must keep its files byte for byte and say the Depends the index wants, else nothing is touched. Then the
 # feedback service (feedback/feedback_server.py, systemd unit repo-feedback.service) and the nginx configuration
 # (nginx/repo.conf) are installed or updated when they changed; the service's self-test must pass first and the new
-# nginx configuration must pass "nginx -t", else the old one stays. The log can be read at
-# http://repo.samcejko.eu/zz-update.log for a quarter of an hour, then it deletes itself.
+# nginx configuration must pass "nginx -t", else the old one stays. The log is written to /home/samuel/zz-update.log (not web-accessible).
 set -u -o pipefail
 SRC=/home/samuel/cydia-repo
 OUT=/home/samuel/nginx/html/repo
 BASE=http://repo.samcejko.eu
 NGINX=/home/samuel/nginx
 FB=/home/samuel/feedback
-LOG="$OUT/zz-update.log"
+LOG="/home/samuel/zz-update.log"
 T=$(mktemp -d)
 TEST=$(mktemp -d)
 NEW=$(mktemp -d)
