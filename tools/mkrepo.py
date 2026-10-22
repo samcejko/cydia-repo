@@ -752,6 +752,13 @@ def generate_rss_feed(src_dir, out_dir, base_url, packages_meta, order, newest, 
     rss_description = pick(repo.get("description"), "en") or ""
     rss_link = base_url + "/"
     
+    # RSS image (favicon) - use CydiaIcon.png if available
+    favicon_url = None
+    if os.path.exists(os.path.join(src, "CydiaIcon.png")):
+        favicon_url = base_url + "/CydiaIcon.png"
+    elif os.path.exists(os.path.join(src, "icons", "com.samcejko.realnews.png")):
+        favicon_url = base_url + "/icons/com.samcejko.realnews.png"
+    
     xml_parts = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
@@ -764,6 +771,12 @@ def generate_rss_feed(src_dir, out_dir, base_url, packages_meta, order, newest, 
         '    <atom:link href="%s/feed.xml" rel="self" type="application/rss+xml" />' % rss_escape(base_url),
         '    <generator>mkrepo.py</generator>',
     ]
+    if favicon_url:
+        xml_parts.append('    <image>')
+        xml_parts.append('      <url>%s</url>' % rss_escape(favicon_url))
+        xml_parts.append('      <title>%s</title>' % rss_escape(rss_title))
+        xml_parts.append('      <link>%s</link>' % rss_escape(rss_link))
+        xml_parts.append('    </image>')
     
     for item in public_items:
         xml_parts.append('    <item>')
@@ -1073,7 +1086,7 @@ def main():
                 "date": datetime.fromtimestamp(d["mtime"]).strftime("%Y-%m-%d") if d else "-",
                 "github": esc(meta.get("github", "")),
                 "support": esc(support),
-                "icon": esc(meta.get("icon") or (pkg + ".png")),
+                "icon": esc(meta.get("icon") or (pkg + ".png")) if os.path.exists(os.path.join(src, "icons", meta.get("icon") or (pkg + ".png"))) else "",
                 "footer": esc(pick(repo.get("footer"), lang)),
                 "repo_url": esc(base + "/"),
                 "repo_label": esc(repo["label"]),
@@ -1112,11 +1125,12 @@ def main():
             name = meta.get("name") or (d["info"].get("Name") if d else pkg)
             version = d["info"]["Version"] if d else ""
             page = "depictions/%s/%s" % (pkg, "index.html" if lang == "en" else "index.%s.html" % lang)
-            icon = meta.get("icon") or (pkg + ".png")
+            icon_name = meta.get("icon") or (pkg + ".png")
+            icon_src = "icons/%s" % icon_name if os.path.exists(os.path.join(src, "icons", icon_name)) else ""
             rows.append(
-                '<a class="row app" href="%s"><img src="icons/%s" alt=""><span class="t"><span class="n">%s</span>'
+                '<a class="row app" href="%s"><img src="%s" alt=""><span class="t"><span class="n">%s</span>'
                 '<span class="d">%s</span></span><span class="v">%s</span><span class="chev">&#8250;</span></a>'
-                % (esc(page), esc(icon), esc(name), esc(pick(meta.get("tagline"), lang)), esc(version))
+                % (esc(page), esc(icon_src), esc(name), esc(pick(meta.get("tagline"), lang)), esc(version))
             )
         t = section(idx_tpl, "support", bool(support))
         values = {
