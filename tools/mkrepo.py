@@ -31,7 +31,8 @@ import re
 import shutil
 import sys
 import tarfile
-from datetime import datetime
+from datetime import datetime, timezone
+from email.utils import formatdate
 from urllib.parse import quote
 
 LANGS = ("en", "cs")
@@ -593,6 +594,212 @@ def write_text(path, text):
         f.write(text)
 
 
+# ----------------------------------------------------------------------------- RSS feed
+
+RSS_HISTORY_FILE = "rss_history.json"
+RSS_MAX_ITEMS = 50  # public feed limit
+
+def load_rss_history(out_dir):
+    """Load RSS history from the output directory."""
+    history_path = os.path.join(out_dir, RSS_HISTORY_FILE)
+    if os.path.exists(history_path):
+        try:
+            with open(history_path, encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {"items": []}
+
+
+def save_rss_history(out_dir, history):
+    """Save RSS history to the output directory."""
+    history_path = os.path.join(out_dir, RSS_HISTORY_FILE)
+    write_text(history_path, json.dumps(history, ensure_ascii=False, indent=2))
+
+
+def rss_escape(text):
+    """Escape text for RSS/XML content (CDATA-safe)."""
+    if not text:
+        return ""
+    return html.escape(str(text), quote=True)
+
+
+def rss_date(dt):
+    """Format datetime as RFC 2822 date in UTC."""
+    if isinstance(dt, (int, float)):
+        dt = datetime.fromtimestamp(dt, tz=timezone.utc)
+    elif dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return formatdate(dt.timestamp(), usegmt=True)
+
+
+def load_announcements(src_dir):
+    """Load announcements from site/news.json."""
+    news_path = os.path.join(src_dir, "news.json")
+    if os.path.exists(news_path):
+        try:
+            with open(news_path, encoding="utf-8") as f:
+                data = json.load(f)
+                return data.get("announcements", [])
+        except Exception:
+            pass
+    return []
+
+
+def generate_rss_feed(src_dir, out_dir, base_url, packages_meta, order, newest, by_pkg, repo, kept):
+    """Generate RSS 2.0 feed with new apps, updates, and announcements."""
+    history = load_rss_history(out_dir)
+    existing_guids = set(item["guid"] for item in history.get("items", []))
+    
+    items = []
+    now = datetime.now(timezone.utc)
+    
+    # Track current package versions from debs to detect new/updated apps
+    current_versions = {}
+    for pkg, d in newest.items():
+        current_versions[pkg] = d["info"]["Version"]
+    
+    # Load previous versions from history to detect changes
+    prev_versions = {}
+    for item in history.get("items", []):
+        if item.get("type") in ("New App", "App Update"):
+            prev_versions[item["pkg"]] = item.get("version")
+    
+    # Process packages in order
+    for pkg in order:
+        meta = packages_meta.get(pkg)
+        if not meta or pkg not in newest:
+            continue
+        d = newest[pkg]
+        version = d["info"]["Version"]
+        name = meta.get("name") or d["info"].get("Name") or pkg
+        mtime = datetime.fromtimestamp(d["mtime"], tz=timezone.utc)
+        
+        # Determine if this is a new app or an update
+        prev_version = prev_versions.get(pkg)
+        if prev_version is None:
+            entry_type = "New App"
+            guid = "new-app:%s:%s" % (pkg, version)
+            title = "New app: %s %s" % (name, version)
+            desc_parts = [pick(meta.get("tagline"), "en")]
+            changes = pick_list(meta.get("changes"), "en")
+            if changes:
+                desc_parts.append("What's new: " + "; ".join(changes[:3]))
+            description = ". ".join(desc_parts)
+        elif prev_version != version:
+            entry_type = "App Update"
+            guid = "app-update:%s:%s" % (pkg, version)
+            title = "Update: %s %s" % (name, version)
+            desc_parts = [pick(meta.get("tagline"), "en")]
+            changes = pick_list(meta.get("changes"), "en")
+            if changes:
+                desc_parts.append("Changes: " + "; ".join(changes[:3]))
+            description = ". ".join(desc_parts)
+        else:
+            continue  # no change, skip
+        
+        # Only add if not already in history
+        if guid in existing_guids:
+            continue
+        
+        link = "%s/depictions/%s/" % (base_url, pkg)
+        items.append({
+            "guid": guid,
+            "type": entry_type,
+            "pkg": pkg,
+            "version": version,
+            "title": title,
+            "description": description,
+            "link": link,
+            "pubDate": rss_date(mtime),
+            "categories": [entry_type],
+        })
+    
+    # Process announcements
+    announcements = load_announcements(src_dir)
+    for ann in announcements:
+        guid = "announcement:%s" % hashlib.sha256((ann.get("title", "") + ann.get("date", "")).encode()).hexdigest()[:16]
+        if guid in existing_guids:
+            continue
+        try:
+            pub_date = datetime.strptime(ann["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        except Exception:
+            pub_date = now
+        title = ann.get("title", "Announcement")
+        description = ann.get("description", "")
+        link = ann.get("url", base_url)
+        category = ann.get("category", "News")
+        items.append({
+            "guid": guid,
+            "type": "Announcement",
+            "title": title,
+            "description": description,
+            "link": link,
+            "pubDate": rss_date(pub_date),
+            "categories": [category],
+        })
+    
+    # Sort by pubDate descending (newest first)
+    items.sort(key=lambda x: x["pubDate"], reverse=True)
+    
+    # Public feed: combine history items with new items, take most recent
+    all_for_feed = history.get("items", []) + items
+    all_for_feed.sort(key=lambda x: x["pubDate"], reverse=True)
+    public_items = all_for_feed[:RSS_MAX_ITEMS]
+    
+    # Build RSS XML
+    rss_title = pick(repo.get("title"), "en") or repo["label"]
+    rss_description = pick(repo.get("description"), "en") or ""
+    rss_link = base_url + "/"
+    
+    xml_parts = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+        '  <channel>',
+        '    <title>%s</title>' % rss_escape(rss_title),
+        '    <link>%s</link>' % rss_escape(rss_link),
+        '    <description>%s</description>' % rss_escape(rss_description),
+        '    <language>en</language>',
+        '    <lastBuildDate>%s</lastBuildDate>' % rss_date(now),
+        '    <atom:link href="%s/feed.xml" rel="self" type="application/rss+xml" />' % rss_escape(base_url),
+        '    <generator>mkrepo.py</generator>',
+    ]
+    
+    for item in public_items:
+        xml_parts.append('    <item>')
+        xml_parts.append('      <guid isPermaLink="false">%s</guid>' % rss_escape(item["guid"]))
+        xml_parts.append('      <title>%s</title>' % rss_escape(item["title"]))
+        xml_parts.append('      <link>%s</link>' % rss_escape(item["link"]))
+        xml_parts.append('      <description>%s</description>' % rss_escape(item["description"]))
+        xml_parts.append('      <pubDate>%s</pubDate>' % item["pubDate"])
+        for cat in item.get("categories", []):
+            xml_parts.append('      <category>%s</category>' % rss_escape(cat))
+        xml_parts.append('    </item>')
+    
+    xml_parts.append('  </channel>')
+    xml_parts.append('</rss>')
+    
+    rss_xml = "\n".join(xml_parts)
+    feed_path = os.path.join(out_dir, "feed.xml")
+    write_text(feed_path, rss_xml)
+    
+    # Update history: merge new items with existing, keep all for deduplication
+    all_items = history.get("items", []) + items
+    # Deduplicate by GUID, keep newest
+    seen = set()
+    deduped = []
+    for item in all_items:
+        if item["guid"] not in seen:
+            seen.add(item["guid"])
+            deduped.append(item)
+    # Sort by pubDate descending
+    deduped.sort(key=lambda x: x["pubDate"], reverse=True)
+    history["items"] = deduped
+    save_rss_history(out_dir, history)
+    
+    print("RSS feed generated: %s (%d items, %d total in history)" % (feed_path, len(public_items), len(deduped)))
+
+
 # ----------------------------------------------------------------------------- main
 
 def main():
@@ -935,6 +1142,9 @@ def main():
         for key, value in s.items():
             values["t_" + key] = esc(value)
         write_text(os.path.join(out, "index.html" if lang == "en" else "index.%s.html" % lang), render(t, values))
+
+    # RSS feed
+    generate_rss_feed(src, out, base, packages_meta, order, newest, by_pkg, repo, kept)
 
     # the feedback form: every published app in its picker (the page is rebuilt with the repository, so the list is
     # always complete); it posts to feedback/api/submit, which nginx passes to feedback/feedback_server.py

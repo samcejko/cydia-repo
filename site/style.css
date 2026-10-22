@@ -13,11 +13,27 @@ body {
 a { color: #2e4d8f; text-decoration: none; }
 .lang { text-align: right; font-size: 13px; margin: 0 2px 2px; }
 .lang a { color: #4c566c; text-shadow: 0 1px 0 rgba(255,255,255,.7); }
-.hdr { display: -webkit-box; display: box; -webkit-box-align: center; box-align: center; margin: 6px 2px 12px; }
+.hdr { display: -webkit-box; display: box; -webkit-box-align: center; box-align: center; margin: 6px 2px 12px; position: relative; }
 .appicon { width: 57px; height: 57px; border-radius: 10px; -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.35); margin-right: 12px; }
 .hdrt { -webkit-box-flex: 1; box-flex: 1; min-width: 0; }
 .hdrt h1 { font-size: 21px; margin: 0; color: #111; text-shadow: 0 1px 0 rgba(255,255,255,.6); }
 .hdrt p { margin: 2px 0 0; color: #4c566c; font-size: 14px; text-shadow: 0 1px 0 rgba(255,255,255,.6); }
+.rss-link {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  background: #2e4d8f;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.4);
+}
+.rss-link:hover { background: #3f5f9f; }
 h2 { font-size: 17px; font-weight: bold; color: #4c566c; text-shadow: 0 1px 0 rgba(255,255,255,.8); margin: 18px 10px 6px; }
 .box { background: #fff; border: 1px solid #a9abae; border-radius: 10px; -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.55); margin: 0 0 10px; overflow: hidden; }
 .box p { margin: 0; padding: 10px 12px; }

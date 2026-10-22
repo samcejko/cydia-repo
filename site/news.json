@@ -1,0 +1,25 @@
+{
+  "announcements": [
+    {
+      "title": "Repository maintenance scheduled",
+      "description": "Scheduled maintenance on 2026-10-25 02:00-04:00 UTC. The repository may be temporarily unavailable.",
+      "date": "2026-10-22",
+      "category": "Maintenance",
+      "url": "https://repo.samcejko.eu/"
+    },
+    {
+      "title": "New application available: Tubie",
+      "description": "Tubie 0.4.3 is now available in the repository. YouTube client for iOS 6 with videos, shorts, live streams, channels, and comments.",
+      "date": "2026-10-18",
+      "category": "New App",
+      "url": "https://repo.samcejko.eu/depictions/com.samcejko.tubie/"
+    },
+    {
+      "title": "Repository infrastructure updated",
+      "description": "The repository server has been updated with improved caching and TLS configuration. All packages and depictions remain available.",
+      "date": "2026-10-15",
+      "category": "News",
+      "url": "https://repo.samcejko.eu/"
+    }
+  ]
+}
